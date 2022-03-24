@@ -1,7 +1,7 @@
 package org.tlgcohort.manvswild.client;
 
-import org.tlgcohort.manvswild.commands.CommandEngine;
-import org.tlgcohort.manvswild.commands.Commands;
+//import org.tlgcohort.manvswild.commands.CommandEngine;
+//import org.tlgcohort.manvswild.commands.Commands;
 import org.tlgcohort.manvswild.*;
 
 import java.io.IOException;
@@ -10,11 +10,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DriverOne {
+
     //menu options
     private static final String START_GAME = "Start Game";
     private static final String QUIT = "Quit";
-
-
 
     //class var, so I can call it anywhere in my class
     private static Scanner scanner;
@@ -62,17 +61,18 @@ public class DriverOne {
             if(choice.equalsIgnoreCase(START_GAME)){
 
                 //game logic here
-                // startGame();
                 System.out.println("\nThe game is now starting...............");
+                playGame();
             }
-
         }
+
+    }
+    public static void playGame(){
         GameLogic gl = new GameLogic();
         try {
             gl.startGame();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
