@@ -3,6 +3,7 @@ package org.tlgcohort.manvswild;
 import java.util.List;
 
 public class GameMap {
+
     private String gameMap;
     private List<Location> locations;
 
