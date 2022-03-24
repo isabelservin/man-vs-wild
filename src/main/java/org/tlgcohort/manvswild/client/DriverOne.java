@@ -2,7 +2,9 @@ package org.tlgcohort.manvswild.client;
 
 import org.tlgcohort.manvswild.commands.CommandEngine;
 import org.tlgcohort.manvswild.commands.Commands;
+import org.tlgcohort.manvswild.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,7 +21,7 @@ public class DriverOne {
 
     public static void main(String[] args) {
 
-        //Testing command engine
+//        Testing command engine
 //        String[] dummyInput = {"Go", "campsite"};
 //        CommandEngine commandOne = new CommandEngine();
 //        commandOne.displayCommands();
@@ -64,6 +66,12 @@ public class DriverOne {
                 System.out.println("\nThe game is now starting...............");
             }
 
+        }
+        GameLogic gl = new GameLogic();
+        try {
+            gl.startGame();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
