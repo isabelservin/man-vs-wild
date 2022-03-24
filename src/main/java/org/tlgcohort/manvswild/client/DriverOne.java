@@ -19,10 +19,11 @@ public class DriverOne {
 
     public static void main(String[] args) {
 
-        String[] dummyInput = {"Look", "ItemOne"};
-        CommandEngine commandOne = new CommandEngine();
-        //commandOne.displayCommands();
-        commandOne.commandProcessor(dummyInput);
+        //Testing command engine
+//        String[] dummyInput = {"Go", "campsite"};
+//        CommandEngine commandOne = new CommandEngine();
+//        commandOne.displayCommands();
+//        commandOne.commandProcessor(dummyInput);
 
         //add options to main menu
         List<String> mainMenu = new ArrayList<>();
