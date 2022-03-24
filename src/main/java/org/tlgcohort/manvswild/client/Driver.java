@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static org.tlgcohort.manvswild.client.Direction.NOEXIT;
+
+
 public class Driver {
     //menu options
     private static final String START_GAME = "Start Game";
@@ -12,7 +15,16 @@ public class Driver {
     //class var so I can call it anywhere in my class
     private static Scanner scanner;
 
+    //world map
+    private static List<Location> worldMap;
+
     public static void main(String[] args) {
+        worldMap = new ArrayList<>();
+        worldMap.add(new Location("Basecamp", "errie and abandoned camp site with a lingering fire to warm your tired soul", NOEXIT, 1, NOEXIT, 3));
+        worldMap.add(new Location("Mountains", "serrated vampire-white mountains loomed in front of you. Sheathed in frost biting snow.", 1, NOEXIT, NOEXIT, 2));
+        worldMap.add(new Location("Forest", "the dark forest trees are now staring at you like silent sentries. Gloomy scrubs hid dangerous creatures. The musty air makes it  difficult to breathe. The forest is old and otherworldly.",3, NOEXIT, 1, NOEXIT));
+        worldMap.add(new Location("Caves", "slkdjlkas", NOEXIT, 2, 0, NOEXIT));
+
         //add options to main menu
         List<String> mainMenu = new ArrayList<>();
         mainMenu.add(START_GAME);
