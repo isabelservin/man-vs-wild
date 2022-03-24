@@ -71,17 +71,19 @@ public class InputParser {
 
          System.out.println("Start Game Test");
 
-         String input = playerInput.nextLine();
+         String verbnoun = playerInput.nextLine();
 
-         List<String> inputWords = new ArrayList<String>(List.of(input.split("\\s")));
+
+         List<String> inputWords = new ArrayList<String>(List.of(verbnoun.split("\\s")));
+
 
          for (String word : nounsnVerbs) {
              if (inputWords.size() == 2 && inputWords.contains(word)) {
                  //Add method to handle input
                  System.out.println("Hey where's the Method");
                  System.out.println(inputWords);
-                 return inputWords;
-             } else if (!(inputWords.size() == 2 || !inputWords.contains(word))) {
+
+             } else if (!(inputWords.size() == 2 || inputWords.contains(word))) {
                  System.out.println("You must enter only two words:Verb and Noun" + "\n" + "And they must be from list below");
                  System.out.println("Here are your choices:Nouns and Verbs" + nounsnVerbs);
                  break;
@@ -89,13 +91,108 @@ public class InputParser {
 
 
          }
-     return inputWords;
+         return inputWords;
+     }
+    public  static void commandProcessor(List<String> keywords) {
+        keywords = inputWords;
+        switch (keywords.get(0).toLowerCase()) {
+            case "look":
+                lookCommand(keywords.get(1).toLowerCase());
+                System.out.println("Im here");
+                break;
+            case "talk":
+                talkCommand(keywords.get(1).toLowerCase());
+                break;
+            case "get":
+                getCommand(keywords.get(1).toLowerCase());
+                System.out.println("Im here");
+                break;
+            case "heal":
+                healCommand(keywords.get(1).toLowerCase());
+                break;
+            case "go":
+                goCommand(keywords.get(1).toLowerCase());
+                break;
+            default:
+                // code block
+        }
+
+    }
+    static void lookCommand(String item) {
+
+        switch (item.toLowerCase()) {
+            case "north":
+                System.out.println("Drill into properties of itemONe");
+                break;
+            case "itemtwo":
+                // code block
+                break;
+            default:
+                // code block
+
+        }
+    }
+    static void talkCommand(String npc) {
+
+        switch (npc) {
+            case "npcOne":
+                System.out.println("Drill into properties of npc");
+                break;
+            case "npcTwo":
+                // code block
+                break;
+            default:
+                // code block
+
+        }
+    }
+    static void getCommand(String item) {
+
+        switch (item.toLowerCase()) {
+            case "itemone":
+                System.out.println("Drill into properties of itemONe");
+                break;
+            case "itemtwo":
+                // code block
+                break;
+            default:
+                // code block
+
+        }
+    }
+    static void healCommand(String character) {
+
+        switch (character.toLowerCase()) {
+            case "characterone":
+                System.out.println("Drill into properties of character");
+                break;
+            case "itemtwo":
+                // code block
+                break;
+            default:
+                // code block
+
+        }
+    }
+    static void goCommand(String location) {
+
+        switch (location.toLowerCase()) {
+            case "campsite":
+                System.out.println("Drill into properties of location");
+                break;
+            case "itemtwo":
+                // code block
+                break;
+            default:
+                // code block
+
+        }
     }
 
 
     public static void main(String[] args) {
         InputParser ip = new InputParser();
-
+        commandProcessor(inputWords);
         parseInput();
 
 
