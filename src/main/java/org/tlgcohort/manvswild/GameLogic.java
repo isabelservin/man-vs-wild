@@ -6,6 +6,8 @@ import org.tlgcohort.manvswild.gridtwo.GridTwo;
 import org.tlgcohort.manvswild.gridtwo.GridTwoEngine;
 import org.tlgcohort.manvswild.player.Player;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -14,6 +16,7 @@ public class GameLogic {
 
     Scanner userInput = new Scanner(System.in);
     String command = "";
+
 
     public void startGame(Player player) throws IOException {
         GridOneEngine gridOne = new GridOneEngine();
