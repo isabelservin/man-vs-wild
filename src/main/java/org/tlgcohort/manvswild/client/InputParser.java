@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class InputParser {
 
     //Fields
-    Word word;
+    private Word word;
     private static Scanner playerInput = new Scanner(System.in);
     private static String input = playerInput.nextLine();
     private static List<String> keywords = new ArrayList<>(List.of(input.split("\\s")));
@@ -23,7 +23,7 @@ public class InputParser {
 
     //Create a map of Key and Value String /Enum
     public static void activeWords() {
-        Scanner playerInput = new Scanner(System.in);
+
         wordlist.put("take", Word.VERB);
         wordlist.put("get", Word.VERB);
         wordlist.put("knife", Word.NOUN);
