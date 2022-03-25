@@ -97,12 +97,4 @@ public class InputParser {
     }
 
 
-    public static void main(String[] args) {
-
-
-        parseInput();
-
-
-    }
-
 }
