@@ -1,8 +1,5 @@
-package org.tlgcohort.manvswild.client;
+package org.tlgcohort.manvswild.InputParser;
 
-import org.tlgcohort.manvswild.client.InputParser;
-
-import java.awt.*;
 import java.util.List;
 import java.util.function.Consumer;
 

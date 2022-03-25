@@ -1,4 +1,4 @@
-package org.tlgcohort.manvswild.client;
+package org.tlgcohort.manvswild.InputParser;
 
 import java.util.*;
 import java.util.stream.Collectors;

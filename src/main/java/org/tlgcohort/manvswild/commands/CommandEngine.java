@@ -1,6 +1,6 @@
-package org.tlgcohort.manvswild.commands;
+package org.tlgcohort.manvswild.Commands;
 
-import org.tlgcohort.manvswild.player.Player;
+import org.tlgcohort.manvswild.Thing.Player;
 
 import java.util.List;
 

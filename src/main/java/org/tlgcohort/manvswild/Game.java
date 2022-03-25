@@ -1,22 +1,40 @@
 package org.tlgcohort.manvswild;
 
-import org.tlgcohort.manvswild.client.InputParser;
-import org.tlgcohort.manvswild.commands.CommandEngine;
-import org.tlgcohort.manvswild.gridone.GridOne;
-import org.tlgcohort.manvswild.gridone.GridOneEngine;
-import org.tlgcohort.manvswild.gridtwo.GridTwo;
-import org.tlgcohort.manvswild.gridtwo.GridTwoEngine;
-import org.tlgcohort.manvswild.player.Player;
+import org.tlgcohort.manvswild.InputParser.InputParser;
+import org.tlgcohort.manvswild.Commands.CommandEngine;
+import org.tlgcohort.manvswild.GridOne.GridOneEngine;
+import org.tlgcohort.manvswild.Thing.Direction;
+import org.tlgcohort.manvswild.Thing.LocationPOJO;
+import org.tlgcohort.manvswild.Thing.Player;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-public class GameLogic {
+public class Game {
 
-    public void startGame(Player player) throws IOException {
+    private List<LocationPOJO> worldMap;
+    private Player player;
+
+    public Game(String playerName, int health) throws IOException {
+        InitGame(playerName, health);
+        startGame();
+    }
+
+    public void InitGame(String playerName, int health){
+        worldMap = new ArrayList<>();
+
+        worldMap.add(new LocationPOJO("Basecamp", "eerie abandoned camp site with glooming camp fire reaching for its last breathe.", Direction.NOEXIT, 1, Direction.NOEXIT, 3));
+
+        worldMap.add(new LocationPOJO("Mountains", "", 0, Direction.NOEXIT, Direction.NOEXIT, 2));
+        worldMap.add(new LocationPOJO("Forest", "", 3, Direction.NOEXIT, 1, Direction.NOEXIT));
+        worldMap.add(new LocationPOJO("Caves", "", Direction.NOEXIT, 2, 0, Direction.NOEXIT));
+
+        player = new Player(playerName, health, worldMap.get(0));
+
+    }
+
+    public void startGame() throws IOException {
 
         GridOneEngine gridOne = new GridOneEngine();
         System.out.println(gridOne.gridOneEngine());
@@ -28,7 +46,9 @@ public class GameLogic {
 
         while (!(progressionTracker == 2)) {
             if (progressionTracker == 0) {
-                System.out.println("\nHello " + player.getName());
+                System.out.println(player.displayPlayerStats());
+                System.out.println(displayMsg());
+
                 System.out.println("\nYou wake up and realize you are in a tent with no idea how you got there,\n" +
                         "and now you hear the sounds of river, only to come out and realize you are in a Jungle!");
                 commandEngine.displayCommands();
@@ -79,5 +99,14 @@ public class GameLogic {
 //        System.out.println("\n*User enters to attack the animal*");
 //        System.out.println("The " + gridTwoAccess.getAnimal() + "'s" + " health is " + gridTwoAccess.getAnimalHealth());
 
+    }
+
+    private String displayMsg(){
+        String msg;
+        msg =  "+---------------------------------------------------------------------------------------------------------------------------+\n     " +
+                "You see a " + player.getCurrLocation().getDesc()
+                +  "\n     You are currently at your " + player.getCurrLocation().getName()
+                + ". \n+---------------------------------------------------------------------------------------------------------------------------+";
+        return msg;
     }
 }

@@ -1,4 +1,4 @@
-package org.tlgcohort.manvswild.gridtwo;
+package org.tlgcohort.manvswild.GridTwo;
 
 public class GridTwo {
     private String tools,animal,food;

@@ -1,7 +1,6 @@
-package org.tlgcohort.manvswild.client;
+package org.tlgcohort.manvswild.Thing;
 
 public enum Direction {
-
     NORTH,
     SOUTH,
     WEST,

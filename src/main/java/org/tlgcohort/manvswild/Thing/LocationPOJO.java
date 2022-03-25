@@ -1,6 +1,6 @@
-package org.tlgcohort.manvswild.client;
+package org.tlgcohort.manvswild.Thing;
 
-public class Location {
+public class LocationPOJO {
 
     String name;
     String desc;
@@ -11,7 +11,7 @@ public class Location {
     int eastExit;
 
 
-    public Location(String name, String desc, int northExit, int southExit, int westExit, int eastExit){
+    public LocationPOJO(String name, String desc, int northExit, int southExit, int westExit, int eastExit){
         this.name = name;
         this.desc = desc;
         this.northExit = northExit;

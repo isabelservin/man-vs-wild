@@ -1,4 +1,4 @@
-package org.tlgcohort.manvswild.commands;
+package org.tlgcohort.manvswild.Commands;
 
 public enum Commands {
 

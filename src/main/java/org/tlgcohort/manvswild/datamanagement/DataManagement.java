@@ -1,4 +1,4 @@
-package org.tlgcohort.manvswild.datamanagement;
+package org.tlgcohort.manvswild.DataManagement;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -6,9 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class DataManagement {
     //    public Location readValue() {

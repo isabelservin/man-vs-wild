@@ -1,9 +1,7 @@
-package org.tlgcohort.manvswild.client;
+package org.tlgcohort.manvswild.InputParser;
 
 import java.util.HashMap;
 import java.util.Map;
-
-
 
 public class Keywords {
 
