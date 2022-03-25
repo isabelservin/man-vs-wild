@@ -24,23 +24,21 @@ public class InputParser {
     //Create a map of Key and Value String /Enum
     public static void activeWords() {
 
-        wordlist.put("take", Word.VERB);
+        wordlist.put("fight", Word.VERB);
         wordlist.put("get", Word.VERB);
         wordlist.put("knife", Word.NOUN);
-        wordlist.put("torch", Word.NOUN);
         wordlist.put("go", Word.VERB);
         wordlist.put("run", Word.VERB);
-        wordlist.put("kick", Word.VERB);
+        wordlist.put("talk", Word.VERB);
         wordlist.put("hit", Word.VERB);
         wordlist.put("water", Word.NOUN);
         wordlist.put("moss", Word.NOUN);
         wordlist.put("fish", Word.NOUN);
         wordlist.put("fruit", Word.NOUN);
-        wordlist.put("beer", Word.NOUN);
         wordlist.put("matches", Word.NOUN);
         wordlist.put("rock", Word.NOUN);
         wordlist.put("grenade", Word.NOUN);
-        wordlist.put("wood", Word.NOUN);
+        wordlist.put("firewood", Word.NOUN);
         wordlist.put("stick", Word.NOUN);
         wordlist.put("drop", Word.VERB);
         wordlist.put("north", Word.NOUN);
