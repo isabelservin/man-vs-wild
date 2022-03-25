@@ -27,7 +27,7 @@ public class GameLogic {
 
         while (!(progressionTracker == 2)) {
             if (progressionTracker == 0) {
-                System.out.println("Hello " + player.getName());
+                System.out.println("\nHello " + player.getName());
                 System.out.println("\nYou wake up and realize you are in a tent with no idea how you got there,\n" +
                         "and now you hear the sounds of river, only to come out and realize you are in a Jungle!");
                 commandEngine.displayCommands();
