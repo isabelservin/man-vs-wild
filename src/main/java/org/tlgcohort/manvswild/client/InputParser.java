@@ -18,7 +18,7 @@ public class InputParser {
     //Constructor
     public InputParser(Word word) {
         this.word = word;
-        parseInput();
+        parseInput(input);
     }
 
     //Create a map of Key and Value String /Enum
@@ -75,7 +75,7 @@ public class InputParser {
 
 
     //Parse user input to List
-    public static List<String> parseInput() {
+    public static List<String> parseInput(String input) {
         handleWords();
 
 
