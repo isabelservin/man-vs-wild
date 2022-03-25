@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class GridOneEngine {
+
+    private String name;
+
     public GridOne gridOneEngine() throws IOException {
         DataManagement dm = new DataManagement();
         File file = new File("src/main/resources/gridOne.json");
@@ -26,4 +29,5 @@ public class GridOneEngine {
         List<Location> output = gameMap.getLocations();
         return output;
     }
+
 }

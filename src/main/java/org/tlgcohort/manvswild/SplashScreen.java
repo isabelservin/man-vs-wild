@@ -9,9 +9,6 @@ public class SplashScreen {
 
     private static Scanner scanner;
 
-
-    //TODO Fix entering twice to continue !!!
-
     // Displays Splash Screen from text file
     public void displaySplashScreen(){
         scanner = new Scanner(System.in);

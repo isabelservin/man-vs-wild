@@ -18,11 +18,12 @@ public class GameLogic {
 
     public void startGame(Player player) throws IOException {
 
-//        GridOneEngine gridOne = new GridOneEngine();
+        GridOneEngine gridOne = new GridOneEngine();
+        System.out.println(gridOne.gridOneEngine());
 //        List<Location> gridOneLocation = gridOne.gridOneInformation();
 //        GridOne access = gridOne.gridOneEngine();
-//
-        CommandEngine commandEngine = new CommandEngine();
+
+        CommandEngine commandEngine = new CommandEngine(player);
         int progressionTracker = 0;
 
         while (!(progressionTracker == 2)) {

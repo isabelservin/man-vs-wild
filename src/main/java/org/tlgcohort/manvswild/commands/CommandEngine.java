@@ -1,14 +1,18 @@
 package org.tlgcohort.manvswild.commands;
 
+import org.tlgcohort.manvswild.player.Player;
+
 import java.util.List;
 
 public class CommandEngine {
 
     //Fields
     private Commands[] commands = Commands.values();
+    private Player player;
 
     //Constructor
-    public CommandEngine() {
+    public CommandEngine(Player player) {
+        this.player = player;
     }
 
     //Business Methods
@@ -40,6 +44,9 @@ public class CommandEngine {
                 break;
             case "go":
                 goCommand(keywords.get(1).toLowerCase());
+                break;
+            case "tools":
+                toolsCommand();
                 break;
             default:
                 // code block
@@ -115,6 +122,13 @@ public class CommandEngine {
             default:
                 // code block
 
+        }
+    }
+    private void toolsCommand() {
+        System.out.println("Tools Available: ");
+        for(String aTool : player.getBackpack()){
+            // go and grab inventory from player
+            System.out.println(aTool);
         }
     }
 
