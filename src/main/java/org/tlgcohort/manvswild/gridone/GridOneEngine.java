@@ -1,9 +1,9 @@
-package org.tlgcohort.manvswild.gridone;
+package org.tlgcohort.manvswild.GridOne;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.tlgcohort.manvswild.GameMap;
-import org.tlgcohort.manvswild.Location;
-import org.tlgcohort.manvswild.datamanagement.DataManagement;
+import org.tlgcohort.manvswild.Thing.Map;
+import org.tlgcohort.manvswild.Thing.Location;
+import org.tlgcohort.manvswild.DataManagement.DataManagement;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class GridOneEngine {
         DataManagement dm = new DataManagement();
         File file = new File("src/main/resources/locations.json");
         JsonNode node = dm.parse(file);
-        GameMap gameMap = DataManagement.fromJson(node,GameMap.class);
+        Map gameMap = DataManagement.fromJson(node, Map.class);
         List<Location> output = gameMap.getLocations();
         return output;
     }

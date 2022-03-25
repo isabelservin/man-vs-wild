@@ -1,8 +1,8 @@
-package org.tlgcohort.manvswild;
+package org.tlgcohort.manvswild.Thing;
 
 import java.util.List;
 
-public class GameMap {
+public class Map {
 
     private String gameMap;
     private List<Location> locations;

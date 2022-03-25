@@ -1,4 +1,4 @@
-package org.tlgcohort.manvswild.gridone;
+package org.tlgcohort.manvswild.GridOne;
 
 public class GridOne{
     private String name;
