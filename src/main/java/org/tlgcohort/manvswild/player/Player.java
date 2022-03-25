@@ -15,6 +15,9 @@ public class Player {
     public Player(String name, int health) {
         this.name = name;
         this.health = health;
+        backpack.add("matches");
+        backpack.add("knife");
+        backpack.add("pot");
     }
 
     public String getName() {
@@ -40,4 +43,6 @@ public class Player {
     public void setBackpack(List<String> backpack) {
         this.backpack = backpack;
     }
+
+
 }

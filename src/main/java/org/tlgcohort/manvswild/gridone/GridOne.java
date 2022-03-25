@@ -27,4 +27,12 @@ public class GridOne{
     public void setTools(String tools) {
         this.tools = tools;
     }
+
+    @Override
+    public String toString() {
+        return "GridOne{" +
+                "name='" + name + '\'' +
+                ", tools='" + tools + '\'' +
+                '}';
+    }
 }
