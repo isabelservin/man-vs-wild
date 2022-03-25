@@ -1,5 +1,7 @@
 package org.tlgcohort.manvswild;
 
+import org.tlgcohort.manvswild.client.InputParser;
+import org.tlgcohort.manvswild.commands.CommandEngine;
 import org.tlgcohort.manvswild.gridone.GridOne;
 import org.tlgcohort.manvswild.gridone.GridOneEngine;
 import org.tlgcohort.manvswild.gridtwo.GridTwo;
@@ -14,20 +16,41 @@ import java.util.Scanner;
 
 public class GameLogic {
 
-    Scanner userInput = new Scanner(System.in);
-    String command = "";
-
-
     public void startGame(Player player) throws IOException {
-        GridOneEngine gridOne = new GridOneEngine();
-        List<Location> gridOneLocation = gridOne.gridOneInformation();
-        GridOne access = gridOne.gridOneEngine();
 
+//        GridOneEngine gridOne = new GridOneEngine();
+//        List<Location> gridOneLocation = gridOne.gridOneInformation();
+//        GridOne access = gridOne.gridOneEngine();
+//
+        CommandEngine commandEngine = new CommandEngine();
+        int progressionTracker = 0;
 
-        //while(!command.equals("QUIT"))
-        System.out.println("Hello " + player.getName());
-        System.out.println("\nYou wake up and realize you are in a tent with no idea how you got there,\n" +
-                "and now you hear the sounds of river, only to come out and realize you are in a Jungle!");
+        while (!(progressionTracker == 2)) {
+            if (progressionTracker == 0) {
+                System.out.println("\nHello " + player.getName());
+                System.out.println("\nYou wake up and realize you are in a tent with no idea how you got there,\n" +
+                        "and now you hear the sounds of river, only to come out and realize you are in a Jungle!");
+                commandEngine.displayCommands();
+
+                List<String> inputParser = InputParser.parseInput();
+                commandEngine.commandProcessor(inputParser);
+                if (inputParser.get(0).contains("go")) {
+                    progressionTracker++;
+                }
+            }
+            if (progressionTracker == 1) {
+
+                System.out.println("\nI made it to the river......Is that a zombie !!!!\n");
+                commandEngine.displayCommands();
+                List<String> inputParserTwo = InputParser.parseInput();
+                commandEngine.commandProcessor(inputParserTwo);
+                if (inputParserTwo.get(0).equals("go")) {
+                    System.out.println("\nEnd demo");
+                    progressionTracker++;
+                }
+            }
+        }
+
 
 
         //conditional statement.....

@@ -1,5 +1,7 @@
 package org.tlgcohort.manvswild.commands;
 
+import java.util.List;
+
 public class CommandEngine {
 
     //Fields
@@ -15,28 +17,29 @@ public class CommandEngine {
         for (Commands aCommand : commands) {
             System.out.println(aCommand);
         }
+        System.out.println("\n Enter Two Words [NOUN] [VERB]");
     }
 
 
 
     //processes an array of 1 Verb and 1 Noun
-    public void commandProcessor(String[] keywords) {
+    public void commandProcessor(List<String> keywords) {
 
-        switch (keywords[0].toLowerCase()) {
+        switch (keywords.get(0).toLowerCase()) {
             case "look":
-                lookCommand(keywords[1].toLowerCase());
+                lookCommand(keywords.get(1).toLowerCase());
                 break;
             case "talk":
-                talkCommand(keywords[1].toLowerCase());
+                talkCommand(keywords.get(1).toLowerCase());
                 break;
             case "get":
-                getCommand(keywords[1].toLowerCase());
+                getCommand(keywords.get(1).toLowerCase());
                 break;
             case "heal":
-                healCommand(keywords[1].toLowerCase());
+                healCommand(keywords.get(1).toLowerCase());
                 break;
             case "go":
-                goCommand(keywords[1].toLowerCase());
+                goCommand(keywords.get(1).toLowerCase());
                 break;
             default:
                 // code block
@@ -48,11 +51,11 @@ public class CommandEngine {
     private void lookCommand(String item) {
 
         switch (item.toLowerCase()) {
-            case "itemone":
-                System.out.println("Drill into properties of itemONe");
+            case "can":
+                System.out.println("Beans, Beans and Beans");
                 break;
-            case "itemtwo":
-                // code block
+            case "north":
+                System.out.println("I can see a river ahead....");
                 break;
             default:
                 // code block
@@ -114,4 +117,5 @@ public class CommandEngine {
 
         }
     }
+
 }
