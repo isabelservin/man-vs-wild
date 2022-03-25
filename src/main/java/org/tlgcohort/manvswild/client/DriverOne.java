@@ -3,6 +3,7 @@ package org.tlgcohort.manvswild.client;
 import org.tlgcohort.manvswild.commands.CommandEngine;
 import org.tlgcohort.manvswild.commands.Commands;
 import org.tlgcohort.manvswild.*;
+import org.tlgcohort.manvswild.player.Player;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,13 +20,16 @@ public class DriverOne {
     //class var, so I can call it anywhere in my class
     private static Scanner scanner;
 
+
     public static void main(String[] args) {
 
-//        Testing command engine
+       // Testing command engine
 //        String[] dummyInput = {"Go", "campsite"};
 //        CommandEngine commandOne = new CommandEngine();
 //        commandOne.displayCommands();
 //        commandOne.commandProcessor(dummyInput);
+
+        GameLogic gl = new GameLogic();
 
         //add options to main menu
         List<String> mainMenu = new ArrayList<>();
@@ -35,7 +39,7 @@ public class DriverOne {
         //track users choice be declaring an empty string
         String choice = "";
 
-        //while user doesnt select quit then they can keep replaying the game
+        //while user doesn't select quit then they can keep replaying the game
         while(!choice.equalsIgnoreCase(QUIT)){
             System.out.println("\nWelcome Survivor!!!");
             System.out.println("\n***********");
@@ -63,16 +67,32 @@ public class DriverOne {
 
                 //game logic here
                 // startGame();
-                System.out.println("\nThe game is now starting...............");
+                System.out.println("\nThe game is now starting...............\n");
+                System.out.println(".88b  d88.  .d8b.  d8b   db     db    db .d8888.     db   d8b   db d888888b db      d8888b. \n" +
+                        "88'YbdP`88 d8' `8b 888o  88     88    88 88'  YP     88   I8I   88   `88'   88      88  `8D \n" +
+                        "88  88  88 88ooo88 88V8o 88     Y8    8P `8bo.       88   I8I   88    88    88      88   88 \n" +
+                        "88  88  88 88~~~88 88 V8o88     `8b  d8'   `Y8b.     Y8   I8I   88    88    88      88   88 \n" +
+                        "88  88  88 88   88 88  V888      `8bd8'  db   8D     `8b d8'8b d8'   .88.   88booo. 88  .8D \n" +
+                        "YP  YP  YP YP   YP VP   V8P        YP    `8888Y'      `8b8' `8d8'  Y888888P Y88888P Y8888D' \n" +
+                        "                                                                                            ");
+                System.out.println("Enter your name.....");
+                scanner = new Scanner(System.in);
+                String playerName = scanner.nextLine();
+                System.out.println("How much health would you want to start with ? <Enter a number>");
+                int playerHealth = scanner.nextInt();
+                Player player = new Player(playerName,playerHealth);
+
+                try {
+                    gl.startGame(player);
+                    break;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         }
-        GameLogic gl = new GameLogic();
-        try {
-            gl.startGame();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
 
     }
 }
