@@ -1,9 +1,7 @@
 package org.tlgcohort.manvswild.client;
 
-//import org.tlgcohort.manvswild.commands.CommandEngine;
-//import org.tlgcohort.manvswild.commands.Commands;
 import org.tlgcohort.manvswild.*;
-
+import org.tlgcohort.manvswild.player.Player;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +18,12 @@ public class DriverOne {
 
     public static void main(String[] args) {
 
-//        Testing command engine
-//        String[] dummyInput = {"Go", "campsite"};
-//        CommandEngine commandOne = new CommandEngine();
-//        commandOne.displayCommands();
-//        commandOne.commandProcessor(dummyInput);
+        GameLogic gl = new GameLogic();
+        SplashScreen splashScreen = new SplashScreen();
+        splashScreen.displaySplashScreen();
+        splashScreen.displayTutorial();
+
+
 
         //add options to main menu
         List<String> mainMenu = new ArrayList<>();
@@ -34,7 +33,7 @@ public class DriverOne {
         //track users choice be declaring an empty string
         String choice = "";
 
-        //while user doesnt select quit then they can keep replaying the game
+        //while user doesn't select quit then they can keep replaying the game
         while(!choice.equalsIgnoreCase(QUIT)){
             System.out.println("\nWelcome Survivor!!!");
             System.out.println("\n***********");
@@ -60,19 +59,30 @@ public class DriverOne {
             //choice cases
             if(choice.equalsIgnoreCase(START_GAME)){
 
-                //game logic here
-                System.out.println("\nThe game is now starting...............");
-                playGame();
+                System.out.println("\nThe game is now starting...............\n");
+                System.out.println("Enter your name.....");
+
+                scanner = new Scanner(System.in);
+                String playerName = scanner.nextLine();
+
+                System.out.println("How much health would you want to start with ? <Enter a number>");
+                int playerHealth = scanner.nextInt();
+
+                // creates player and passes name and heath from user inputs
+                Player player = new Player(playerName,playerHealth);
+
+                // Starts Game -> GameLogic
+                try {
+                    gl.startGame(player);
+                    break;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+
         }
 
-    }
-    public static void playGame(){
-        GameLogic gl = new GameLogic();
-        try {
-            gl.startGame();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
     }
 }

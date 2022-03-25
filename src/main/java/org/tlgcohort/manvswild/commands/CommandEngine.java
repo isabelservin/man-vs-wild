@@ -56,7 +56,6 @@ public class CommandEngine {
                 break;
             default:
                 // code block
-
         }
     }
     private void talkCommand(String npc) {
