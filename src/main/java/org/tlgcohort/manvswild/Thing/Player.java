@@ -7,8 +7,6 @@ public class Player {
     private String name;
     private int health = 50;
     private List<String> backpack = new ArrayList<String>();
-    private Location currentLocation = new Location();
-
     private LocationPOJO currLocation;
 
     public Player(String name, int health, LocationPOJO currLocation) {
@@ -17,7 +15,7 @@ public class Player {
         this.currLocation = currLocation;
         backpack.add("matches");
         backpack.add("knife");
-        backpack.add("pot");
+        backpack.add("map");
     }
 
     public String displayPlayerStats(){
@@ -26,6 +24,10 @@ public class Player {
                 "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() +
                 "\n||=========================================================================================================================||";
         return stats;
+    }
+
+    public void move(LocationPOJO newLocation){
+        currLocation = newLocation;
     }
 
     public String getName() {

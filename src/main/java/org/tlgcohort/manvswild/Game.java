@@ -25,7 +25,6 @@ public class Game {
         worldMap = new ArrayList<>();
 
         worldMap.add(new LocationPOJO("Basecamp", "eerie abandoned camp site with glooming camp fire reaching for its last breathe.", Direction.NOEXIT, 1, Direction.NOEXIT, 3));
-
         worldMap.add(new LocationPOJO("Mountains", "", 0, Direction.NOEXIT, Direction.NOEXIT, 2));
         worldMap.add(new LocationPOJO("Forest", "", 3, Direction.NOEXIT, 1, Direction.NOEXIT));
         worldMap.add(new LocationPOJO("Caves", "", Direction.NOEXIT, 2, 0, Direction.NOEXIT));
@@ -36,12 +35,11 @@ public class Game {
 
     public void startGame() throws IOException {
 
-        GridOneEngine gridOne = new GridOneEngine();
-        System.out.println(gridOne.gridOneEngine());
+
 //        List<Location> gridOneLocation = gridOne.gridOneInformation();
 //        GridOne access = gridOne.gridOneEngine();
 
-        CommandEngine commandEngine = new CommandEngine(player);
+        CommandEngine commandEngine = new CommandEngine(player, worldMap);
         int progressionTracker = 0;
 
         while (!(progressionTracker == 2)) {

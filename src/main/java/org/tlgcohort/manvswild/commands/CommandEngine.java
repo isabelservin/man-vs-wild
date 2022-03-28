@@ -1,18 +1,21 @@
 package org.tlgcohort.manvswild.Commands;
-
+import org.tlgcohort.manvswild.Thing.LocationPOJO;
 import org.tlgcohort.manvswild.Thing.Player;
-
 import java.util.List;
+import java.util.Scanner;
 
 public class CommandEngine {
 
     //Fields
     private Commands[] commands = Commands.values();
     private Player player;
+    private List<LocationPOJO> worldMap;
+    private Scanner scanner;
 
     //Constructor
-    public CommandEngine(Player player) {
+    public CommandEngine(Player player, List<LocationPOJO> worldMap) {
         this.player = player;
+        this.worldMap = worldMap;
     }
 
     //Business Methods
@@ -48,8 +51,11 @@ public class CommandEngine {
             case "tools":
                 toolsCommand();
                 break;
+            case "map":
+                mapCommand();
+                break;
             default:
-                // code block
+                break;
         }
 
     }
@@ -125,11 +131,33 @@ public class CommandEngine {
         }
     }
     private void toolsCommand() {
+        scanner = new Scanner(System.in);
+        int count = 0;
         System.out.println("Tools Available: ");
         for(String aTool : player.getBackpack()){
-            // go and grab inventory from player
-            System.out.println(aTool);
+            System.out.println((count+1)+ ") " +aTool);
+            count++;
         }
+        System.out.println("\nWhat tool to use? <enter a number?");
+        String choice = scanner.nextLine();
+
+        for(String aTool : player.getBackpack())
+            if (choice.toLowerCase().equals(aTool)) {
+                System.out.println(aTool);
+                break;
+            }
+    }
+    private void mapCommand() {
+        scanner = new Scanner(System.in);
+        int count = 0;
+        System.out.println("Location Available: ");
+        for(LocationPOJO aLocation : worldMap){
+            System.out.println((count+1)+ ") " +aLocation);
+            count++;
+        }
+        System.out.println("\nWhere do you want to go? <enter a number?");
+        int choice = scanner.nextInt();
+        player.setCurrLocation(worldMap.get(choice-1));
     }
 
 }
