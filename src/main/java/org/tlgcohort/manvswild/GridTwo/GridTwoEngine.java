@@ -1,27 +1,24 @@
-package org.tlgcohort.manvswild.GridOne;
+package org.tlgcohort.manvswild.GridTwo;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.tlgcohort.manvswild.Thing.Map;
-import org.tlgcohort.manvswild.Thing.Location;
+import org.tlgcohort.manvswild.Things.Map;
+import org.tlgcohort.manvswild.Things.Location;
 import org.tlgcohort.manvswild.DataManagement.DataManagement;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class GridOneEngine {
-
-    private String name;
-
-    public GridOne gridOneEngine() throws IOException {
+public class GridTwoEngine {
+    public GridTwo gridTwoEngine() throws IOException { //returning a gridTwo object to be able to access GridTwo
         DataManagement dm = new DataManagement();
-        File file = new File("src/main/resources/gridOne.json");
+        File file = new File("src/main/resources/gridTwo.json");    //grabbing appropriate file
         JsonNode node = dm.parse(file);
-        GridOne g1 = dm.fromJson(node,GridOne.class);
-        return g1;
+        GridTwo g2 = dm.fromJson(node,GridTwo.class);
+        return g2;
     }
 
-    public List<Location> gridOneInformation() throws IOException {
+    public List<Location> gridTwoInformation() throws IOException {
         DataManagement dm = new DataManagement();
         File file = new File("src/main/resources/locations.json");
         JsonNode node = dm.parse(file);
@@ -29,5 +26,4 @@ public class GridOneEngine {
         List<Location> output = gameMap.getLocations();
         return output;
     }
-
 }

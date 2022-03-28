@@ -1,4 +1,4 @@
-package org.tlgcohort.manvswild.Thing;
+package org.tlgcohort.manvswild.Things;
 
 public class Location {
     private String name;

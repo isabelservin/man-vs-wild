@@ -1,11 +1,10 @@
-package org.tlgcohort.manvswild;
+package org.tlgcohort.manvswild.GameLogic;
 
 import org.tlgcohort.manvswild.InputParser.InputParser;
 import org.tlgcohort.manvswild.Commands.CommandEngine;
-import org.tlgcohort.manvswild.GridOne.GridOneEngine;
-import org.tlgcohort.manvswild.Thing.Direction;
-import org.tlgcohort.manvswild.Thing.LocationPOJO;
-import org.tlgcohort.manvswild.Thing.Player;
+import org.tlgcohort.manvswild.Things.Direction;
+import org.tlgcohort.manvswild.Things.LocationPOJO;
+import org.tlgcohort.manvswild.Things.Player;
 
 import java.io.IOException;
 import java.util.ArrayList;
