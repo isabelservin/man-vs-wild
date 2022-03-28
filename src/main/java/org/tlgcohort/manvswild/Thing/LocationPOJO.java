@@ -67,4 +67,16 @@ public class LocationPOJO {
     public void setEastExit(int eastExit) {
         this.eastExit = eastExit;
     }
+
+    @Override
+    public String toString() {
+        return "LocationPOJO{" +
+                "name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", northExit=" + northExit +
+                ", southExit=" + southExit +
+                ", westExit=" + westExit +
+                ", eastExit=" + eastExit +
+                '}';
+    }
 }
