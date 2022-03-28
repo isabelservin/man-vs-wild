@@ -1,4 +1,4 @@
-package org.tlgcohort.manvswild;
+package org.tlgcohort.manvswild.GameLogic;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

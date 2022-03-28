@@ -1,13 +1,14 @@
-package org.tlgcohort.manvswild.Client;
+package org.tlgcohort.manvswild;
 
-import org.tlgcohort.manvswild.*;
-import org.tlgcohort.manvswild.Thing.Player;
+import org.tlgcohort.manvswild.GameLogic.Game;
+import org.tlgcohort.manvswild.GameLogic.SplashScreen;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Client {
+public class MainDriver {
 
     //menu options
     private static final String START_GAME = "Start Game";
