@@ -1,5 +1,6 @@
 package org.tlgcohort.manvswild;
 
+import org.tlgcohort.manvswild.InputParser.CommandFeedback;
 import org.tlgcohort.manvswild.InputParser.InputParser;
 import org.tlgcohort.manvswild.Commands.CommandEngine;
 import org.tlgcohort.manvswild.GridOne.GridOneEngine;
@@ -21,7 +22,7 @@ public class Game {
         startGame();
     }
 
-    public void InitGame(String playerName, int health){
+    public void InitGame(String playerName, int health) {
         worldMap = new ArrayList<>();
 
         worldMap.add(new LocationPOJO("Basecamp", "eerie abandoned camp site with glooming camp fire reaching for its last breathe.", Direction.NOEXIT, 1, Direction.NOEXIT, 3));
@@ -64,11 +65,12 @@ public class Game {
                 List<String> inputParserTwo = InputParser.parseInput();
                 commandEngine.commandProcessor(inputParserTwo);
                 if (inputParserTwo.get(0).equals("go")) {
+                    CommandFeedback cf = new CommandFeedback();
                     System.out.println("\nEnd demo");
                     progressionTracker++;
                 }
             }
-        }
+    }
 
 
 
