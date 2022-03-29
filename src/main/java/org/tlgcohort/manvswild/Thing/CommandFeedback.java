@@ -1,11 +1,13 @@
-package org.tlgcohort.manvswild.InputParser;
+package org.tlgcohort.manvswild.Thing;
+
+import org.tlgcohort.manvswild.InputParser.InputParser;
 
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 
 public class CommandFeedback {
+InputParser ip = new InputParser();
 
     //Fields
     private int errorCode;
@@ -40,10 +42,10 @@ public class CommandFeedback {
 
     public List<String> inValidEntry(List<String> command) {
         List<CommandFeedback> nextSteps = List.of(
-                new CommandFeedback(1, "go north", "Please try aanother direction"),
-                new CommandFeedback(2, "go south", "Please try aanother direction"),
-                new CommandFeedback(3, "go east", "Please try aanother direction"),
-                new CommandFeedback(4, "go west", "Please try aanother direction"),
+                new CommandFeedback(1, "go north", "Please try another direction"),
+                new CommandFeedback(2, "go south", "Please try another direction"),
+                new CommandFeedback(3, "go east", "Please try another direction"),
+                new CommandFeedback(4, "go west", "Please try another direction"),
                 new CommandFeedback(5, "get knife", "Item is nolonger avalible in this location,Try another Item"),
                 new CommandFeedback(6, "get matches", "Item is nolonger avalible in this location,Try another Item"),
                 new CommandFeedback(7, "get fish", "Item is nolonger avalible in this location,Try another Item"),
