@@ -5,6 +5,10 @@
     {
       "name": "axe",
       "powerLevel": 10
+    },
+    {
+      "name": "apple",
+      "powerLevel": 1
     }
   ],
   "northExit": 0,

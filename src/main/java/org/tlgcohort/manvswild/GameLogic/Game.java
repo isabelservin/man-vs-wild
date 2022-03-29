@@ -12,6 +12,8 @@ import java.util.List;
 
 public class Game {
 
+    private final String LOCATION_PATH =  "src/main/resources/Basecamp.json";
+
     private List<LocationPOJO> worldMap;
     private Player player;
 
@@ -22,12 +24,16 @@ public class Game {
 
     public void InitGame(String playerName, int health) throws IOException {
         LocationEngine locationEngine = new LocationEngine();
-        LocationPOJO loc1 = locationEngine.locationGenerator();
-        List<Inventory> gridOneLocation = locationEngine.inventoryInformation();
+        LocationPOJO loc1 = locationEngine.locationGenerator(LOCATION_PATH);
+        List<Inventory> gridOneLocation = locationEngine.inventoryGenerator(LOCATION_PATH);
         Inventory i = new Inventory();
         System.out.println(gridOneLocation.get(0).getPowerLevel());
         loc1.setItems(gridOneLocation);
-        System.out.println(loc1);
+        //System.out.println(loc1.getItems());
+        for(Inventory item : loc1.getItems()){
+            System.out.println(item.getName() + " " + item.getPowerLevel());
+        }
+        System.out.println(loc1.getEastExit());
 //        worldMap = new ArrayList<>();
 //
 //        worldMap.add(new LocationPOJO("Basecamp", "eerie abandoned camp site with glooming camp fire reaching for its last breathe.", Direction.NOEXIT, 1, Direction.NOEXIT, 3));

@@ -12,23 +12,22 @@ import java.util.List;
 
 public class LocationEngine {
 
-    private String name;
+    DataManagement dm = new DataManagement();
+    //File file = new File("src/main/resources/Basecamp.json");
 
-    public LocationPOJO locationGenerator() throws IOException {
-        DataManagement dm = new DataManagement();
-        File file = new File("src/main/resources/Basecamp.json");
+    public LocationPOJO locationGenerator(String filePath) throws IOException {
+        File file = new File(filePath);
         JsonNode node = dm.parse(file);
-        LocationPOJO g1 = dm.fromJson(node,LocationPOJO.class);
-        return g1;
+        LocationPOJO location = dm.fromJson(node,LocationPOJO.class);
+        return location;
     }
 
-    public List<Inventory> inventoryInformation() throws IOException {
-        DataManagement dm = new DataManagement();
-        File file = new File("src/main/resources/Basecamp.json");
+    public List<Inventory> inventoryGenerator(String filePath) throws IOException {
+        File file = new File(filePath);
         JsonNode node = dm.parse(file);
         Map gameMap = DataManagement.fromJson(node, Map.class);
-        List<Inventory> output = gameMap.getInventory();
-        return output;
+        List<Inventory> inventory = gameMap.getInventory();
+        return inventory;
     }
 
 }
