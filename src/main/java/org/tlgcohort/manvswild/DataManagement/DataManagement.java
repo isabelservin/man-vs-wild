@@ -13,7 +13,7 @@ public class DataManagement {
 //        Location location = null;
 //        try {
 //            ObjectMapper mapper = new ObjectMapper();
-//            File file = new File("src/main/java/locations.json");
+//            File file = new File("src/main/java/Basecamp.json");
 //            location = mapper.readValue(file, Location.class);
 //            System.out.println(location.toString());
 //        } catch (IOException e) {

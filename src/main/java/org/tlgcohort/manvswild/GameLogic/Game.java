@@ -1,16 +1,18 @@
 package org.tlgcohort.manvswild.GameLogic;
 
+import org.tlgcohort.manvswild.Engine.LocationEngine;
 import org.tlgcohort.manvswild.InputParser.InputParser;
 import org.tlgcohort.manvswild.Commands.CommandEngine;
-import org.tlgcohort.manvswild.Things.Direction;
+import org.tlgcohort.manvswild.Things.Inventory;
 import org.tlgcohort.manvswild.Things.LocationPOJO;
 import org.tlgcohort.manvswild.Things.Player;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+
+    private final String LOCATION_PATH =  "src/main/resources/Basecamp.json";
 
     private List<LocationPOJO> worldMap;
     private Player player;
@@ -20,23 +22,30 @@ public class Game {
         startGame();
     }
 
-    public void InitGame(String playerName, int health){
-        worldMap = new ArrayList<>();
+    public void InitGame(String playerName, int health) throws IOException {
+        LocationEngine locationEngine = new LocationEngine();
+        LocationPOJO loc1 = locationEngine.locationGenerator(LOCATION_PATH);
+        List<Inventory> gridOneLocation = locationEngine.inventoryGenerator(LOCATION_PATH);
+        Inventory i = new Inventory();
+        System.out.println(gridOneLocation.get(0).getPowerLevel());
+        loc1.setItems(gridOneLocation);
+        //System.out.println(loc1.getItems());
+        for(Inventory item : loc1.getItems()){
+            System.out.println(item.getName() + " " + item.getPowerLevel());
+        }
+        System.out.println(loc1.getEastExit());
+//        worldMap = new ArrayList<>();
+//
+//        worldMap.add(new LocationPOJO("Basecamp", "eerie abandoned camp site with glooming camp fire reaching for its last breathe.", Direction.NOEXIT, 1, Direction.NOEXIT, 3));
+//        worldMap.add(new LocationPOJO("Mountains", "", 0, Direction.NOEXIT, Direction.NOEXIT, 2));
+//        worldMap.add(new LocationPOJO("Forest", "", 3, Direction.NOEXIT, 1, Direction.NOEXIT));
+//        worldMap.add(new LocationPOJO("Caves", "", Direction.NOEXIT, 2, 0, Direction.NOEXIT));
 
-        worldMap.add(new LocationPOJO("Basecamp", "eerie abandoned camp site with glooming camp fire reaching for its last breathe.", Direction.NOEXIT, 1, Direction.NOEXIT, 3));
-        worldMap.add(new LocationPOJO("Mountains", "", 0, Direction.NOEXIT, Direction.NOEXIT, 2));
-        worldMap.add(new LocationPOJO("Forest", "", 3, Direction.NOEXIT, 1, Direction.NOEXIT));
-        worldMap.add(new LocationPOJO("Caves", "", Direction.NOEXIT, 2, 0, Direction.NOEXIT));
-
-        player = new Player(playerName, health, worldMap.get(0));
+        player = new Player(playerName, health, loc1);
 
     }
 
     public void startGame() throws IOException {
-
-
-//        List<Location> gridOneLocation = gridOne.gridOneInformation();
-//        GridOne access = gridOne.gridOneEngine();
 
         CommandEngine commandEngine = new CommandEngine(player, worldMap);
         int progressionTracker = 0;
