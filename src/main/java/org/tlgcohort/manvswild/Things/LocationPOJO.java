@@ -1,5 +1,7 @@
 package org.tlgcohort.manvswild.Things;
 
+import java.util.List;
+
 public class LocationPOJO {
 
     String name;
@@ -9,7 +11,10 @@ public class LocationPOJO {
     int southExit;
     int westExit;
     int eastExit;
+    List<Inventory> items;
 
+    public LocationPOJO() {
+    }
 
     public LocationPOJO(String name, String desc, int northExit, int southExit, int westExit, int eastExit){
         this.name = name;
@@ -68,6 +73,14 @@ public class LocationPOJO {
         this.eastExit = eastExit;
     }
 
+    public List<Inventory> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Inventory> items) {
+        this.items = items;
+    }
+
     @Override
     public String toString() {
         return "LocationPOJO{" +
@@ -77,6 +90,7 @@ public class LocationPOJO {
                 ", southExit=" + southExit +
                 ", westExit=" + westExit +
                 ", eastExit=" + eastExit +
+                ", items=" + items +
                 '}';
     }
 }

@@ -2,6 +2,8 @@ package org.tlgcohort.manvswild;
 
 import org.tlgcohort.manvswild.GameLogic.Game;
 import org.tlgcohort.manvswild.GameLogic.SplashScreen;
+import org.tlgcohort.manvswild.Engine.LocationEngine;
+import org.tlgcohort.manvswild.Things.Inventory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +17,9 @@ public class MainDriver {
     private static final String QUIT = "Quit";
     private static Scanner scanner;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
+
 
         SplashScreen splashScreen = new SplashScreen();
         splashScreen.displaySplashScreen();

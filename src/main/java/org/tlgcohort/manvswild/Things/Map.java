@@ -4,22 +4,14 @@ import java.util.List;
 
 public class Map {
 
-    private String gameMap;
-    private List<Location> locations;
+    //private String name;
+    private List<Inventory> inventory;
 
-    public String getGameMap() {
-        return gameMap;
+    public List<Inventory> getInventory() {
+        return inventory;
     }
 
-    public void setGameMap(String gameMap) {
-        this.gameMap = gameMap;
-    }
-
-    public List<Location> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(List<Location> locations) {
-        this.locations = locations;
+    public void setInventory(List<Inventory> inventory) {
+        this.inventory = inventory;
     }
 }
