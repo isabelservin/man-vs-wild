@@ -4,14 +4,13 @@ import java.util.List;
 
 public class Map {
 
-    //private String name;
-    private List<Inventory> inventory;
+    private List<Item> inventory;
 
-    public List<Inventory> getInventory() {
+    public List<Item> getInventory() {
         return inventory;
     }
 
-    public void setInventory(List<Inventory> inventory) {
+    public void setInventory(List<Item> inventory) {
         this.inventory = inventory;
     }
 }

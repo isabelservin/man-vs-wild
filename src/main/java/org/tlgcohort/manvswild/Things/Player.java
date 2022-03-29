@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+
     private String name;
-    private int health = 50;
+    private int health;
     private List<String> backpack = new ArrayList<String>();
     private LocationPOJO currLocation;
 
@@ -21,7 +22,7 @@ public class Player {
     public String displayPlayerStats(){
         String stats;
         stats = "\n||=========================================================================================================================||\n" +
-                "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() +
+                "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() + "    Backpack: " + getBackpack() +
                 "\n||=========================================================================================================================||";
         return stats;
     }

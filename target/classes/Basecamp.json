@@ -1,18 +1,18 @@
 {
-  "name": "BaseCamp",
-  "desc": "a fireplace...",
+  "name": "Basecamp",
+  "desc": "a fleeting fire...",
   "inventory": [
     {
-      "name": "axe",
+      "name": "Axe",
       "powerLevel": 10
     },
     {
-      "name": "apple",
-      "powerLevel": 1
+      "name": "Apple",
+      "powerLevel": 5
     }
   ],
-  "northExit": 0,
-  "southExit": -1,
-  "eastExit": -1,
-  "westExit": 2
+  "northExit": "Forest",
+  "southExit": "River",
+  "eastExit": "Caves",
+  "westExit": "Coal Mine"
 }

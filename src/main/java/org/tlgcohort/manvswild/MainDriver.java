@@ -2,8 +2,6 @@ package org.tlgcohort.manvswild;
 
 import org.tlgcohort.manvswild.GameLogic.Game;
 import org.tlgcohort.manvswild.GameLogic.SplashScreen;
-import org.tlgcohort.manvswild.Engine.LocationEngine;
-import org.tlgcohort.manvswild.Things.Inventory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,8 +16,6 @@ public class MainDriver {
     private static Scanner scanner;
 
     public static void main(String[] args) throws IOException {
-
-
 
         SplashScreen splashScreen = new SplashScreen();
         splashScreen.displaySplashScreen();
@@ -59,7 +55,8 @@ public class MainDriver {
                 int playerHealth = scanner.nextInt();
 
                 try {
-                    Game game = new Game(playerName, playerHealth);
+                    Game.InitGame(playerName,playerHealth);
+                    Game.StartGame();
                     break;
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -1,13 +1,13 @@
 package org.tlgcohort.manvswild.Things;
 
-public class Inventory {
+public class Item {
     private String name;
     private int powerLevel;
 
-    public Inventory() {
+    public Item() {
     }
 
-    public Inventory(String name, int powerLevel) {
+    public Item(String name, int powerLevel) {
         this.name = name;
         this.powerLevel = powerLevel;
     }

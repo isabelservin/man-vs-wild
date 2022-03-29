@@ -1,9 +1,9 @@
 package org.tlgcohort.manvswild.GameLogic;
 
-import org.tlgcohort.manvswild.Engine.LocationEngine;
 import org.tlgcohort.manvswild.InputParser.InputParser;
 import org.tlgcohort.manvswild.Commands.CommandEngine;
-import org.tlgcohort.manvswild.Things.Inventory;
+import org.tlgcohort.manvswild.LocationEngine.LocationEngine;
+import org.tlgcohort.manvswild.Things.Item;
 import org.tlgcohort.manvswild.Things.LocationPOJO;
 import org.tlgcohort.manvswild.Things.Player;
 
@@ -12,28 +12,32 @@ import java.util.List;
 
 public class Game {
 
-    private final String LOCATION_PATH =  "src/main/resources/Basecamp.json";
+    private static final String BASECAMP_PATH =  "src/main/resources/Basecamp.json";
 
-    private List<LocationPOJO> worldMap;
-    private Player player;
+    private static List<LocationPOJO> worldMap;
+    private static Player player;
 
-    public Game(String playerName, int health) throws IOException {
-        InitGame(playerName, health);
-        startGame();
+    private Game(){
     }
 
-    public void InitGame(String playerName, int health) throws IOException {
-        LocationEngine locationEngine = new LocationEngine();
-        LocationPOJO loc1 = locationEngine.locationGenerator(LOCATION_PATH);
-        List<Inventory> gridOneLocation = locationEngine.inventoryGenerator(LOCATION_PATH);
-        Inventory i = new Inventory();
-        System.out.println(gridOneLocation.get(0).getPowerLevel());
-        loc1.setItems(gridOneLocation);
+    public static void InitGame(String playerName, int health) throws IOException {
+        //map json locations into Location objects
+        LocationPOJO loc1 = LocationEngine.locationGenerator(BASECAMP_PATH);
+
+        //map inventory items to List of Item objs
+        List<Item> parsedItems = LocationEngine.inventoryGenerator(BASECAMP_PATH);
+
+        System.out.println("First Item in inventory:"+ parsedItems.get(0));
+
+        //set location with this list
+        loc1.setItems(parsedItems);
+
         //System.out.println(loc1.getItems());
-        for(Inventory item : loc1.getItems()){
-            System.out.println(item.getName() + " " + item.getPowerLevel());
+        for(Item item : loc1.getItems()){
+            System.out.println("Item: " + item.getName() + " " + item.getPowerLevel());
         }
         System.out.println(loc1.getEastExit());
+
 //        worldMap = new ArrayList<>();
 //
 //        worldMap.add(new LocationPOJO("Basecamp", "eerie abandoned camp site with glooming camp fire reaching for its last breathe.", Direction.NOEXIT, 1, Direction.NOEXIT, 3));
@@ -45,7 +49,7 @@ public class Game {
 
     }
 
-    public void startGame() throws IOException {
+    public static void StartGame() throws IOException {
 
         CommandEngine commandEngine = new CommandEngine(player, worldMap);
         int progressionTracker = 0;
@@ -55,8 +59,6 @@ public class Game {
                 System.out.println(player.displayPlayerStats());
                 System.out.println(displayMsg());
 
-                System.out.println("\nYou wake up and realize you are in a tent with no idea how you got there,\n" +
-                        "and now you hear the sounds of river, only to come out and realize you are in a Jungle!");
                 commandEngine.displayCommands();
 
                 List<String> inputParser = InputParser.parseInput();
@@ -65,6 +67,7 @@ public class Game {
                     progressionTracker++;
                 }
             }
+
             if (progressionTracker == 1) {
 
                 System.out.println("\nI made it to the river......Is that a zombie !!!!\n");
@@ -77,37 +80,9 @@ public class Game {
                 }
             }
         }
-
-
-
-        //conditional statement.....
-
-
-//        command = userInput.nextLine();
-//        //System.out.println("\n*User enters keyword to get information on their location*");
-//        //TO-DO: user enters keyword to get information on location
-//        System.out.println("Here is some information on your location\n");
-//        System.out.println(gridOneLocation.get(0));
-//
-//        System.out.println("\n*User enters keyword to grab tool*");
-//        //TO-DO: user enters keyword to pick up firewood
-//        System.out.println("You picked up " + access.getTools());
-//
-//        //if user input == go EAST
-//        //TO-DO user enters keyword to go EAST to the river
-//        GridTwoEngine gridTwo = new GridTwoEngine();    //loading gridTwo object
-//        GridTwo gridTwoAccess = gridTwo.gridTwoEngine();
-//        System.out.println("\n*User enters to go east*");
-//        System.out.println("This is a really strong current, and so loud I can barely hear anything around me");
-//        System.out.println("There is a " + gridTwoAccess.getAnimal()+ "!");
-//
-//        //TO-DO user enters keyword to attack the animal
-//        System.out.println("\n*User enters to attack the animal*");
-//        System.out.println("The " + gridTwoAccess.getAnimal() + "'s" + " health is " + gridTwoAccess.getAnimalHealth());
-
     }
 
-    private String displayMsg(){
+    private static String displayMsg(){
         String msg;
         msg =  "+---------------------------------------------------------------------------------------------------------------------------+\n     " +
                 "You see a " + player.getCurrLocation().getDesc()
