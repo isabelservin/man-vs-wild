@@ -1,5 +1,5 @@
 package org.tlgcohort.manvswild.Thing;
-
+import org.tlgcohort.manvswild.Things.LocationPOJO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,15 +8,16 @@ import java.util.Scanner;
 public class PlayerActive {
 
     //Fields
+    LocationPOJO localpojo = new LocationPOJO();
     List<String> backpack = new ArrayList<>();
     String AXE = "axe";
     String Matches = " matches";
     String Knife = " knife";
-    String Item = "item";
+
 
     //Constructor
     PlayerActive() {
-
+    super();
     }
 
 
