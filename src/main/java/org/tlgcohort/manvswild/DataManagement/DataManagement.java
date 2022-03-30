@@ -9,19 +9,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class DataManagement {
-    //    public Location readValue() {
-//        Location location = null;
-//        try {
-//            ObjectMapper mapper = new ObjectMapper();
-//            File file = new File("src/main/java/Basecamp.json");
-//            location = mapper.readValue(file, Location.class);
-//            System.out.println(location.toString());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return location;
-//    }
-    private static ObjectMapper mapper = getDefaultObjectMapper();
+
+    private static final ObjectMapper mapper = getDefaultObjectMapper();
+
+    private DataManagement() {
+
+    }
+
+
     private static ObjectMapper getDefaultObjectMapper(){
         ObjectMapper defaultObjectMapper = new ObjectMapper();
         defaultObjectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
@@ -29,9 +24,10 @@ public class DataManagement {
         return defaultObjectMapper;
     }
 
-    public static JsonNode parse(File file) throws IOException {
-        return mapper.readTree(file);
+    public static JsonNode parse(File filename) throws IOException {
+        return mapper.readTree(filename);
     }
+
     public static <A> A fromJson(JsonNode node, Class<A> clazz) throws JsonProcessingException {
         return mapper.treeToValue(node,clazz);
     }

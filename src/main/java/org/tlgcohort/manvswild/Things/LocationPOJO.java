@@ -6,17 +6,16 @@ public class LocationPOJO {
 
     String name;
     String desc;
-    //exits in numerical format
-    int northExit;
-    int southExit;
-    int westExit;
-    int eastExit;
-    List<Inventory> items;
+    String northExit;
+    String southExit;
+    String westExit;
+    String eastExit;
+    List<Item> items;
 
     public LocationPOJO() {
     }
 
-    public LocationPOJO(String name, String desc, int northExit, int southExit, int westExit, int eastExit){
+    public LocationPOJO(String name, String desc, String northExit, String southExit, String westExit, String eastExit){
         this.name = name;
         this.desc = desc;
         this.northExit = northExit;
@@ -41,43 +40,43 @@ public class LocationPOJO {
         this.desc = desc;
     }
 
-    public int getNorthExit() {
+    public String getNorthExit() {
         return northExit;
     }
 
-    public void setNorthExit(int northExit) {
+    public void setNorthExit(String northExit) {
         this.northExit = northExit;
     }
 
-    public int getSouthExit() {
+    public String getSouthExit() {
         return southExit;
     }
 
-    public void setSouthExit(int southExit) {
+    public void setSouthExit(String southExit) {
         this.southExit = southExit;
     }
 
-    public int getWestExit() {
+    public String getWestExit() {
         return westExit;
     }
 
-    public void setWestExit(int westExit) {
+    public void setWestExit(String westExit) {
         this.westExit = westExit;
     }
 
-    public int getEastExit() {
+    public String getEastExit() {
         return eastExit;
     }
 
-    public void setEastExit(int eastExit) {
+    public void setEastExit(String eastExit) {
         this.eastExit = eastExit;
     }
 
-    public List<Inventory> getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Inventory> items) {
+    public void setItems(List<Item> items) {
         this.items = items;
     }
 
