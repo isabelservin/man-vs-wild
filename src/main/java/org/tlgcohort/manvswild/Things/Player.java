@@ -7,6 +7,7 @@ public class Player {
 
     private String name;
     private int health;
+    private int power = 5;
     private List<String> backpack = new ArrayList<String>();
     private LocationPOJO currLocation;
 
@@ -25,6 +26,24 @@ public class Player {
                 "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() + "    Backpack: " + getBackpack() +
                 "\n||=========================================================================================================================||";
         return stats;
+    }
+
+    public void attack(){
+        if (currLocation.presentNPC() && health > 0){
+            if (currLocation.getNpc().getHealth() > 0){
+                System.out.println(currLocation.getNpc().getName() + " health BEFORE damage: " + currLocation.getNpc().getHealth());
+                int opponentDamage = currLocation.getNpc().getHealth() - power;
+                currLocation.getNpc().setHealth(opponentDamage);
+
+                System.out.println(currLocation.getNpc().getName() + " health AFTER damage: " + currLocation.getNpc().getHealth());
+
+                System.out.println(name + " attacked " + currLocation.getNpc().getName() + "!!");
+              } else{
+                System.out.println(currLocation.getNpc().getName() + " is already dead. Calm down killer.");
+            }
+        } else{
+            System.out.println("There is nothing to attack, goofy.");
+        }
     }
 
     public void move(LocationPOJO newLocation){

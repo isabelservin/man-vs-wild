@@ -9,8 +9,12 @@ public class SplashScreen {
 
     private static Scanner scanner;
 
+    private SplashScreen(){
+
+    }
+
     // Displays Splash Screen from text file
-    public void displaySplashScreen(){
+    public static void displaySplashScreen(){
         scanner = new Scanner(System.in);
         String userInput = " ";
 
@@ -31,7 +35,7 @@ public class SplashScreen {
         }
 
      // Displays tutorial from text file
-    public void displayTutorial(){
+    public static void displayTutorial(){
         scanner = new Scanner(System.in);
         String userInput = "";
 

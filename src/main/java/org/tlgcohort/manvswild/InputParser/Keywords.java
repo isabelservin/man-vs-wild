@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Keywords {
 
-    Word word;
+   // Word word;
     private Map<String, Word> wordlist = new HashMap<>();
 
     public Keywords() {

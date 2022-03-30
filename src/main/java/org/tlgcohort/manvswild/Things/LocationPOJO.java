@@ -8,17 +8,18 @@ public class LocationPOJO {
     String desc;
     List<Item> items;
     List<Food>foods;
-    List<NPC>npc;
+    NPC npc;
     String northExit;
     String southExit;
     String westExit;
     String eastExit;
+    private Boolean hasNPC = false;
 
     public LocationPOJO() {
     }
 
     public LocationPOJO(String name, String desc, List<Item> items,
-                        List<Food> foods, List<NPC> npc, String northExit, String southExit, String westExit, String eastExit) {
+                        List<Food> foods, NPC npc, String northExit, String southExit, String westExit, String eastExit) {
         this.name = name;
         this.desc = desc;
         this.items = items;
@@ -28,6 +29,13 @@ public class LocationPOJO {
         this.southExit = southExit;
         this.westExit = westExit;
         this.eastExit = eastExit;
+    }
+
+    public Boolean presentNPC(){
+        if(npc != null){
+            hasNPC = true;
+        }
+        return  hasNPC;
     }
 
     public String getName() {
@@ -62,11 +70,11 @@ public class LocationPOJO {
         this.foods = foods;
     }
 
-    public List<NPC> getNpc() {
+    public NPC getNpc() {
         return npc;
     }
 
-    public void setNpc(List<NPC> npc) {
+    public void setNpc(NPC npc) {
         this.npc = npc;
     }
 

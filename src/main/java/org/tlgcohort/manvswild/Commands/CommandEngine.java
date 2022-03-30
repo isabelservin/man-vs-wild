@@ -20,14 +20,17 @@ public class CommandEngine {
 
     //Business Methods
     public void displayCommands() {
-        System.out.println("\nAvailable Commands:");
+        String commandMsg = "\n||======================================||" +
+                "\n     Available Commands:" +
+                "\n||======================================||";
+        System.out.println(commandMsg);
         for (Commands aCommand : commands) {
-            System.out.println(aCommand);
+            System.out.println("          " + aCommand);
         }
-        System.out.println("\n Enter Two Words [NOUN] [VERB]");
+        System.out.println("||======================================||");
+        System.out.println("+----------------------------------------+");
+        System.out.println("    Enter Two Words [NOUN] [VERB]");
     }
-
-
 
     //processes an array of 1 Verb and 1 Noun
     public void commandProcessor(List<String> keywords) {
@@ -57,7 +60,6 @@ public class CommandEngine {
             default:
                 break;
         }
-
     }
 
     // commands based on VERB, then process the NOUN

@@ -42,11 +42,11 @@
       "name": "fish",
       "healthPoints": 5
     }],
-    "npc": [{
+    "npc": {
       "name":"Bat",
       "health": 20,
       "attackPoints": 5
-    }],
+    },
     "northExit": "Basecamp",
     "southExit": "",
     "eastExit": "",

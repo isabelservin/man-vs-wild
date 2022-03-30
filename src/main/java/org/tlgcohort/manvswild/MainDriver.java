@@ -17,9 +17,8 @@ public class MainDriver {
 
     public static void main(String[] args) throws IOException {
 
-        SplashScreen splashScreen = new SplashScreen();
-        splashScreen.displaySplashScreen();
-        splashScreen.displayTutorial();
+        SplashScreen.displaySplashScreen();
+        SplashScreen.displayTutorial();
 
         //add options to main menu
         List<String> mainMenu = new ArrayList<>();
@@ -35,9 +34,7 @@ public class MainDriver {
         //while user doesn't select quit then they can keep replaying the game
         while(!choice.equalsIgnoreCase(QUIT)){
 
-            System.out.println("\nWelcome " + playerName + "!!");
-            displayMainMenu(mainMenu);
-            System.out.println("\nSelect an option >> ");
+            displayMainMenu(mainMenu, playerName);
 
             //capture user's choice as an integer
             scanner = new Scanner(System.in);
@@ -48,25 +45,28 @@ public class MainDriver {
 
             //choice cases
             if(choice.equalsIgnoreCase(START_GAME)){
-
-                System.out.println("\nThe game is now starting...............\n");
-
-                System.out.println("How much health would you want to start with ? <Enter a number>");
+                startingMsg();
                 int playerHealth = scanner.nextInt();
 
+                //initialize & start game
                 try {
                     Game.InitGame(playerName,playerHealth);
                     Game.StartGame();
-                    break;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
+
         }
     }
 
-    public static void displayMainMenu(List<String> menu){
-        System.out.println("\n||======================================||");
+    public static void displayMainMenu(List<String> menu, String name){
+        String welcomeMsg = "\n||======================================||" +
+                "\n     Welcome to Man vs. Wild, " + name + "!!";
+        System.out.println(welcomeMsg);
+
+        System.out.println("||======================================||");
+
         //print out our main menu options & increment the index of each choice
         int choiceIndex = 1;
         for(String opt : menu){
@@ -74,5 +74,17 @@ public class MainDriver {
             choiceIndex++;
         }
         System.out.println("||======================================||");
+        System.out.println("+----------------------------------------+");
+        System.out.println("     Select an option>> ");
+    }
+
+    public static void startingMsg(){
+        System.out.println("\n||=================================================||");
+        System.out.println("     Starting Game...............");
+        System.out.println("||=================================================||");
+
+        System.out.println("+---------------------------------------------------+");
+        System.out.println("     Choose Health Level (Enter a number)>>");
+
     }
 }
