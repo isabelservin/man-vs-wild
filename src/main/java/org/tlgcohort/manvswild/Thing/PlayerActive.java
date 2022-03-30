@@ -20,7 +20,7 @@ public class PlayerActive {
     }
 
 
-    //Business Method
+    //Business Method || We would likely be using the List<items> keyword because we are getting items per json location but knife is a fill n variable
     public void dropItem(){//player dropitem method
         if(backpack.contains(Knife)){
            backpack.remove(Knife);
@@ -40,7 +40,7 @@ public class PlayerActive {
         System.out.println("player is using item");
     }
 
-    public void useDropGet() {//methods being used in scenario
+    public void useDropGet() {//methods being used in scenario/ the player useitem() method will change based on object use case
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(" There are weapons on the ground" + "\n" + " give the pick up knife command to put it in your backpack");
