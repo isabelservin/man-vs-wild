@@ -35,8 +35,7 @@ public class LocationEngine {
         objectMapper.coercionConfigFor(LogicalType.Map).setCoercion(CoercionInputShape.EmptyObject, CoercionAction.AsNull);
 
         //Generating an array of our locations with all the necessary information
-        LocationPOJO[] locations = objectMapper.readValue(file,LocationPOJO[].class);
-        return locations;
+        return objectMapper.readValue(file,LocationPOJO[].class);
 
     }
 
