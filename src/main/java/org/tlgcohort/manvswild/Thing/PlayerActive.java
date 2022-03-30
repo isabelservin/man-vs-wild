@@ -20,7 +20,7 @@ public class PlayerActive {
     }
 
 
-    //Business Methods
+    //Business Method
     public void dropItem(){
         if(backpack.contains(Knife)){
            backpack.remove(Knife);
@@ -39,7 +39,6 @@ public class PlayerActive {
     public void useItem(){
         System.out.println("player is using item");
     }
-
 
     public void useDropGet() {
 
