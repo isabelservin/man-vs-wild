@@ -20,7 +20,7 @@
         "powerLevel": 0
       }
     ],
-    "food": [{
+    "foods": [{
       "name": "mushrooms",
       "healthPoints": 2
     }],
@@ -34,12 +34,12 @@
     "desc": "has water...",
     "items": [
       {
-        "name": "fishing pole",
+        "name": "Fishing Pole",
         "powerLevel": 0
       }
     ],
-    "food": [{
-      "name": "fish",
+    "foods": [{
+      "name": "Fish",
       "healthPoints": 5
     }],
     "npc": [{

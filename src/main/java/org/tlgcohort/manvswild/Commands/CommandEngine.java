@@ -1,21 +1,17 @@
 package org.tlgcohort.manvswild.Commands;
-import org.tlgcohort.manvswild.Things.LocationPOJO;
 import org.tlgcohort.manvswild.Things.Player;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class CommandEngine {
 
     //Fields
-    private Commands[] commands = Commands.values();
-    private Player player;
-    private List<LocationPOJO> worldMap;
-    private Scanner scanner;
+    private final Commands[] commands = Commands.values();
+    private final Player player;
 
     //Constructor
-    public CommandEngine(Player player, List<LocationPOJO> worldMap) {
+    public CommandEngine(Player player) {
         this.player = player;
-        this.worldMap = worldMap;
     }
 
     //Business Methods
@@ -24,14 +20,13 @@ public class CommandEngine {
         for (Commands aCommand : commands) {
             System.out.println(aCommand);
         }
-        System.out.println("\n Enter Two Words [NOUN] [VERB]");
+        System.out.println("\n Enter Two Words [VERB] [NOUN] ");
     }
-
 
 
     //processes an array of 1 Verb and 1 Noun
     public void commandProcessor(List<String> keywords) {
-
+                //TODO Add try catch block
         switch (keywords.get(0).toLowerCase()) {
             case "look":
                 lookCommand(keywords.get(1).toLowerCase());
@@ -42,22 +37,22 @@ public class CommandEngine {
             case "get":
                 getCommand(keywords.get(1).toLowerCase());
                 break;
-            case "heal":
-                healCommand(keywords.get(1).toLowerCase());
+            case "heal": //TODO Must refactor to account for the second user input
+                player.heal();
                 break;
             case "go":
                 goCommand(keywords.get(1).toLowerCase());
                 break;
-            case "tools":
-                toolsCommand();
-                break;
-            case "map":
-                mapCommand();
-                break;
+                //TODO Do we need these commands?
+//            case "tools":
+//                toolsCommand();
+//                break;
+//            case "map":
+//                mapCommand();
+//                break;
             default:
                 break;
         }
-
     }
 
     // commands based on VERB, then process the NOUN
@@ -102,35 +97,15 @@ public class CommandEngine {
 
         }
     }
-    private void healCommand(String character) {
 
-        switch (character.toLowerCase()) {
-            case "characterone":
-                System.out.println("Drill into properties of character");
-                break;
-            case "itemtwo":
-                // code block
-                break;
-            default:
-                // code block
+    private void goCommand(String userInputLocation) {
 
-        }
+        player.move(userInputLocation);
     }
-    private void goCommand(String location) {
 
-        switch (location.toLowerCase()) {
-            case "campsite":
-                System.out.println("Drill into properties of location");
-                break;
-            case "itemtwo":
-                // code block
-                break;
-            default:
-                // code block
-
-        }
-    }
-    private void toolsCommand() {
+    //TODO Do we still need these ?
+   /*
+   private void toolsCommand() {
         scanner = new Scanner(System.in);
         int count = 0;
         System.out.println("Tools Available: ");
@@ -159,5 +134,7 @@ public class CommandEngine {
         int choice = scanner.nextInt();
         player.setCurrLocation(worldMap.get(choice-1));
     }
+
+    */
 
 }

@@ -27,4 +27,9 @@ public class Food {
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
+
+    @Override
+    public String toString() {
+        return  name + " : "+ healthPoints;
+    }
 }
