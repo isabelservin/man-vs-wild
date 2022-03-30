@@ -21,7 +21,7 @@ public class PlayerActive {
 
 
     //Business Method
-    public void dropItem(){
+    public void dropItem(){//player dropitem method
         if(backpack.contains(Knife)){
            backpack.remove(Knife);
         }else{
@@ -29,18 +29,18 @@ public class PlayerActive {
             System.out.println(backpack);
         }
     }
-    public void pickupItem(){
+    public void pickupItem(){//player pickup method
         if(!backpack.contains(Knife)){
             backpack.add(Knife);
         }else{
             System.out.println("You already have a Knife in your backpack");
         }
     }
-    public void useItem(){
+    public void useItem(){//player useitem method
         System.out.println("player is using item");
     }
 
-    public void useDropGet() {
+    public void useDropGet() {//methods being used in scenario
 
         Scanner scanner = new Scanner(System.in);
         System.out.println(" There are weapons on the ground" + "\n" + " give the pick up knife command to put it in your backpack");
