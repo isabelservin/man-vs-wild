@@ -37,4 +37,13 @@ public class NPC {
     public void setAttackPoints(int attackPoints) {
         this.attackPoints = attackPoints;
     }
+
+    @Override
+    public String toString() {
+        return "NPC{" +
+                "name='" + name + '\'' +
+                ", health=" + health +
+                ", attackPoints=" + attackPoints +
+                '}';
+    }
 }

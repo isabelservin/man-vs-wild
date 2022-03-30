@@ -2,21 +2,22 @@ package org.tlgcohort.manvswild.Things;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import static org.tlgcohort.manvswild.GameLogic.Game.getWorldMap;
+
 
 public class Player {
 
     private String name;
     private int health;
-    private List<String> backpack = new ArrayList<String>();
+    public List<Food> backpack = new ArrayList<>();
     private LocationPOJO currLocation;
 
     public Player(String name, int health, LocationPOJO currLocation) {
         this.name = name;
         this.health = health;
         this.currLocation = currLocation;
-        backpack.add("matches");
-        backpack.add("knife");
-        backpack.add("map");
     }
 
     public String displayPlayerStats(){
@@ -27,8 +28,39 @@ public class Player {
         return stats;
     }
 
-    public void move(LocationPOJO newLocation){
-        currLocation = newLocation;
+    // takes all exits from current location and compares the user input to find a match, if so , then changes location to user input...
+    public void move(String newLocation){
+
+        int newLocationIndex = -1;
+        if(currLocation.allExistsGenerator().contains(newLocation)){
+            System.out.println("Going to " + newLocation);
+        for (int i = 0; i < getWorldMap().length; i++){
+            if (getWorldMap()[i].getName().toLowerCase().equals(newLocation)){
+                newLocationIndex = i;
+                break;
+            }
+            }
+        setCurrLocation(getWorldMap()[newLocationIndex]);
+        }
+        else{
+            System.out.println("\nYou cannot go there.....\n");
+        }
+    }
+
+    // iterates through player backpack and user chooses item which then adds to player health
+    //TODO add feature to remove from backpack when used....
+    public void heal(){
+        Scanner scanner = new Scanner(System.in);
+        int count = 0;
+        System.out.println("\nFood Available : ");
+
+        for(Food aItem : backpack){
+            System.out.println((count+1)+ ") " +aItem);
+            count++;
+        }
+        System.out.println("\nEat food? <enter a number?");
+        int choice = scanner.nextInt();
+        setHealth(health+backpack.get(choice-1).getHealthPoints());
     }
 
     public String getName() {
@@ -47,11 +79,11 @@ public class Player {
         this.health = health;
     }
 
-    public List<String> getBackpack() {
+    public List<Food> getBackpack() {
         return backpack;
     }
 
-    public void setBackpack(List<String> backpack) {
+    public void setBackpack(List<Food> backpack) {
         this.backpack = backpack;
     }
 

@@ -1,5 +1,6 @@
 package org.tlgcohort.manvswild.Things;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LocationPOJO {
@@ -29,6 +30,18 @@ public class LocationPOJO {
         this.westExit = westExit;
         this.eastExit = eastExit;
     }
+
+    // Creating an Exit generator in order to iterate through every location exit.
+    public ArrayList<String> allExistsGenerator(){
+        ArrayList<String> allExits = new ArrayList<>();
+        allExits.add(getNorthExit().toLowerCase());
+        allExits.add(getEastExit().toLowerCase());
+        allExits.add(getWestExit().toLowerCase());
+        allExits.add(getSouthExit().toLowerCase());
+
+        return allExits;
+    }
+
 
     public String getName() {
         return name;
@@ -74,32 +87,16 @@ public class LocationPOJO {
         return northExit;
     }
 
-    public void setNorthExit(String northExit) {
-        this.northExit = northExit;
-    }
-
     public String getSouthExit() {
         return southExit;
-    }
-
-    public void setSouthExit(String southExit) {
-        this.southExit = southExit;
     }
 
     public String getWestExit() {
         return westExit;
     }
 
-    public void setWestExit(String westExit) {
-        this.westExit = westExit;
-    }
-
     public String getEastExit() {
         return eastExit;
-    }
-
-    public void setEastExit(String eastExit) {
-        this.eastExit = eastExit;
     }
 
     @Override
@@ -107,11 +104,13 @@ public class LocationPOJO {
         return "LocationPOJO{" +
                 "name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
-                ", northExit=" + northExit +
-                ", southExit=" + southExit +
-                ", westExit=" + westExit +
-                ", eastExit=" + eastExit +
                 ", items=" + items +
+                ", foods=" + foods +
+                ", npc=" + npc +
+                ", northExit='" + northExit + '\'' +
+                ", southExit='" + southExit + '\'' +
+                ", westExit='" + westExit + '\'' +
+                ", eastExit='" + eastExit + '\'' +
                 '}';
     }
 }
