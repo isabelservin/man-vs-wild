@@ -1,5 +1,5 @@
 package org.tlgcohort.manvswild.Thing;
-import org.tlgcohort.manvswild.Things.LocationPOJO;
+import org.tlgcohort.manvswild.Things.Location;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class PlayerActive {
 
     //Fields
-    LocationPOJO localpojo = new LocationPOJO();
+    Location localpojo = new Location();
     List<String> backpack = new ArrayList<>();
     String AXE = "axe";
     String Matches = " matches";

@@ -4,7 +4,7 @@ import org.tlgcohort.manvswild.Commands.CommandEngine;
 import org.tlgcohort.manvswild.InputParser.InputParser;
 import org.tlgcohort.manvswild.LocationEngine.LocationEngine;
 import org.tlgcohort.manvswild.Things.Food;
-import org.tlgcohort.manvswild.Things.LocationPOJO;
+import org.tlgcohort.manvswild.Things.Location;
 import org.tlgcohort.manvswild.Things.Player;
 
 import java.io.IOException;
@@ -14,24 +14,35 @@ import java.util.List;
 public class Game {
 
     private static final String LOCATION_PATH = "src/main/resources/Locations.json";
-    private static LocationPOJO[] worldMap;
+    private static Location[] worldMap;
     private static Player player;
+    //private static List<Location> myMap;
 
     private Game(){
     }
 
     public static void InitGame(String playerName, int health) throws IOException {
         worldMap = LocationEngine.locationGenerator(LOCATION_PATH);
+
+        //convert array to list
+        //myMap = Arrays.asList(worldMap);
+
         player = new Player(playerName, health, worldMap[0]);
         System.out.println(Arrays.toString(worldMap));
 
-        Food apple = new Food("apple", 10);
-        player.backpack.add(apple);
+        //print each location in our map
+        int counter = 1;
+        for(Location location: worldMap){
+            System.out.println(counter + "). " + location);
+            counter++;
+        }
 
+        Food apple = new Food("apple", 10);
+        player.getBackpack().add(apple);
+        player.attack();
     }
 
     public static void StartGame() throws IOException {
-
         CommandEngine commandEngine = new CommandEngine(player);
         int progressionTracker = 0;
 
@@ -63,7 +74,7 @@ public class Game {
         }
     }
 
-    public static LocationPOJO[] getWorldMap() {
+    public static Location[] getWorldMap() {
         return worldMap;
     }
 

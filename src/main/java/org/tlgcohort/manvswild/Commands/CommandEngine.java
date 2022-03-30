@@ -16,13 +16,17 @@ public class CommandEngine {
 
     //Business Methods
     public void displayCommands() {
-        System.out.println("\nAvailable Commands:");
+        String commandMsg = "\n||======================================||" +
+                "\n     Available Commands:" +
+                "\n||======================================||";
+        System.out.println(commandMsg);
         for (Commands aCommand : commands) {
-            System.out.println(aCommand);
+            System.out.println("          " + aCommand);
         }
-        System.out.println("\n Enter Two Words [VERB] [NOUN] ");
+        System.out.println("||======================================||");
+        System.out.println("+----------------------------------------+");
+        System.out.println("    Enter Two Words [VERB] [NOUN]");
     }
-
 
     //processes an array of 1 Verb and 1 Noun
     public void commandProcessor(List<String> keywords) {
