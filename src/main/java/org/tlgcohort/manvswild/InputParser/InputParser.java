@@ -22,7 +22,7 @@ public class InputParser {
     public static List<String> handleWords() {
 
         activeWords();
-        //Stream through verbs
+        //Stream through verbs and store them as strings in a list
         List<String> vCommand = wordlist.entrySet()
                 .stream().filter(v -> v.getValue()
                         .equals(Word.VERB))
@@ -30,7 +30,7 @@ public class InputParser {
                 .collect(Collectors.toList());
         nounsnVerbs.addAll(vCommand);
 
-        //Stream through nouns
+        //Stream through nouns and store them as strings in a list
         List<String> nCommand = wordlist.entrySet()
                 .stream().filter(v -> v.getValue()
                         .equals(Word.NOUN))
