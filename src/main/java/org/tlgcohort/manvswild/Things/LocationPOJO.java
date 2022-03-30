@@ -6,18 +6,24 @@ public class LocationPOJO {
 
     String name;
     String desc;
+    List<Item> items;
+    List<Food>foods;
+    List<NPC>npc;
     String northExit;
     String southExit;
     String westExit;
     String eastExit;
-    List<Item> items;
 
     public LocationPOJO() {
     }
 
-    public LocationPOJO(String name, String desc, String northExit, String southExit, String westExit, String eastExit){
+    public LocationPOJO(String name, String desc, List<Item> items,
+                        List<Food> foods, List<NPC> npc, String northExit, String southExit, String westExit, String eastExit) {
         this.name = name;
         this.desc = desc;
+        this.items = items;
+        this.foods = foods;
+        this.npc = npc;
         this.northExit = northExit;
         this.southExit = southExit;
         this.westExit = westExit;
@@ -38,6 +44,30 @@ public class LocationPOJO {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public List<Food> getFoods() {
+        return foods;
+    }
+
+    public void setFoods(List<Food> foods) {
+        this.foods = foods;
+    }
+
+    public List<NPC> getNpc() {
+        return npc;
+    }
+
+    public void setNpc(List<NPC> npc) {
+        this.npc = npc;
     }
 
     public String getNorthExit() {
@@ -70,14 +100,6 @@ public class LocationPOJO {
 
     public void setEastExit(String eastExit) {
         this.eastExit = eastExit;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
     }
 
     @Override

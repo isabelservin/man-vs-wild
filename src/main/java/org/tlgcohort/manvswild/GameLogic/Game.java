@@ -13,7 +13,7 @@ import java.util.List;
 public class Game {
 
     private static final String BASECAMP_PATH =  "src/main/resources/Basecamp.json";
-
+    private static final String LOCATION_PATH = "src/main/resources/Locations.json";
     private static List<LocationPOJO> worldMap;
     private static Player player;
 
@@ -21,22 +21,24 @@ public class Game {
     }
 
     public static void InitGame(String playerName, int health) throws IOException {
-        //map json locations into Location objects
-        LocationPOJO loc1 = LocationEngine.locationGenerator(BASECAMP_PATH);
+        LocationPOJO[] loc1 = LocationEngine.locationGenerator(LOCATION_PATH);
 
-        //map inventory items to List of Item objs
-        List<Item> parsedItems = LocationEngine.inventoryGenerator(BASECAMP_PATH);
-
-        System.out.println("First Item in inventory:"+ parsedItems.get(0));
-
-        //set location with this list
-        loc1.setItems(parsedItems);
-
-        //System.out.println(loc1.getItems());
-        for(Item item : loc1.getItems()){
-            System.out.println("Item: " + item.getName() + " " + item.getPowerLevel());
-        }
-        System.out.println(loc1.getEastExit());
+//        //map json locations into Location objects
+//        LocationPOJO loc1 = LocationEngine.locationGenerator(BASECAMP_PATH);
+//
+//        //map inventory items to List of Item objs
+//        List<Item> parsedItems = LocationEngine.inventoryGenerator(BASECAMP_PATH);
+//
+//        System.out.println("First Item in inventory:"+ parsedItems.get(0));
+//
+//        //set location with this list
+//        loc1.setItems(parsedItems);
+//
+//        //System.out.println(loc1.getItems());
+//        for(Item item : loc1.getItems()){
+//            System.out.println("Item: " + item.getName() + " " + item.getPowerLevel());
+//        }
+//        System.out.println(loc1.getEastExit());
 
 //        worldMap = new ArrayList<>();
 //
@@ -45,7 +47,10 @@ public class Game {
 //        worldMap.add(new LocationPOJO("Forest", "", 3, Direction.NOEXIT, 1, Direction.NOEXIT));
 //        worldMap.add(new LocationPOJO("Caves", "", Direction.NOEXIT, 2, 0, Direction.NOEXIT));
 
-        player = new Player(playerName, health, loc1);
+        player = new Player(playerName, health, loc1[0]);
+        System.out.println(loc1[0].toString());
+        System.out.println(loc1[0].getItems().get(0).getName());
+        System.out.println(loc1[1].getItems().get(0).getName());
 
     }
 
