@@ -2,6 +2,7 @@
   {
     "name": "Basecamp",
     "desc": "a fireplace...",
+    "scripts" : ["You see nothing......"],
     "items": [
       {
         "name": "pot",
@@ -32,6 +33,7 @@
   {
     "name": "River",
     "desc": "has water...",
+    "scripts" : [],
     "items": [
       {
         "name": "Fishing Pole",
@@ -51,5 +53,33 @@
     "southExit": "",
     "eastExit": "",
     "westExit": "CrashSite"
-  }
+  },
+  {
+  "name": "Forest",
+  "desc": "A noisy forest, sounds of critters and animals fill the air, all you see to the north is more forest.\nTo the west is mountains, to the east seems to be a abandoned carnival, and the south is basecamp.\nThere seems to be a torch and a walking stick on the ground ahead. \n",
+  "scripts" : [
+         "You see red and blue berries on some bushes, they look yummy ! Maybe you can eat them ?" ,
+         "Those berries must of been poisonous, my stomach is killing me",
+         "     .{{}}}}}}.           .{{}}}}}}.\n    {{{{{{(`)}}}.        {{{{{{(`)}}}.\n   {{{(`)}}}}}}}}}      {{{(`)}}}}}}}}}\n  }}}}}}}}}{{(`){{{    }}}}}}}}}{{(`){{{\n  }}}}{{{{(`)}}{{{{    }}}}{{{{(`)}}{{{{\n {{{(`)}}}}}}}{}}}}}  {{{(`)}}}}}}}{}}}}}\n{{{{{{{{(`)}}}}}}}}}}{{{{{{{{(`)}}}}}}}}}}\n{{{{{{{}{{{{(`)}}}}}}{{{{{{{}{{{{(`)}}}}}}\n {{{{{(`)   {{{{(`)}' {{{{{(`)   {{{{(`)}'\n  `\"\"'\" |   | \"'\"'`    `\"\"'\" |   | \"'\"'`\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    "
+
+    ],
+    "items": [
+    {
+      "name": "torch",
+      "powerLevel": 30
+    },
+    {
+      "name": "stick",
+      "powerLevel": 20
+    }
+  ],
+  "foods": [{
+    "name": "berries",
+    "healthPoints": -10
+  }],
+  "northExit": "No Exit",
+  "southExit": "BaseCamp",
+  "eastExit": "Carnival",
+  "westExit": "Mountains"
+}
 ]
