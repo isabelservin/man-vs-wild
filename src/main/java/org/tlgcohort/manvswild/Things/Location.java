@@ -11,6 +11,7 @@ public class Location {
     private List<Food>foods;
     private NPC npc;
     private Boolean hasNPC = false;
+    private String[] scripts;
 
     private String northExit;
     private String southExit;
@@ -21,12 +22,13 @@ public class Location {
     }
 
     public Location(String name, String desc, List<Item> items,
-                    List<Food> foods, NPC npc, String northExit, String southExit, String westExit, String eastExit) {
+                    List<Food> foods, NPC npc, String[] scripts, String northExit, String southExit, String westExit, String eastExit) {
         this.name = name;
         this.desc = desc;
         this.items = items;
         this.foods = foods;
         this.npc = npc;
+        this.scripts = scripts;
         this.northExit = northExit;
         this.southExit = southExit;
         this.westExit = westExit;
@@ -106,14 +108,24 @@ public class Location {
         return eastExit;
     }
 
+    public String[] getScripts() {
+        return scripts;
+    }
+
+    public void setScripts(String[] scripts) {
+        this.scripts = scripts;
+    }
+
     @Override
     public String toString() {
-        return "LocationPOJO{" +
+        return "Location{" +
                 "name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
                 ", items=" + items +
                 ", foods=" + foods +
                 ", npc=" + npc +
+                ", hasNPC=" + hasNPC +
+                ", scripts=" + scripts +
                 ", northExit='" + northExit + '\'' +
                 ", southExit='" + southExit + '\'' +
                 ", westExit='" + westExit + '\'' +

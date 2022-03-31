@@ -14,6 +14,7 @@ public class Player {
     private List<Food> backpack = new ArrayList<>();
     private Location currLocation;
     private int power = 5;
+    private int eventCount = 0;
 
     public Player(String name, int health, Location currLocation) {
         this.name = name;
@@ -39,6 +40,7 @@ public class Player {
                 System.out.println(currLocation.getNpc().getName() + " health AFTER damage: " + currLocation.getNpc().getHealth());
 
                 System.out.println(name + " attacked " + currLocation.getNpc().getName() + "!!");
+                setEventCount(3);
             } else{
                 System.out.println(currLocation.getNpc().getName() + " is already dead. Calm down killer.");
             }
@@ -60,6 +62,7 @@ public class Player {
             }
             }
         setCurrLocation(getWorldMap()[newLocationIndex]);
+        setEventCount(3);
         }
         else{
             System.out.println("\nYou cannot go there.....\n");
@@ -80,6 +83,7 @@ public class Player {
         System.out.println("\nEat food? <enter a number?");
         int choice = scanner.nextInt();
         setHealth(health+backpack.get(choice-1).getHealthPoints());
+        setEventCount(2);
     }
 
     public String getName() {
@@ -112,6 +116,14 @@ public class Player {
 
     public void setCurrLocation(Location currLocation) {
         this.currLocation = currLocation;
+    }
+
+    public int getEventCount() {
+        return eventCount;
+    }
+
+    public void setEventCount(int eventCount) {
+        this.eventCount = eventCount;
     }
 
     @Override
