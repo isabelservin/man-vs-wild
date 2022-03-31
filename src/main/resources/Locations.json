@@ -1,0 +1,55 @@
+[
+  {
+    "name": "Basecamp",
+    "desc": "a fireplace...",
+    "items": [
+      {
+        "name": "pot",
+        "powerLevel": 0
+      },
+      {
+        "name": "matches",
+        "powerLevel": 0
+      },
+      {
+        "name": "knife",
+        "powerLevel": 10
+      },
+      {
+        "name": "firewood",
+        "powerLevel": 0
+      }
+    ],
+    "foods": [{
+      "name": "mushrooms",
+      "healthPoints": 2
+    }],
+    "northExit": "Forest",
+    "southExit": "River",
+    "eastExit": "Coal Mine",
+    "westExit": "Cave"
+  },
+  {
+    "name": "River",
+    "desc": "has water...",
+    "items": [
+      {
+        "name": "Fishing Pole",
+        "powerLevel": 0
+      }
+    ],
+    "foods": [{
+      "name": "Fish",
+      "healthPoints": 5
+    }],
+    "npc": {
+      "name":"Bat",
+      "health": 20,
+      "attackPoints": 5
+    },
+    "northExit": "Basecamp",
+    "southExit": "",
+    "eastExit": "",
+    "westExit": "CrashSite"
+  }
+]
