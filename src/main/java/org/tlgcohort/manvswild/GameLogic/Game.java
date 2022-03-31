@@ -53,6 +53,7 @@ public class Game {
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("forest")){
                 System.out.println(player.getCurrLocation().getDesc());
+                System.out.println(player.getCurrLocation().getScripts()[2]);
                 System.out.println(player.getCurrLocation().getScripts()[0]);
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());

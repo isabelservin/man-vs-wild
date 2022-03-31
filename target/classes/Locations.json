@@ -2,7 +2,8 @@
   {
     "name": "Basecamp",
     "desc": "a fireplace...",
-    "scripts" : ["You see nothing......"],
+    "scripts" : ["\u001B[0;94m You see nothing...... \u001B[0m"],
+
     "items": [
       {
         "name": "pot",

@@ -1,4 +1,5 @@
 package org.tlgcohort.manvswild.Commands;
+import org.tlgcohort.manvswild.Things.Color;
 import org.tlgcohort.manvswild.Things.Player;
 import java.util.List;
 
@@ -21,9 +22,9 @@ public class CommandEngine {
                 "\n||======================================||";
         System.out.println(commandMsg);
         for (Commands aCommand : commands) {
-            System.out.println("          " + aCommand);
+            System.out.print("[" + Color.RED + aCommand + Color.RESET +"]");
         }
-        System.out.println("||======================================||");
+        System.out.println("\n||======================================||");
         System.out.println("+----------------------------------------+");
         System.out.println("    Enter Two Words [VERB] [NOUN]");
     }
