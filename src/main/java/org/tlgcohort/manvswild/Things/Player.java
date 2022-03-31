@@ -11,10 +11,11 @@ public class Player {
 
     private String name;
     private int health;
-    public List<Food> backpack = new ArrayList<>();
-    private LocationPOJO currLocation;
+    private List<Food> backpack = new ArrayList<>();
+    private Location currLocation;
+    private int power = 5;
 
-    public Player(String name, int health, LocationPOJO currLocation) {
+    public Player(String name, int health, Location currLocation) {
         this.name = name;
         this.health = health;
         this.currLocation = currLocation;
@@ -28,11 +29,29 @@ public class Player {
         return stats;
     }
 
+    public void attack(){
+        if (currLocation.presentNPC() && health > 0){
+            if (currLocation.getNpc().getHealth() > 0){
+                System.out.println(currLocation.getNpc().getName() + " health BEFORE damage: " + currLocation.getNpc().getHealth());
+                int opponentDamage = currLocation.getNpc().getHealth() - power;
+                currLocation.getNpc().setHealth(opponentDamage);
+
+                System.out.println(currLocation.getNpc().getName() + " health AFTER damage: " + currLocation.getNpc().getHealth());
+
+                System.out.println(name + " attacked " + currLocation.getNpc().getName() + "!!");
+            } else{
+                System.out.println(currLocation.getNpc().getName() + " is already dead. Calm down killer.");
+            }
+        } else{
+            System.out.println("There is nothing to attack, goofy.");
+        }
+    }
+
     // takes all exits from current location and compares the user input to find a match, if so , then changes location to user input...
     public void move(String newLocation){
 
         int newLocationIndex = -1;
-        if(currLocation.allExistsGenerator().contains(newLocation)){
+        if(currLocation.allExitsGenerator().contains(newLocation)){
             System.out.println("Going to " + newLocation);
         for (int i = 0; i < getWorldMap().length; i++){
             if (getWorldMap()[i].getName().toLowerCase().equals(newLocation)){
@@ -87,11 +106,11 @@ public class Player {
         this.backpack = backpack;
     }
 
-    public LocationPOJO getCurrLocation() {
+    public Location getCurrLocation() {
         return currLocation;
     }
 
-    public void setCurrLocation(LocationPOJO currLocation) {
+    public void setCurrLocation(Location currLocation) {
         this.currLocation = currLocation;
     }
 
