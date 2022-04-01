@@ -75,22 +75,6 @@ public class Game {
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("Cole Mine")){
-                System.out.println("The Cole Mine has Gold..........");
-                System.out.println(player.getCurrLocation().getDesc());
-                System.out.println(player.getCurrLocation().getScripts()[2]);
-                System.out.println(player.getCurrLocation().getScripts()[0]);
-                commandEngine.displayCommands();
-                commandEngine.commandProcessor(InputParser.parseInput());
-            }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("Crash Site")){
-                System.out.println("What have we here???...");
-                System.out.println(player.getCurrLocation().getDesc());
-                System.out.println(player.getCurrLocation().getScripts()[2]);
-                System.out.println(player.getCurrLocation().getScripts()[0]);
-                commandEngine.displayCommands();
-                commandEngine.commandProcessor(InputParser.parseInput());
-            }
 
             if(player.getEventCount() == 10){
                 progressionTracker++;

@@ -109,7 +109,6 @@
     "westExit": "River"
   },
 
-
   {
     "name": "Coal Mine",
     "desc": "The mine looks abandoned... \nthere are old bottles thrown at the entrance of the mine as if someone was trying to keep people out....Hmmmmmm.",
@@ -119,10 +118,10 @@
       "There is a dark presence at the entrance of the cave....Hmmm, but there could be tools in there ",
       "As you enter the CoalMine you see an Axe and some more cans of food ... Hmmmm",
       "from past experiences you have learned where there is food there (pause) is yikes....",
-      "that looks like an old man, he should be harmless (with c'mon bruh face) you walk closer and \nto your surprise he is says howdy friend",
-      "The old Coal Miner offers you a drink of water and you accept, \nbut before you can drink it you start feeling sleepy....",
-      " Have you drugged me (with the really bruh!! face) the Old Miner says (in pirate voice) you come after me gold \nthen walks away to get somethin, but what is he getting....?",
-      "This is my chance to run but which way, how about towards the light(70s Batman music) as you run : choose exit N,S or E"
+      "that looks like an old man, he should be harmless (with c'mon bruh face) you walk closer and \nto your surprise he says howdy friend",
+      "The old Coal Miner offers you a drink of water and you accept, \nbut before you can finish it you start feeling sleepy....",
+      " Have you drugged me (with the really bruh!! face)? the Old Miner says (in pirate voice) you come after me gold \nthen walks away to get something, but what is he getting....?",
+      "This is my chance to run but which way, how about towards the light(with 70s Batman music playing) as you run : choose exit N,S or E"
 
     ],
 
@@ -155,11 +154,11 @@
   },
   {
     "name": "Crash Site",
-    "desc": "Plane wreckage on the hillside for a mile with the stench of roting bodies,\ntheres the north and east exits are the only way off this hill side.",
+    "desc": "Plane wreckage on the hillside for a mile with the stench of roting bodies,\n the north and east exits are the only way off this hill side.",
     "scripts" : [
 
-      "There are bodies everywhere you need to get away from this area \nbefore Wild animals come looking for food ",
-      "There is a sound coming from under the wing of the plane could there be survivors.......?",
+      "There are bodies everywhere, you need to get away from this area \nbefore Wild animals come looking for food ",
+      "There is a sound coming from under the wing of the plane, could there be survivors.......?",
       " as you lift up the wreckage you see a Wild Dog...... yikes(Ohhh Lord face) \ndo you run east to base camp or attack?",
       "Help Help Help....."
 

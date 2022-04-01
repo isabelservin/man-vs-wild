@@ -107,5 +107,80 @@
     "southExit": "",
     "eastExit": "",
     "westExit": "River"
+  },
+
+  {
+    "name": "Coal Mine",
+    "desc": "The mine looks abandoned... \nthere are old bottles thrown at the entrance of the mine as if someone was trying to keep people out....Hmmmmmm.",
+    "images": ["\n                  ........                                                                                        \n                                                                                                .....',,,,,,,'........                                                                                  \n                                                                                             ........';::;;;,'..........                                                                                \n                                                                                       ..........',,,,,:l:'',;;,,;;'.......                                                                             \n                                                                                    ...'''''''''',,,,,,;lollc::;,,'..........                                                                           \n                                                                                  .',,,,,,,,,,,,,,,,,,,';dkxkx:'.........,'.'..                                                                         \n                                                                                .,;,,;;;;;;;;;;,,,;;;;;;,:xkkOko::cc::cc:,'.'..                                                                         \n                                                                              .',;;;;;:::::::;::;;;;;;::;;lkkkOOOkdl:;;,'....                                                                           \n                                                                             .,;;::::cccccccccccc:::::::cccoddocc::;'....                                                                               \n                                                                            .;:::cclllccclllllllllcc::::clc::;,,'''....     ........                                                                    \n                                                                           .,:cclloooolooodxxkdlllllccc:::;,,''....    ..............                                                                   \n                                                                           .;:cclooodxxkkkOOkkxoc:::;;,,,'.....     .',,''......                                                                        \n                                                                          .,;:llloddxkxxxdool::;,,''''''..    ....',;;,..                                                                               \n                                                                       .,;:cclooodolc:::c::cllool:;,'....  .';;,,,;;,..                                                                                 \n                                                            ....',,'',;:c::c::ccccccodoolclooc:;'.     .';::;,',::;'.                                                                                   \n                                                        ..,;;:::cc:;',,,',,,;coolc:;;;,..     ....';::loolc;,',::,.           ..........                                                                \n                                               ..... .',:;;;;::::'.   .. ..,:;,..   ...',,;:clldxxkkxxoollllc:;,.          ....''.........                                                              \n                                            ..,;;,;,'..,;;;;;:::;'..       .....';:lodddxxdxddddkOxdooooolc;'.            .......''''.  ...                                                             \n                                           .',,,,,;;;;'..,;;,,,,,'..      ...'codooodxxxdxxkxkOooddool:,..             ....... .,cc,'..  ...                                                            \n                                           .';lo;,;;;;;,...,,,,''.....   .;::colcllddooodddolll:;;'...              .......... .,;;,'...   ..                                                           \n                                            .;dK0o:;;;;;,. .,;,,,'''..   .;:;cooodxdolllolc;,...            .....'...............;;','..   ...                                                          \n                                             .:kNNOo:;;;,,.  .','...      ',':ooddooodl:,..           ...',;::;;,'...............;c:;,'..                                                               \n                                             .'cONWKd:;,,,'.   ..          .,loddol:,..         ..',,;:::::::;;;,'..........'''.';ll:,'..                                                               \n                                              ..:kXWXd;,,'''.              'loc:,.          ..,;ccc:::;;;:;;::;;,,.........'''',.';;'..'.                                                               \n                                                .;o0NXo,'....           .',,'.           .';ccccc::;;;;;,,;;;::;;,'.',''''''''''....'.'..                                                               \n                                                 .':dKO:....         .''..             .,;ccc:::::;,'''',;:cc::;,;;;;;,'''''.'''.'..','.                                                                \n                                                   .':ol.    ..   .''..              .,::;;;;,;;;,'...',;:clc:;;;;::::;,,,,'''''.''.''.                                                                 \n                                                     .',.       ....                .,;,,,'..''......',;;::cc:;::::::;;,,,,'''''.''...                                                                  \n                                                               ..                 .',,,'..  ...,;,,'',;;::;;:cccc:::;,,;,,''''''..'...  .                                                               \n                                                               .                  .,,,,,'...'..;;,,''',:cccccllcc:;;;;;,,''',,''........    ...                                                         \n                                                                                  .','',:cc:,'',,''''',;;:clllc:;;;;;;,,''',,,''........  .....                                                         \n                                                                                   .'...'col:;::c::;;;;ccclllc:;,,;::;;,'''''''........  .....                                                          \n                                                                                        .'cc:clccc:;;,,cdddoc:;,,,,;;;,,''''''........  .....                                                           \n                                                                                         .:c:::;,,',,'..;:lolc:;,'',,,,'',,'........ . .....                                                            \n                                                                                         .,:;,,''..''......',,;;;,'',,,',,,.........  .....                                                             \n                                                                                          .,,,''''''...',,,'',;:::;,,''',,'..... ..   ....                                                              \n                                                                                          .'',,,''....',;;,,,,,;:c:;,'.'''......     ....                                                               \n                                                                                          ..',''.  ..',,',,,,',,,;;,''.........      ...                                                                \n                                                                                           ..'..   ....'',;;,,,,;,;:;'......         ...                                                                \n                                                                                                    ..'',;:;,,,,,,;c:,'.....        ..                                                                  \n                                                                                                     ...,;,''',,,',cl;......        .                                                                   \n                                                                                                        .......''.':c;.....         ..                                                                  \n                                                                                                            ......,c:'...           .                                                                   \n                                                                                                            .....',;'.             .                                                                    \n                                                                                                              ..','..             .                                                                     \n                                                                                                               ....                                            \n\nThe Old Miner         "],
+    "scripts" : [
+
+      "There is a dark presence at the entrance of the cave....Hmmm, but there could be tools in there ",
+      "As you enter the CoalMine you see an Axe and some more cans of food ... Hmmmm",
+      "from past experiences you have learned where there is food there (pause) is yikes....",
+      "that looks like an old man, he should be harmless (with c'mon bruh face) you walk closer and \nto your surprise he says howdy friend",
+      "The old Coal Miner offers you a drink of water and you accept, \nbut before you can finish it you start feeling sleepy....",
+      " Have you drugged me (with the really bruh!! face)? the Old Miner says (in pirate voice) you come after me gold \nthen walks away to get something, but what is he getting....?",
+      "This is my chance to run but which way, how about towards the light(with 70s Batman music playing) as you run : choose exit N,S or E"
+
+    ],
+
+    "items": [
+      {
+        "name": "Glass",
+        "powerLevel": 0
+      },
+      {
+        "name": "Chair",
+        "powerLevel": 0
+      },
+      {
+        "name": "Axe",
+        "powerLevel": 10
+      },
+      {
+        "name": "Gold",
+        "powerLevel": 0
+      }
+    ],
+    "NPC": [{
+      "name": "Old Coal Miner",
+      "powerlevel": 20
+    }],
+    "northExit": "Abandoned Carnival",
+    "southExit": "River",
+    "eastExit": "",
+    "westExit": "Base Camp"
+  },
+  {
+    "name": "Crash Site",
+    "desc": "Plane wreckage on the hillside for a mile with the stench of roting bodies,\n the north and east exits are the only way off this hill side.",
+    "scripts" : [
+
+      "There are bodies everywhere, you need to get away from this area \nbefore Wild animals come looking for food ",
+      "There is a sound coming from under the wing of the plane, could there be survivors.......?",
+      " as you lift up the wreckage you see a Wild Dog...... yikes(Ohhh Lord face) \ndo you run east to base camp or attack?",
+      "Help Help Help....."
+
+    ],
+    "items": [
+      {
+        "name": "Radio(Playing Oldies)",
+        "powerLevel": 0
+      }
+    ],
+    "foods": [{
+      "name": "MRE's",
+      "healthPoints": 5
+    }],
+    "npc": {
+      "name":"Wild Dog",
+      "health": 20,
+      "attackPoints": 5
+    },
+    "northExit": "Cave",
+    "southExit": "No Exit",
+    "eastExit": "River",
+    "westExit": "No Exit"
   }
 ]
