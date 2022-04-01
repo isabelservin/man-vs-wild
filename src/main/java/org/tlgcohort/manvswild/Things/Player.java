@@ -13,6 +13,7 @@ public class Player implements Serializable {
     private String name;
     private int health = 50;
     private List<Food> backpack = new ArrayList<>();
+    private List<Item> toolBackpack = new ArrayList<>();
     private Location currLocation;
     private int power = 5;
     private int progressionTracker = 0;
@@ -35,7 +36,7 @@ public class Player implements Serializable {
     private String displayPlayerStats(){
         String stats;
         stats = "\n||=========================================================================================================================||\n" +
-                "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() + "    Backpack: " + getBackpack() +
+                "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() + "    Backpack: " + getBackpack() + getToolBackpack() +
                 "\n||=========================================================================================================================||";
         return stats;
     }
@@ -104,6 +105,24 @@ public class Player implements Serializable {
         setEventCount(2);
     }
 
+    public void get(String item) {
+
+        try {
+            int newLocationIndex = -1;
+            for (int i = 0; i < currLocation.getItems().size(); i++) {
+                if (currLocation.getItems().get(i).getName().toLowerCase().equals(item)) {
+                    newLocationIndex = i;
+                    break;
+                }
+            }
+            toolBackpack.add(currLocation.getItems().get(newLocationIndex));
+            setEventCount(1);
+        } catch (Exception e) {
+            System.out.println("\nYou cannot get that....\n");
+        }
+    }
+
+
     public String getName() {
         return name;
     }
@@ -150,6 +169,14 @@ public class Player implements Serializable {
 
     public int getProgressionTracker() {
         return progressionTracker;
+    }
+
+    public List<Item> getToolBackpack() {
+        return toolBackpack;
+    }
+
+    public void setToolBackpack(List<Item> toolBackpack) {
+        this.toolBackpack = toolBackpack;
     }
 
     @Override

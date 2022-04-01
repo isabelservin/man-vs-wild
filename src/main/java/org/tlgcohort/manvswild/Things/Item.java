@@ -24,9 +24,6 @@ public class Item implements Serializable {
 
     @Override
     public String toString() {
-        return "Inventory{" +
-                "name='" + name + '\'' +
-                ", powerLevel=" + powerLevel +
-                '}';
+        return  name + " : "+ powerLevel;
     }
 }

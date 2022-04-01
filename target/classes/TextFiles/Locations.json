@@ -58,8 +58,9 @@
   "desc": "A noisy forest, sounds of critters and animals fill the air, all you see to the north is more forest.\nTo the west is mountains, to the east seems to be a abandoned carnival, and the south is basecamp.\nThere seems to be a torch and a walking stick on the ground ahead. \n",
   "scripts" : [
          "You see red and blue berries on some bushes, they look yummy ! Maybe you can eat them ?" ,
-         "Those berries must of been poisonous, my stomach is killing me",
-         "\u001B[0;32m     .{{}}}}}}.           .{{}}}}}}.\n    {{{{{{(`)}}}.        {{{{{{(`)}}}.\n   {{{(`)}}}}}}}}}      {{{(`)}}}}}}}}}\n  }}}}}}}}}{{(`){{{    }}}}}}}}}{{(`){{{\n  }}}}{{{{(`)}}{{{{    }}}}{{{{(`)}}{{{{\n {{{(`)}}}}}}}{}}}}}  {{{(`)}}}}}}}{}}}}}\n{{{{{{{{(`)}}}}}}}}}}{{{{{{{{(`)}}}}}}}}}}\n{{{{{{{}{{{{(`)}}}}}}{{{{{{{}{{{{(`)}}}}}}\n {{{{{(`)   {{{{(`)}' {{{{{(`)   {{{{(`)}\u001B[0m'\n  `\"\"'\" |   | \"'\"'`    `\"\"'\" |   | \"'\"'`\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    "
+         "It looks like there is a torch on the floor and a walking stick....",
+    "\u001B[0;32m     .{{}}}}}}.           .{{}}}}}}.\n    {{{{{{(`)}}}.        {{{{{{(`)}}}.\n   {{{(`)}}}}}}}}}      {{{(`)}}}}}}}}}\n  }}}}}}}}}{{(`){{{    }}}}}}}}}{{(`){{{\n  }}}}{{{{(`)}}{{{{    }}}}{{{{(`)}}{{{{\n {{{(`)}}}}}}}{}}}}}  {{{(`)}}}}}}}{}}}}}\n{{{{{{{{(`)}}}}}}}}}}{{{{{{{{(`)}}}}}}}}}}\n{{{{{{{}{{{{(`)}}}}}}{{{{{{{}{{{{(`)}}}}}}\n {{{{{(`)   {{{{(`)}' {{{{{(`)   {{{{(`)}\u001B[0m'\n  `\"\"'\" |   | \"'\"'`    `\"\"'\" |   | \"'\"'`\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    ",
+    "Those berries must of been poisonous, my stomach is killing me"
 
     ],
     "items": [
