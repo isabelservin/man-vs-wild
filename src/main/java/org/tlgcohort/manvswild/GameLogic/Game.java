@@ -72,6 +72,7 @@ public class Game {
                 player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getScripts()[2]);
                 System.out.println(player.getCurrLocation().getScripts()[0]);
+                System.out.println(player.getCurrLocation().getScripts()[1]);
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
