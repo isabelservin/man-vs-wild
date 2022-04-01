@@ -23,10 +23,11 @@ public class Game {
     }
 
     public static void InitGame(String playerName, int health) throws IOException {
-        worldMap = LocationEngine.locationGenerator(LOCATION_PATH);
+        worldMap = LocationEngine.locationGenerator();
         player = new Player(playerName, health,progressionTracker, worldMap[0]);
         Food apple = new Food("apple", 10);
         player.getBackpack().add(apple);
+
 /*
       convert array to list
       myMap = Arrays.asList(worldMap);
@@ -44,26 +45,31 @@ public class Game {
 
     public static void StartGame() throws IOException {
         CommandEngine commandEngine = new CommandEngine(player);
+        int progressionTracker = 0;
 
         while (!(progressionTracker == 2)) {
+
             if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")){
+                System.out.println(displayMsg());
                 System.out.println(player.getCurrLocation().getScripts()[0]);
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
+                System.out.println(displayMsg());
                 System.out.println("You are at the " + player.getCurrLocation().getName());
                 System.out.println(player.getCurrLocation().getDesc());
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")){
+                System.out.println(displayMsg());
                 System.out.println(player.getCurrLocation().getDesc());
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("forest")){
-                System.out.println(player.getCurrLocation().getDesc());
+                System.out.println(displayMsg());
                 System.out.println(player.getCurrLocation().getScripts()[2]);
                 System.out.println(player.getCurrLocation().getScripts()[0]);
                 commandEngine.displayCommands();

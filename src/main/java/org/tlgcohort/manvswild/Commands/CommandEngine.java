@@ -36,19 +36,34 @@ public class CommandEngine {
                 //TODO Add try catch block
         switch (keywords.get(0).toLowerCase()) {
             case "look":
-                lookCommand(keywords.get(1).toLowerCase());
+                try{lookCommand(keywords.get(1).toLowerCase());}
+                catch(Exception e){
+                    System.out.println("Try to two words");
+                }
                 break;
             case "talk":
-                talkCommand(keywords.get(1).toLowerCase());
+                try{talkCommand(keywords.get(1).toLowerCase());}
+                catch(Exception e){
+                System.out.println("Try to two words");
+            }
                 break;
             case "get":
-                getCommand(keywords.get(1).toLowerCase());
+                try{getCommand(keywords.get(1).toLowerCase());}
+                catch(Exception e){
+                System.out.println("Try to two words");
+            }
                 break;
             case "heal": //TODO Must refactor to account for the second user input
-                player.heal();
+                try{player.heal();}
+                catch(Exception e){
+                System.out.println("Try to two words");
+            }
                 break;
             case "go":
-                goCommand(keywords.get(1).toLowerCase());
+                try{goCommand(keywords.get(1).toLowerCase());}
+                catch(Exception e){
+                System.out.println("Try to two words");
+            }
                 break;
             case "save":
                 System.out.println("Saving game...");
@@ -63,6 +78,7 @@ public class CommandEngine {
 //                mapCommand();
 //                break;
             default:
+                System.out.println("Try two words");
                 break;
         }
     }
