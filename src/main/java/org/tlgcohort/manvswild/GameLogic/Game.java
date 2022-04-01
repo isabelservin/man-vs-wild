@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Game {
 
-    private static final String LOCATION_PATH = "src/main/resources/Locations.json";
+    private static final String LOCATION_PATH = "/Locations.json";
     private static Location[] worldMap;
     private static Player player;
     static int progressionTracker = 0;
@@ -72,6 +72,7 @@ public class Game {
                 player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getScripts()[2]);
                 System.out.println(player.getCurrLocation().getScripts()[0]);
+                System.out.println(player.getCurrLocation().getScripts()[1]);
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }

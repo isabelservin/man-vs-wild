@@ -48,7 +48,8 @@ public class CommandEngine {
             }
                 break;
             case "get":
-                try{getCommand(keywords.get(1).toLowerCase());}
+                try{player.get(keywords.get(1).toLowerCase());}
+//                    getCommand(keywords.get(1).toLowerCase());}
                 catch(Exception e){
                 System.out.println("Try to two words");
             }
