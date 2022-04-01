@@ -81,6 +81,27 @@
   "southExit": "BaseCamp",
   "eastExit": "Carnival",
   "westExit": "Mountains"
+},{
+  "name": "Mountains",
+  "desc": "A rocky mountain, the sound of branches brushing againt one another is all you hear.\nTo the east there is a green forest, and to the south there is a mysterious looking cave.\n There seems to be a hunting rifle here, can someone else possibly here? ",
+  "scripts" : [
+    "All there is to eat here is some mushrooms, not knowing if they are good for you or not",
+    "It looks like there is a hunting rifle with ammo"
+  ],
+  "items": [
+    {
+      "name": "Hunting Rifle",
+      "powerLevel": 30
+    }
+  ],
+  "foods": [{
+    "name": "Mushroom",
+    "healthPoints": 1
+  }],
+  "northExit": "",
+  "southExit": "Cave",
+  "eastExit": "Forest",
+  "westExit": ""
 },
   {
     "name": "Waterfall",
