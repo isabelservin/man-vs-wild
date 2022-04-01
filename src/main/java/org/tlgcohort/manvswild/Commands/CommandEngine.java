@@ -1,7 +1,9 @@
 package org.tlgcohort.manvswild.Commands;
+import org.tlgcohort.manvswild.GameLogic.SaveGame;
 import org.tlgcohort.manvswild.Things.Color;
 import org.tlgcohort.manvswild.Things.Player;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class CommandEngine {
@@ -48,6 +50,11 @@ public class CommandEngine {
             case "go":
                 goCommand(keywords.get(1).toLowerCase());
                 break;
+            case "save":
+                System.out.println("Saving game...");
+                SaveGame saveGame = new SaveGame();
+                saveGame.saving(player);
+                break;
                 //TODO Do we need these commands?
 //            case "tools":
 //                toolsCommand();
@@ -64,11 +71,38 @@ public class CommandEngine {
     private void lookCommand(String item) {
 
         switch (item.toLowerCase()) {
-            case "can":
-                System.out.println("Beans, Beans and Beans");
-                break;
             case "north":
-                System.out.println("I can see a river ahead....");
+                if(player.getCurrLocation().getNorthExit().isEmpty()){
+                    System.out.println("I see nothing");
+                }
+                else{
+                    System.out.println("North Exit: " + player.getCurrLocation().getNorthExit());
+                }
+                break;
+            case "south":
+                if(player.getCurrLocation().getSouthExit().isEmpty()){
+                    System.out.println("I see nothing");
+                }
+                else{
+                    System.out.println("South Exit: " + player.getCurrLocation().getSouthExit());
+                }
+                break;
+            case "east":
+                if(player.getCurrLocation().getEastExit().isEmpty()){
+                    System.out.println("I see nothing");
+                }
+                else{
+                    System.out.println("East Exit: " + player.getCurrLocation().getEastExit());
+                }
+                break;
+            case "west":
+                if(player.getCurrLocation().getWestExit().isEmpty()){
+                    System.out.println("I see nothing");
+                }
+                else{
+                    System.out.println("West Exit: " + player.getCurrLocation().getWestExit());
+                }
+
                 break;
             default:
                 // code block

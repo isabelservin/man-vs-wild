@@ -33,8 +33,11 @@
   },
   {
     "name": "River",
-    "desc": "has water...",
-    "scripts" : [],
+    "desc": "It is very peaceful here at the river...the sound of the water is relaxing.",
+    "scripts" : [
+      "Suddenly it starts to smell a lot like fish and as I keep walking, there it is... a river!!",
+      "I know if I can find some sort of tool I can hunt for these fish and eat some real food"
+    ],
     "items": [
       {
         "name": "Fishing Pole",
@@ -45,14 +48,9 @@
       "name": "Fish",
       "healthPoints": 5
     }],
-    "npc": {
-      "name":"Bat",
-      "health": 20,
-      "attackPoints": 5
-    },
     "northExit": "Basecamp",
     "southExit": "",
-    "eastExit": "",
+    "eastExit": "waterfall",
     "westExit": "CrashSite"
   },
   {
@@ -82,5 +80,32 @@
   "southExit": "BaseCamp",
   "eastExit": "Carnival",
   "westExit": "Mountains"
-}
+},
+  {
+    "name": "Waterfall",
+    "desc": "The end of the river",
+    "scripts": [
+      "Finally, I got to the end of the river and it ends in this beautiful waterfall...",
+      "Wait... that does not look like a rock...its a sleeping hippo! Don't think I want to attack that right now..."
+    ],
+    "items": [
+      {
+        "name": "spear",
+        "powerLevel": 2
+      }
+    ],
+    "foods": [{
+      "name": "Frog",
+      "healthPoints": 5
+    }],
+    "npc": {
+      "name":"Hippo",
+      "health": 50,
+      "attackPoints": 10
+    },
+    "northExit": "Coal Mine",
+    "southExit": "",
+    "eastExit": "",
+    "westExit": "River"
+  }
 ]

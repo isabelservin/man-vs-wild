@@ -1,5 +1,6 @@
 package org.tlgcohort.manvswild.Things;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,19 +8,24 @@ import java.util.Scanner;
 import static org.tlgcohort.manvswild.GameLogic.Game.getWorldMap;
 
 
-public class Player {
+public class Player implements Serializable {
 
     private String name;
     private int health;
     private List<Food> backpack = new ArrayList<>();
     private Location currLocation;
     private int power = 5;
+    private int progressionTracker = 0;
     private int eventCount = 0;
 
-    public Player(String name, int health, Location currLocation) {
+    public Player(String name, int health, int progressionTracker,Location currLocation) {
         this.name = name;
         this.health = health;
         this.currLocation = currLocation;
+    }
+
+    public Player() {
+
     }
 
     public String displayPlayerStats(){
@@ -124,6 +130,14 @@ public class Player {
 
     public void setEventCount(int eventCount) {
         this.eventCount = eventCount;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public int getProgressionTracker() {
+        return progressionTracker;
     }
 
     @Override

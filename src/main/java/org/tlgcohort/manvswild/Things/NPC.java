@@ -1,6 +1,8 @@
 package org.tlgcohort.manvswild.Things;
 
-public class NPC {
+import java.io.Serializable;
+
+public class NPC implements Serializable {
     private String name;
     private int health;
     private int attackPoints;

@@ -16,6 +16,7 @@ public class Game {
     private static final String LOCATION_PATH = "src/main/resources/Locations.json";
     private static Location[] worldMap;
     private static Player player;
+    static int progressionTracker = 0;
     //private static List<Location> myMap;
 
     private Game(){
@@ -23,7 +24,7 @@ public class Game {
 
     public static void InitGame(String playerName, int health) throws IOException {
         worldMap = LocationEngine.locationGenerator(LOCATION_PATH);
-        player = new Player(playerName, health, worldMap[0]);
+        player = new Player(playerName, health,progressionTracker, worldMap[0]);
         Food apple = new Food("apple", 10);
         player.getBackpack().add(apple);
 /*
@@ -43,11 +44,21 @@ public class Game {
 
     public static void StartGame() throws IOException {
         CommandEngine commandEngine = new CommandEngine(player);
-        int progressionTracker = 0;
 
         while (!(progressionTracker == 2)) {
             if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")){
                 System.out.println(player.getCurrLocation().getScripts()[0]);
+                commandEngine.displayCommands();
+                commandEngine.commandProcessor(InputParser.parseInput());
+            }
+            if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
+                System.out.println("You are at the " + player.getCurrLocation().getName());
+                System.out.println(player.getCurrLocation().getDesc());
+                commandEngine.displayCommands();
+                commandEngine.commandProcessor(InputParser.parseInput());
+            }
+            if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")){
+                System.out.println(player.getCurrLocation().getDesc());
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
@@ -81,6 +92,7 @@ public class Game {
     public static Location[] getWorldMap() {
         return worldMap;
     }
+
 
     private static String displayMsg(){
         String msg;

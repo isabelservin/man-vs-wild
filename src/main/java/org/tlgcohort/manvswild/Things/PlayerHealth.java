@@ -1,7 +1,9 @@
 package org.tlgcohort.manvswild.Things;
 import org.tlgcohort.manvswild.Things.Player;
 
-public class PlayerHealth {
+import java.io.Serializable;
+
+public class PlayerHealth implements Serializable {
 
 
     //Fields
