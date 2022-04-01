@@ -22,9 +22,9 @@ public class Game {
     private Game(){
     }
 
-    public static void InitGame(String playerName, int health) throws IOException {
+    public static void InitGame(String playerName) throws IOException {
         worldMap = LocationEngine.locationGenerator();
-        player = new Player(playerName, health,progressionTracker, worldMap[0]);
+        player = new Player(playerName, progressionTracker, worldMap[0]);
         Food apple = new Food("apple", 10);
         player.getBackpack().add(apple);
 
@@ -50,26 +50,26 @@ public class Game {
         while (!(progressionTracker == 2)) {
 
             if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")){
-                System.out.println(displayMsg());
+                player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getScripts()[0]);
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
-                System.out.println(displayMsg());
+                player.displayStatAndMsg();
                 System.out.println("You are at the " + player.getCurrLocation().getName());
                 System.out.println(player.getCurrLocation().getDesc());
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")){
-                System.out.println(displayMsg());
+                player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getDesc());
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("forest")){
-                System.out.println(displayMsg());
+                player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getScripts()[2]);
                 System.out.println(player.getCurrLocation().getScripts()[0]);
                 commandEngine.displayCommands();
@@ -116,12 +116,12 @@ public class Game {
     }
 
 
-    private static String displayMsg(){
-        String msg;
-        msg =  "+---------------------------------------------------------------------------------------------------------------------------+\n     " +
-                "You see a " + player.getCurrLocation().getDesc()
-                +  "\n     You are currently at your " + player.getCurrLocation().getName()
-                + ". \n+---------------------------------------------------------------------------------------------------------------------------+";
-        return msg;
-    }
+//    private static String displayMsg(){
+//        String msg;
+//        msg =  "+---------------------------------------------------------------------------------------------------------------------------+\n     " +
+//                "You see a " + player.getCurrLocation().getDesc()
+//                +  "\n     You are currently at your " + player.getCurrLocation().getName()
+//                + ". \n+---------------------------------------------------------------------------------------------------------------------------+";
+//        return msg;
+//    }
 }

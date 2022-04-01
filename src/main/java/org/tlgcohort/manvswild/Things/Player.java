@@ -11,16 +11,15 @@ import static org.tlgcohort.manvswild.GameLogic.Game.getWorldMap;
 public class Player implements Serializable {
 
     private String name;
-    private int health;
+    private int health = 50;
     private List<Food> backpack = new ArrayList<>();
     private Location currLocation;
     private int power = 5;
     private int progressionTracker = 0;
     private int eventCount = 0;
 
-    public Player(String name, int health, int progressionTracker,Location currLocation) {
+    public Player(String name, int progressionTracker,Location currLocation) {
         this.name = name;
-        this.health = health;
         this.currLocation = currLocation;
     }
 
@@ -28,12 +27,25 @@ public class Player implements Serializable {
 
     }
 
-    public String displayPlayerStats(){
+    public void displayStatAndMsg(){
+        System.out.println(displayPlayerStats());
+        System.out.println(displayMsg());
+    }
+
+    private String displayPlayerStats(){
         String stats;
         stats = "\n||=========================================================================================================================||\n" +
                 "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() + "    Backpack: " + getBackpack() +
                 "\n||=========================================================================================================================||";
         return stats;
+    }
+    private String displayMsg(){
+        String msg;
+        msg =  "+---------------------------------------------------------------------------------------------------------------------------+\n     " +
+                "You see a " + getCurrLocation().getDesc()
+                +  "\n     You are currently at your " + getCurrLocation().getName()
+                + ". \n+---------------------------------------------------------------------------------------------------------------------------+";
+        return msg;
     }
 
     public void attack(){
