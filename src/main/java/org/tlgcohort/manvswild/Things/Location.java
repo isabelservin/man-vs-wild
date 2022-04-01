@@ -1,9 +1,10 @@
 package org.tlgcohort.manvswild.Things;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Location {
+public class Location implements Serializable {
 
     private String name;
     private String desc;
@@ -56,40 +57,20 @@ public class Location {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDesc() {
         return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 
     public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
-
     public List<Food> getFoods() {
         return foods;
     }
 
-    public void setFoods(List<Food> foods) {
-        this.foods = foods;
-    }
-
     public NPC getNpc() {
         return npc;
-    }
-
-    public void setNpc(NPC npc) {
-        this.npc = npc;
     }
 
     public String getNorthExit() {
@@ -112,9 +93,6 @@ public class Location {
         return scripts;
     }
 
-    public void setScripts(String[] scripts) {
-        this.scripts = scripts;
-    }
 
     @Override
     public String toString() {

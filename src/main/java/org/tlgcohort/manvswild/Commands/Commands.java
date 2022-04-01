@@ -6,7 +6,8 @@ public enum Commands {
     Look("Take a look at something"),
     Talk("Talk to something"),
     Heal("Heal yourself"),
-    Tools("Check your bag");
+    Tools("Check your bag"),
+    Save("Save the game");
 
     String currentCommand;
 

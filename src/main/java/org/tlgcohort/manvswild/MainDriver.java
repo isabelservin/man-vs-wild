@@ -1,6 +1,7 @@
 package org.tlgcohort.manvswild;
 
 import org.tlgcohort.manvswild.GameLogic.Game;
+import org.tlgcohort.manvswild.GameLogic.LoadGame;
 import org.tlgcohort.manvswild.GameLogic.SplashScreen;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ public class MainDriver {
     //menu options
     private static final String START_GAME = "Start Game";
     private static final String QUIT = "Quit";
+    private static final String LOAD_GAME = "Load Game";
     private static Scanner scanner;
 
     public static void main(String[] args) throws IOException {
@@ -24,6 +26,7 @@ public class MainDriver {
         List<String> mainMenu = new ArrayList<>();
         mainMenu.add(START_GAME);
         mainMenu.add(QUIT);
+        mainMenu.add(LOAD_GAME);
 
         scanner = new Scanner(System.in);
         System.out.println("\nHello there, what is your name?");
@@ -32,7 +35,6 @@ public class MainDriver {
         //track users choice be declaring an empty string
         String choice = "";
         //while user doesn't select quit then they can keep replaying the game
-        while(!choice.equalsIgnoreCase(QUIT)){
 
             displayMainMenu(mainMenu, playerName);
 
@@ -56,7 +58,12 @@ public class MainDriver {
                     e.printStackTrace();
                 }
             }
-        }
+            if(choice.equalsIgnoreCase(LOAD_GAME)) {
+                try {
+                    LoadGame.loading();
+                } catch (Exception e) {
+                }
+            }
     }
 
     public static void displayMainMenu(List<String> menu, String name){
