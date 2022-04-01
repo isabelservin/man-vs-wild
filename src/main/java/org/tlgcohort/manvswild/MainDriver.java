@@ -49,10 +49,10 @@ public class MainDriver {
             if(choice.equalsIgnoreCase(START_GAME)){
 
                 startingMsg();
-                int playerHealth = scanner.nextInt();
+
 
                 try {
-                    Game.InitGame(playerName,playerHealth);
+                    Game.InitGame(playerName);
                     Game.StartGame();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -62,6 +62,7 @@ public class MainDriver {
                 try {
                     LoadGame.loading();
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
     }
@@ -89,8 +90,6 @@ public class MainDriver {
         System.out.println("     Starting Game...............");
         System.out.println("||=================================================||");
 
-        System.out.println("+---------------------------------------------------+");
-        System.out.println("     Choose Health Level (Enter a number)>>");
 
     }
 }
