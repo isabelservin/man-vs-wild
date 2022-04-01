@@ -1,8 +1,6 @@
 package org.tlgcohort.manvswild.GameLogic;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class SplashScreen {
@@ -16,8 +14,9 @@ public class SplashScreen {
     public static void displaySplashScreen(){
         scanner = new Scanner(System.in);
         String userInput = " ";
-
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/TextFiles/SplashScreen.txt"))) {
+        String fileName = "TextFiles/SplashScreen.txt";
+        InputStream is = getFileFromResourceAsStream(fileName);
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
@@ -30,15 +29,16 @@ public class SplashScreen {
 
         while(!userInput.equalsIgnoreCase("next")){
             userInput = scanner.nextLine();
-            }
         }
+    }
 
-     // Displays tutorial from text file
+    // Displays tutorial from text file
     public static void displayTutorial(){
         scanner = new Scanner(System.in);
         String userInput = "";
-
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/TextFiles/Tutorial.txt"))) {
+        String fileName = "TextFiles/Tutorial.txt";
+        InputStream is = getFileFromResourceAsStream(fileName);
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
             String line;
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
@@ -54,4 +54,17 @@ public class SplashScreen {
             userInput = scanner.nextLine();
         }
     }
+
+    private static InputStream getFileFromResourceAsStream(String fileName) {
+        ClassLoader classLoader = SplashScreen.class.getClassLoader();
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+        if (inputStream == null) {
+            throw new IllegalArgumentException("file not found! " + fileName);
+        } else {
+            return inputStream;
+        }
+    }
+
+
+
 }
