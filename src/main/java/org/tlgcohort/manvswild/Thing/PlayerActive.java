@@ -1,6 +1,7 @@
 package org.tlgcohort.manvswild.Thing;
 import org.tlgcohort.manvswild.Things.Location;
-
+import org.tlgcohort.manvswild.Thing.CommandFeedback;
+import org.tlgcohort.manvswild.LocationEngine.LocationEngine;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,7 +9,8 @@ import java.util.Scanner;
 public class PlayerActive {
 
     //Fields
-    Location localpojo = new Location();
+    Location location = new Location();
+    CommandFeedback cf;
     List<String> backpack = new ArrayList<>();
     String AXE = "axe";
     String Matches = " matches";
@@ -26,6 +28,7 @@ public class PlayerActive {
         if(backpack.contains(Knife)){
            backpack.remove(Knife);
         }else{
+            cf.inValidEntry("pickup knife");
             System.out.println("You have already dropped Item");
             System.out.println(backpack);
         }
@@ -51,6 +54,7 @@ public class PlayerActive {
             pickupItem();
             System.out.println(backpack);
             useItem();
+
             System.out.println("drop knife command will drop knife");
             command = scanner.nextLine();
             if (command.equalsIgnoreCase("drop knife")) {

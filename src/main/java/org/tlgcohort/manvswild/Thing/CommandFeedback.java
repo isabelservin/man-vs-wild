@@ -40,17 +40,22 @@ InputParser ip = new InputParser();
         return msg;
     }
 
-    public List<String> inValidEntry(List<String> command) {
+    public List<String> inValidEntry(String command) {
         List<CommandFeedback> nextSteps = List.of(
                 new CommandFeedback(1, "go north", "Please try another direction"),
                 new CommandFeedback(2, "go south", "Please try another direction"),
                 new CommandFeedback(3, "go east", "Please try another direction"),
                 new CommandFeedback(4, "go west", "Please try another direction"),
+                new CommandFeedback(5, "pickup knife", "Item is nolonger avalible in this location,Try another Item"),
                 new CommandFeedback(5, "get knife", "Item is nolonger avalible in this location,Try another Item"),
                 new CommandFeedback(6, "get matches", "Item is nolonger avalible in this location,Try another Item"),
+                new CommandFeedback(6, "pickup matches", "Item is nolonger avalible in this location,Try another Item"),
                 new CommandFeedback(7, "get fish", "Item is nolonger avalible in this location,Try another Item"),
+                new CommandFeedback(7, "pickup fish", "Item is nolonger avalible in this location,Try another Item"),
                 new CommandFeedback(8, "get firewood", "Item is nolonger avalible in this location,Try another Item"),
+                new CommandFeedback(8, "pickup firewood", "Item is nolonger avalible in this location,Try another Item"),
                 new CommandFeedback(9, "get rock", "Item is nolonger avalible in this location Try another Item"),
+                new CommandFeedback(9, "pickup rock", "Item is nolonger avalible in this location Try another Item"),
                 new CommandFeedback(10, "get grenade", "Item is nolonger avalible in this location Try another Item"),
                 new CommandFeedback(11, "get wood", "Item is nolonger avalible in this location Try another Item"),
                 new CommandFeedback(12, "get stick", "Item is nolonger avalible in this location Try another Item"),

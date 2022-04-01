@@ -9,19 +9,19 @@ public class Keywords {
     private Map<String, Word> wordlist = new HashMap<>();
 
     public Keywords() {
-        wordlist.put("take", Word.VERB);
+        wordlist.put("attack", Word.VERB);
         wordlist.put("get", Word.VERB);
         wordlist.put("knife", Word.NOUN);
-        wordlist.put("torch", Word.NOUN);
+        wordlist.put("firewood", Word.NOUN);
         wordlist.put("go", Word.VERB);
         wordlist.put("run", Word.VERB);
         wordlist.put("kick", Word.VERB);
         wordlist.put("hit", Word.VERB);
         wordlist.put("water", Word.NOUN);
-        wordlist.put("moss", Word.NOUN);
+        wordlist.put("mushrooms", Word.NOUN);
         wordlist.put("fish", Word.NOUN);
         wordlist.put("fruit", Word.NOUN);
-        wordlist.put("beer", Word.NOUN);
+        wordlist.put("pot", Word.NOUN);
         wordlist.put("matches", Word.NOUN);
         wordlist.put("rock", Word.NOUN);
         wordlist.put("grenade", Word.NOUN);
