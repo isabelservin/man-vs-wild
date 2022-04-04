@@ -19,6 +19,8 @@ public class Player implements Serializable {
     private Location currLocation;
     private int progressionTracker = 0;
     private int eventCount = 0;
+    private Boolean isDead = false;
+
 
 
     public Player(String name, int health, int attackPower, int progressionTracker,Location currLocation) {
@@ -55,13 +57,19 @@ public class Player implements Serializable {
             if (currLocation.getNpc().getHealth() > 0){
                 int opponentDamage = currLocation.getNpc().getHealth() - attackPower;
                 currLocation.getNpc().setHealth(opponentDamage);
-                System.out.println(name + " attacked " + currLocation.getNpc().getName() + "!!\n\t You inflicted " + attackPower + " damage!");
+                System.out.println("+------------------------------------------------------------------------------------+");
+                System.out.println("\t" + name + " attacked the " + currLocation.getNpc().getName() + "!!\n\tYou inflicted " + attackPower + " damage!");
+                System.out.println("+------------------------------------------------------------------------------------+");
                 setEventCount(3);
             } else{
+                System.out.println("+------------------------------------------------------------------------------------+");
                 System.out.println(currLocation.getNpc().getName() + " is already dead. Calm down killer.");
+                System.out.println("+------------------------------------------------------------------------------------+");
             }
         } else{
+            System.out.println("+------------------------------------------------------------------------------------+");
             System.out.println("There is nothing to attack, goofy.");
+            System.out.println("+------------------------------------------------------------------------------------+");
         }
     }
 
@@ -131,6 +139,17 @@ public class Player implements Serializable {
         }
         int attackDamage = (power + attackPower) / 2;
         setAttackPower(attackDamage);
+    }
+
+    public Boolean isDead(){
+        if(getHealth() <= 0){
+            isDead = true;
+        }
+        return isDead;
+    }
+
+    public void showOpponentStats(){
+        getCurrLocation().getNpc().displayStats();
     }
 
     public String getName() {

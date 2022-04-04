@@ -1,12 +1,7 @@
 package org.tlgcohort.manvswild.Commands;
-import com.fasterxml.jackson.core.JsonToken;
 import org.tlgcohort.manvswild.GameLogic.SaveGame;
-import org.tlgcohort.manvswild.InputParser.Keywords;
-import org.tlgcohort.manvswild.Things.Color;
 import org.tlgcohort.manvswild.Things.Player;
 import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
 
 
 public class CommandEngine {
@@ -22,15 +17,15 @@ public class CommandEngine {
 
     //Business Methods
     public void displayCommands() {
-        String header = "\n||================================================================================================================================================||\n" +
+        String header = "\n||================================================================================================================================================||" +
                 "\n\tAvailable Commands:" +
-                "\n||================================================================================================================================================||\n";
+                "\n||================================================================================================================================================||";
         System.out.println(header);
         for (Commands aCommand : commands) {
             System.out.print("\t[" + aCommand + "]");
         }
-        String footer = "\n||================================================================================================================================================||\n" +
-                "\n+--------------------------------------------------------------------------------------------------------------------------------------------------+\n" +
+        String footer = "\n||================================================================================================================================================||" +
+                "\n+--------------------------------------------------------------------------------------------------------------------------------------------------+" +
                 "\n\tEnter Two Words [VERB] [NOUN]";
         System.out.println(footer);
     }
@@ -60,7 +55,6 @@ public class CommandEngine {
                 try{
                     player.get(keywords.get(1).toLowerCase());
                 }
-//                    getCommand(keywords.get(1).toLowerCase());}
                 catch(Exception e){
                 System.out.println("Try two words");
             }
@@ -92,7 +86,7 @@ public class CommandEngine {
 
             case "attack":
                 try{
-                    player.attack();
+                    attackCommand();
                 } catch(Exception e){
                     System.out.println("Try two words");
                 }
@@ -106,7 +100,6 @@ public class CommandEngine {
                     System.out.println("Try valid commands.");
                 }
                 break;
-
 
             case "save":
                 System.out.println("Saving game...");
@@ -164,8 +157,8 @@ public class CommandEngine {
                 // code block
         }
     }
-    private void talkCommand(String npc) {
 
+    private void talkCommand(String npc) {
         switch (npc) {
             case "npcOne":
                 System.out.println("Drill into properties of npc");
@@ -175,24 +168,8 @@ public class CommandEngine {
                 break;
             default:
                 // code block
-
         }
     }
-
-//    private void getCommand(String item) {
-//
-//        switch (item.toLowerCase()) {
-//            case "itemone":
-//                System.out.println("Drill into properties of itemONe");
-//                break;
-//            case "itemtwo":
-//                // code block
-//                break;
-//            default:
-//                // code block
-//
-//        }
-//    }
 
     private void goCommand(String userInputLocation) {
         player.move(userInputLocation);
@@ -211,5 +188,12 @@ public class CommandEngine {
         } else{
             System.out.println("Requires 2 word command.");
         }
+    }
+
+    private void attackCommand(){
+        player.showOpponentStats();
+        player.attack();
+        player.getCurrLocation().getNpc().attack(player);
+        player.showOpponentStats();
     }
 }

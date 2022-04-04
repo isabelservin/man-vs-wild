@@ -16,6 +16,30 @@ public class NPC implements Serializable {
         this.attackPoints = attackPoints;
     }
 
+    public void attack(Player player) {
+        int inflictedDamage = (getAttackPoints()/ 2);
+        int damage = Math.round(inflictedDamage);
+        int opponentDamage = player.getHealth() - damage;
+        player.setHealth(opponentDamage);
+        System.out.println("+------------------------------------------------------------------------------------+");
+        System.out.println("\t" + name + " attacked " + player.getName() + "!!\n\t" + name + " inflicted " + damage + " damage!");
+        System.out.println("+------------------------------------------------------------------------------------+");
+
+        if(player.getHealth() <= 0){
+            System.out.println("+------------------------------------------------------------------------------------+");
+            System.out.println("\t" + player.getName() + " is dead.");
+            System.out.println("+------------------------------------------------------------------------------------+");
+
+        }
+    }
+
+    public void displayStats(){
+        System.out.println("\n||==================================================================================||");
+        System.out.println("\tOpponent: " + getName() + "\tHealth: " + getHealth());
+        System.out.println("||==================================================================================||");
+
+    }
+
     public String getName() {
         return name;
     }

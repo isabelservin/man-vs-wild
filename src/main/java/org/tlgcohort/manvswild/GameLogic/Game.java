@@ -20,7 +20,6 @@ public class Game {
     private static final int INITIAL_HEALTH = 50;
     private static final int INITIAL_ATTACK_POWER = 10;
 
-
     public static int progressionTracker = 0;
 
 
@@ -32,7 +31,6 @@ public class Game {
         player = new Player(playerName, INITIAL_HEALTH, INITIAL_ATTACK_POWER, progressionTracker, worldMap[0]);
         Food apple = new Food("apple", 10);
         player.getBackpack().add(apple);
-
     }
 
     public static void StartGame() throws IOException {
@@ -44,61 +42,14 @@ public class Game {
               commandEngine.displayCommands();
               commandEngine.commandProcessor(InputParser.parseInput());
 
-            if ( player.getEventCount() == 10){
+            if (player.getEventCount() == 10){
                 progressionTracker++;
             }
 
-
-//            if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")){
-////                player.displayStatAndMsg();
-////
-////                commandEngine.displayCommands();
-////                commandEngine.commandProcessor(InputParser.parseInput());
-//            }
-//            else if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
-//                player.displayStatAndMsg();
-//                System.out.println(player.getCurrLocation().getDesc());
-//                commandEngine.displayCommands();
-//                commandEngine.commandProcessor(InputParser.parseInput());
-//            }
-//            else if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")){
-//                player.displayStatAndMsg();;
-//                System.out.println(player.getCurrLocation().getDesc());
-//                commandEngine.displayCommands();
-//                commandEngine.commandProcessor(InputParser.parseInput());
-//            }
-//            else if (player.getCurrLocation().getName().equalsIgnoreCase("forest")){
-//                player.displayStatAndMsg();
-//                System.out.println(player.getCurrLocation().getScripts()[2]);
-//                System.out.println(player.getCurrLocation().getScripts()[0]);
-//                System.out.println(player.getCurrLocation().getScripts()[1]);
-//                commandEngine.displayCommands();
-//
-//                commandEngine.commandProcessor(InputParser.parseInput());
-//            }
-//            else if (player.getCurrLocation().getName().equalsIgnoreCase("mountains")){
-//                player.displayStatAndMsg();
-//                System.out.println(player.getCurrLocation().getScripts()[0]);
-//                System.out.println(player.getCurrLocation().getScripts()[1]);
-//                commandEngine.displayCommands();
-////                commandEngine.commandProcessor(InputParser.parseInput());
-//            }
-//             if(player.getEventCount() == 10){
-//                progressionTracker++;
-//            }
-//            if (progressionTracker == 0) {
-//                System.out.println(player.displayPlayerStats());
-//                System.out.println(displayMsg());
-//
-//                commandEngine.displayCommands();
-//
-//                List<String> inputParser = InputParser.parseInput();
-//                commandEngine.commandProcessor(inputParser);
-//                if (inputParser.get(0).contains("xyz")) {
-//                    progressionTracker++;
-//                }
-//            }
-
+            if(player.isDead()){
+                System.out.println("\tGAME OVER!\n\tYou have been killed!!!!");
+                break;
+            }
         }
     }
 
