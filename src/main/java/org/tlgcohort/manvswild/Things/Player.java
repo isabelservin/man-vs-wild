@@ -19,6 +19,7 @@ public class Player implements Serializable {
     private Location currLocation;
     private int progressionTracker = 0;
     private int eventCount = 0;
+    private Boolean isDead = false;
 
 
     public Player(String name, int health, int attackPower, int progressionTracker,Location currLocation) {
@@ -55,21 +56,38 @@ public class Player implements Serializable {
             if (currLocation.getNpc().getHealth() > 0){
                 int opponentDamage = currLocation.getNpc().getHealth() - attackPower;
                 currLocation.getNpc().setHealth(opponentDamage);
-                System.out.println(name + " attacked " + currLocation.getNpc().getName() + "!!\n\t You inflicted " + attackPower + " damage!");
+                System.out.println("+------------------------------------------------------------------------------------+");
+                System.out.println("\t" + name + " attacked the " + currLocation.getNpc().getName() + "!!\n\tYou inflicted " + attackPower + " damage!");
+                System.out.println("+------------------------------------------------------------------------------------+");
                 setEventCount(3);
             } else{
+                System.out.println("+------------------------------------------------------------------------------------+");
                 System.out.println(currLocation.getNpc().getName() + " is already dead. Calm down killer.");
+                System.out.println("+------------------------------------------------------------------------------------+");
             }
         } else{
+            System.out.println("+------------------------------------------------------------------------------------+");
             System.out.println("There is nothing to attack, goofy.");
+            System.out.println("+------------------------------------------------------------------------------------+");
         }
+    }
+
+    public Boolean isDead(){
+        if(getHealth() <= 0){
+            isDead = true;
+        }
+        return isDead;
+    }
+
+    public void showOpponentStats(){
+        getCurrLocation().getNpc().displayStats();
     }
 
     // takes all exits from current location and compares the user input to find a match, if so , then changes location to user input...
     public void move(String newLocation){
         int newLocationIndex = -1;
         if(currLocation.allExitsGenerator().contains(newLocation)){
-            System.out.println("Going to " + newLocation);
+            System.out.println("\n\tGoing to " + newLocation + ".....");
         for (int i = 0; i < getWorldMap().length; i++){
             if (getWorldMap()[i].getName().toLowerCase().equals(newLocation)){
                 newLocationIndex = i;
@@ -80,7 +98,7 @@ public class Player implements Serializable {
         setEventCount(3);
         }
         else{
-            System.out.println("\nYou cannot go there.....\n");
+            System.out.println("\n\tYou cannot go there.....\n");
         }
     }
 
@@ -110,6 +128,7 @@ public class Player implements Serializable {
                 if (currLocation.getItems().get(i).getName().toLowerCase().equals(item)) {
                     newLocationIndex = i;
                     toolBackpack.add(currLocation.getItems().get(newLocationIndex));
+                    getCurrLocation().getItems().remove(newLocationIndex);
                     setEventCount(1);
                     break;
                 }
@@ -119,12 +138,11 @@ public class Player implements Serializable {
                 if (currLocation.getFoods().get(i).getName().toLowerCase().equals(item)) {
                     newLocationIndex = i;
                     getBackpack().add(currLocation.getFoods().get(newLocationIndex));
+                    getCurrLocation().getItems().remove(newLocationIndex);
                     setEventCount(1);
                     break;
                 }
             }
-//            toolBackpack.add(currLocation.getItems().get(newLocationIndex));
-//            setEventCount(1);
         } catch (Exception e) {
             System.out.println("\nYou cannot get that....\n");
         }

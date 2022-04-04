@@ -47,6 +47,13 @@ public class Location implements Serializable {
         allExits.add(getEastExit().toLowerCase());
         allExits.add(getWestExit().toLowerCase());
         allExits.add(getSouthExit().toLowerCase());
+        System.out.println("+------------------------------------------------------------------------------------+");
+        System.out.println("\tCurrent Location Exits:");// shows exits for location
+        System.out.println("+------------------------------------------------------------------------------------+");
+        for( String exit : allExits){
+            System.out.println("\t" + exit);
+        }
+        System.out.println("+------------------------------------------------------------------------------------+");
         return allExits;
     }
 
