@@ -1,28 +1,34 @@
 package org.tlgcohort.manvswild;
 
 import org.tlgcohort.manvswild.GameLogic.Game;
+import org.tlgcohort.manvswild.GameLogic.LoadGame;
 import org.tlgcohort.manvswild.GameLogic.SplashScreen;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class MainDriver {
+    private static final String SPLASH_PATH = "SplashScreen.txt";
+    private static final String TUTORIAL_PATH = "Tutorial.txt";
 
     //menu options
     private static final String START_GAME = "Start Game";
     private static final String QUIT = "Quit";
+    private static final String LOAD_GAME = "Load Game";
     private static Scanner scanner;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InputMismatchException{
 
-        SplashScreen.displaySplashScreen();
-        SplashScreen.displayTutorial();
+        SplashScreen.displayScreen(SPLASH_PATH);
+        SplashScreen.displayScreen(TUTORIAL_PATH);
 
         //add options to main menu
         List<String> mainMenu = new ArrayList<>();
         mainMenu.add(START_GAME);
+        mainMenu.add(LOAD_GAME);
         mainMenu.add(QUIT);
 
         scanner = new Scanner(System.in);
@@ -33,57 +39,69 @@ public class MainDriver {
         String choice = "";
         //while user doesn't select quit then they can keep replaying the game
         while(!choice.equalsIgnoreCase(QUIT)){
+            try {
+                displayMainMenu(mainMenu, playerName, "Select an option>>");
+                //capture user's choice as an integer
+                scanner = new Scanner(System.in);
 
-            displayMainMenu(mainMenu, playerName);
+                int selectedOpt = scanner.nextInt();
 
-            //capture user's choice as an integer
-            scanner = new Scanner(System.in);
-            int selectedOpt = scanner.nextInt();
-
-            //capture choice by getting the value at this index
-            choice = mainMenu.get(selectedOpt - 1);
-
-            //choice cases
-            if(choice.equalsIgnoreCase(START_GAME)){
-
-                startingMsg();
-                int playerHealth = scanner.nextInt();
-
-                try {
-                    Game.InitGame(playerName,playerHealth);
-                    Game.StartGame();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                while (selectedOpt > mainMenu.size()) {
+                    displayMainMenu(mainMenu, playerName, "That is not a valid selection!\n\tTry again>>");
+                    selectedOpt = scanner.nextInt();
                 }
+
+                //capture choice by getting the value at this index
+                choice = mainMenu.get(selectedOpt - 1);
+
+                //choice cases
+                if (choice.equalsIgnoreCase(START_GAME)) {
+                    startingMsg();
+                    try {
+                        Game.InitGame(playerName);
+                        Game.StartGame();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                //FIXME: handle InvalidClassException if user selects LOAD before playing through once!
+                //InvalidClassException thrown when no saved game is detected to load
+                else if (choice.equalsIgnoreCase(LOAD_GAME)) {
+                    try {
+                        LoadGame.loading();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (InputMismatchException e){
+                System.out.println("\n\tERROR: Must select a NUMBER.");
             }
         }
     }
 
-    public static void displayMainMenu(List<String> menu, String name){
-        String welcomeMsg = "\n||======================================||" +
-                "\n     Welcome to Man vs. Wild, " + name + "!!";
-        System.out.println(welcomeMsg);
+    public static void displayMainMenu(List<String> menu, String name, String response){
+        String header = "\n||======================================||" +
+                "\n\tWelcome to Man vs. Wild, " + name + "!!" +
+                "\n||======================================||";
 
-        System.out.println("||======================================||");
-
+        System.out.println(header);
         //print out our main menu options & increment the index of each choice
         int choiceIndex = 1;
         for(String opt : menu){
-            System.out.println("     " + choiceIndex + ") " + opt);
+            System.out.println("\t" + choiceIndex + ") " + opt);
             choiceIndex++;
         }
-        System.out.println("||======================================||");
-        System.out.println("+----------------------------------------+");
-        System.out.println("     Select an option>> ");
+
+        String footer = "||======================================||" +
+                "\n+----------------------------------------+" +
+                "\n\t" + response ;
+        System.out.println(footer);
     }
 
     public static void startingMsg(){
-        System.out.println("\n||=================================================||");
-        System.out.println("     Starting Game...............");
-        System.out.println("||=================================================||");
-
-        System.out.println("+---------------------------------------------------+");
-        System.out.println("     Choose Health Level (Enter a number)>>");
-
+        String header = "\n||=================================================||" +
+                "\n\tStarting Game..............." +
+                "\n||=================================================||";
+        System.out.println(header);
     }
 }

@@ -4,9 +4,13 @@ public enum Commands {
 
     Go("Player goes to a location"),
     Look("Take a look at something"),
+    Attack("Attack your opponent"),
     Talk("Talk to something"),
-    Heal("Heal yourself"),
-    Tools("Check your bag");
+    Get("Grab a item and put into bag"),
+    Eat("Heal yourself"),
+    View_Map("View your map"),
+    Save("Save the game"),
+    Quit_Game("Quit the game");
 
     String currentCommand;
 
@@ -14,7 +18,4 @@ public enum Commands {
         currentCommand = command;
     }
 
-    String showCommands(){
-        return currentCommand;
-    }
 }

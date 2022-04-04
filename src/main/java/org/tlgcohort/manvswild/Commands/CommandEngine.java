@@ -1,7 +1,8 @@
 package org.tlgcohort.manvswild.Commands;
+
+import org.tlgcohort.manvswild.GameLogic.SaveGame;
 import org.tlgcohort.manvswild.Things.Player;
 import java.util.List;
-
 
 public class CommandEngine {
 
@@ -16,45 +17,108 @@ public class CommandEngine {
 
     //Business Methods
     public void displayCommands() {
-        String commandMsg = "\n||======================================||" +
-                "\n     Available Commands:" +
-                "\n||======================================||";
-        System.out.println(commandMsg);
+        String header = "\n||================================================================================================================================================||" +
+                "\n\tAvailable Commands:" +
+                "\n||================================================================================================================================================||";
+        System.out.println(header);
         for (Commands aCommand : commands) {
-            System.out.println("          " + aCommand);
+            if (aCommand.equals(Commands.Go)){
+                System.out.print("\t[" + aCommand + " (Location)" + "]");
+            }
+            else if (aCommand.equals(Commands.Look)){
+                System.out.print("\t[" + aCommand + " (Direction)" + "]");
+            }
+            else if (aCommand.equals(Commands.Get)){
+                System.out.print("\t[" + aCommand + " (Item)" + "]");
+            }
+            else {System.out.print("\t[" + aCommand + "]");
+            }
+
         }
-        System.out.println("||======================================||");
-        System.out.println("+----------------------------------------+");
-        System.out.println("    Enter Two Words [VERB] [NOUN]");
+        String footer = "\n||================================================================================================================================================||" +
+                "\n+--------------------------------------------------------------------------------------------------------------------------------------------------+" +
+                "\n\tEnter Two Words [VERB] [NOUN]";
+        System.out.println(footer);
     }
 
     //processes an array of 1 Verb and 1 Noun
     public void commandProcessor(List<String> keywords) {
-                //TODO Add try catch block
         switch (keywords.get(0).toLowerCase()) {
+
             case "look":
-                lookCommand(keywords.get(1).toLowerCase());
+                try{
+                    lookCommand(keywords.get(1).toLowerCase());
+                } catch(Exception e){
+                    System.out.println("Try two words");
+                }
                 break;
+
             case "talk":
-                talkCommand(keywords.get(1).toLowerCase());
+                try{
+                    talkCommand(keywords.get(1).toLowerCase());
+                } catch(Exception e){
+                System.out.println("Try two words");
+            }
                 break;
+
             case "get":
-                getCommand(keywords.get(1).toLowerCase());
+                try{
+                    player.get(keywords.get(1).toLowerCase());
+                }
+                catch(Exception e){
+                System.out.println("Try two words");
+            }
                 break;
-            case "heal": //TODO Must refactor to account for the second user input
-                player.heal();
+
+            case "eat": //TODO Must refactor to account for the second user input
+                try{
+                    player.heal();
+                } catch(Exception e){
+                System.out.println("Try two words");
+            }
                 break;
+
             case "go":
-                goCommand(keywords.get(1).toLowerCase());
+                try{
+                    goCommand(keywords.get(1).toLowerCase());
+                } catch(Exception e){
+                System.out.println("Try two words");
+            }
                 break;
-                //TODO Do we need these commands?
-//            case "tools":
-//                toolsCommand();
-//                break;
-//            case "map":
-//                mapCommand();
-//                break;
+
+            case "view":
+                try{
+                    viewCommand(keywords.get(1).toLowerCase());
+                } catch(Exception e){
+                    System.out.println("Try two words");
+                }
+                break;
+
+            case "attack":
+                try{
+                    attackCommand();
+                } catch(Exception e){
+                    System.out.println("Try two words");
+                }
+                break;
+
+            case "quit":
+                try{
+                    quitCommand(keywords.get(1).toLowerCase());
+
+                }catch (Exception e){
+                    System.out.println("Try valid commands.");
+                }
+                break;
+
+            case "save":
+                System.out.println("Saving game...");
+                SaveGame saveGame = new SaveGame();
+                saveGame.saving(player);
+                break;
+
             default:
+                System.out.println("Try two words");
                 break;
         }
     }
@@ -63,11 +127,41 @@ public class CommandEngine {
     private void lookCommand(String item) {
 
         switch (item.toLowerCase()) {
-            case "can":
-                System.out.println("Beans, Beans and Beans");
-                break;
             case "north":
-                System.out.println("I can see a river ahead....");
+                if(player.getCurrLocation().getNorthExit().isEmpty()){
+                    System.out.println("You see nothing");
+                }
+                else{
+                    System.out.println("North Exit: " + player.getCurrLocation().getNorthExit());
+                }
+                break;
+
+            case "south":
+                if(player.getCurrLocation().getSouthExit().isEmpty()){
+                    System.out.println("I see nothing");
+                }
+                else{
+                    System.out.println("South Exit: " + player.getCurrLocation().getSouthExit());
+                }
+                break;
+
+            case "east":
+                if(player.getCurrLocation().getEastExit().isEmpty()){
+                    System.out.println("I see nothing");
+                }
+                else{
+                    System.out.println("East Exit: " + player.getCurrLocation().getEastExit());
+                }
+                break;
+
+            case "west":
+                if(player.getCurrLocation().getWestExit().isEmpty()){
+                    System.out.println("I see nothing");
+                }
+                else{
+                    System.out.println("West Exit: " + player.getCurrLocation().getWestExit());
+                }
+
                 break;
             default:
                 // code block
@@ -87,58 +181,30 @@ public class CommandEngine {
 
         }
     }
-    private void getCommand(String item) {
 
-        switch (item.toLowerCase()) {
-            case "itemone":
-                System.out.println("Drill into properties of itemONe");
-                break;
-            case "itemtwo":
-                // code block
-                break;
-            default:
-                // code block
-
-        }
+    private void attackCommand(){
+        player.showOpponentStats();
+        player.attack();
+        player.getCurrLocation().getNpc().attack(player);
+        player.showOpponentStats();
     }
 
     private void goCommand(String userInputLocation) {
-
         player.move(userInputLocation);
     }
 
-    //TODO Do we still need these ?
-   /*
-   private void toolsCommand() {
-        scanner = new Scanner(System.in);
-        int count = 0;
-        System.out.println("Tools Available: ");
-        for(String aTool : player.getBackpack()){
-            System.out.println((count+1)+ ") " +aTool);
-            count++;
+    private void viewCommand(String userInput){
+        if (userInput.equalsIgnoreCase("map")){
+            System.out.println(player.viewPortableMap());
         }
-        System.out.println("\nWhat tool to use? <enter a number?");
-        String choice = scanner.nextLine();
-
-        for(String aTool : player.getBackpack())
-            if (choice.toLowerCase().equals(aTool)) {
-                System.out.println(aTool);
-                break;
-            }
-    }
-    private void mapCommand() {
-        scanner = new Scanner(System.in);
-        int count = 0;
-        System.out.println("Location Available: ");
-        for(LocationPOJO aLocation : worldMap){
-            System.out.println((count+1)+ ") " +aLocation);
-            count++;
-        }
-        System.out.println("\nWhere do you want to go? <enter a number?");
-        int choice = scanner.nextInt();
-        player.setCurrLocation(worldMap.get(choice-1));
     }
 
-    */
-
+    private void quitCommand(String userInput){
+        if(userInput.equalsIgnoreCase("game")){
+        System.out.println("Quitting Game....");
+        System.exit(0);
+        } else{
+            System.out.println("Requires 2 word command.");
+        }
+    }
 }

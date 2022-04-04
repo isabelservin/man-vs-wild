@@ -1,6 +1,8 @@
 package org.tlgcohort.manvswild.Things;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
     private String name;
     private int powerLevel;
 
@@ -22,9 +24,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Inventory{" +
-                "name='" + name + '\'' +
-                ", powerLevel=" + powerLevel +
-                '}';
+        return  name + " : "+ powerLevel;
     }
 }

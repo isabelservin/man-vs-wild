@@ -1,6 +1,8 @@
 package org.tlgcohort.manvswild.Things;
 
-public class NPC {
+import java.io.Serializable;
+
+public class NPC implements Serializable {
     private String name;
     private int health;
     private int attackPoints;
@@ -14,12 +16,32 @@ public class NPC {
         this.attackPoints = attackPoints;
     }
 
-    public String getName() {
-        return name;
+    public void attack(Player player) {
+        int inflictedDamage = (getAttackPoints()/ 2);
+        int damage = Math.round(inflictedDamage);
+        int opponentDamage = player.getHealth() - damage;
+        player.setHealth(opponentDamage);
+        System.out.println("+------------------------------------------------------------------------------------+");
+        System.out.println("\t" + name + " attacked " + player.getName() + "!!\n\t" + name + " inflicted " + damage + " damage!");
+        System.out.println("+------------------------------------------------------------------------------------+");
+
+        if(player.getHealth() <= 0){
+            System.out.println("+------------------------------------------------------------------------------------+");
+            System.out.println("\t" + player.getName() + " is dead.");
+            System.out.println("+------------------------------------------------------------------------------------+");
+
+        }
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void displayStats(){
+        System.out.println("\n||==================================================================================||");
+        System.out.println("\tOpponent: " + getName() + "\tHealth: " + getHealth());
+        System.out.println("||==================================================================================||");
+
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getHealth() {
@@ -34,9 +56,6 @@ public class NPC {
         return attackPoints;
     }
 
-    public void setAttackPoints(int attackPoints) {
-        this.attackPoints = attackPoints;
-    }
 
     @Override
     public String toString() {
