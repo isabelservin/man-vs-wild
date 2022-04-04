@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Keywords {
 
-    Word word;
     private Map<String, Word> wordlist = new HashMap<>();
 
     public Keywords() {
@@ -33,14 +32,11 @@ public class Keywords {
         wordlist.put("east", Word.NOUN);
         wordlist.put("west", Word.NOUN);
         wordlist.put("look", Word.VERB);
+        wordlist.put("view", Word.VERB);
+        wordlist.put("map", Word.NOUN);
     }
 
     public Map<String, Word> getWordlist() {
         return wordlist;
     }
-
-    public void setWordlist(Map<String, Word> wordlist) {
-        this.wordlist = wordlist;
-    }
-
 }

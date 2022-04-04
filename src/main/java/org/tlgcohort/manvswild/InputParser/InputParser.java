@@ -19,8 +19,7 @@ public class InputParser {
     }
 
     //Separate wordlist of verb/noun
-    public static List<String> handleWords() {
-
+    public static void handleWords() {
         activeWords();
         //Stream through verbs and store them as strings in a list
         List<String> vCommand = wordlist.entrySet()
@@ -38,13 +37,11 @@ public class InputParser {
                 .collect(Collectors.toList());
         nounsnVerbs.addAll(nCommand);
 
-        return nounsnVerbs;
     }
 
 
     //Parse user input to List
     public static List<String> parseInput() {
-
         handleWords();
         String input = playerInput.nextLine();
         List<String> keywords = new ArrayList<>(List.of(input.split("\\s")));//we can change this to split on the first space

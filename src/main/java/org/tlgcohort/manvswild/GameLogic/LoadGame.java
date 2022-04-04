@@ -32,30 +32,41 @@ public class LoadGame {
         CommandEngine commandEngine = new CommandEngine(player);
 
         while (!(progressionTracker == 2)) {
-            if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")) {
+            if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")){
+                player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getScripts()[0]);
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("river")) {
+            if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
+                player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getDesc());
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")) {
+            if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")){
+                player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getDesc());
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("forest")) {
-                System.out.println(player.getCurrLocation().getDesc());
+            if (player.getCurrLocation().getName().equalsIgnoreCase("forest")){
+                player.displayStatAndMsg();
                 System.out.println(player.getCurrLocation().getScripts()[2]);
                 System.out.println(player.getCurrLocation().getScripts()[0]);
+                System.out.println(player.getCurrLocation().getScripts()[1]);
+                commandEngine.displayCommands();
+                commandEngine.commandProcessor(InputParser.parseInput());
+            }
+            if (player.getCurrLocation().getName().equalsIgnoreCase("mountains")){
+                player.displayStatAndMsg();
+                System.out.println(player.getCurrLocation().getScripts()[0]);
+                System.out.println(player.getCurrLocation().getScripts()[1]);
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
 
-            if (player.getEventCount() == 10) {
+            if(player.getEventCount() == 10){
                 progressionTracker++;
             }
         }

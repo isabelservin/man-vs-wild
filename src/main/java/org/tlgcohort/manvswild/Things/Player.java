@@ -11,21 +11,22 @@ import static org.tlgcohort.manvswild.GameLogic.Game.getWorldMap;
 public class Player implements Serializable {
 
     private String name;
-    private int health = 50;
+    private int health;
+    private int attackPower;
+
     private List<Food> backpack = new ArrayList<>();
     private List<Item> toolBackpack = new ArrayList<>();
     private Location currLocation;
-    private int power = 5;
     private int progressionTracker = 0;
     private int eventCount = 0;
 
-    public Player(String name, int progressionTracker,Location currLocation) {
+
+    public Player(String name, int health, int attackPower, int progressionTracker,Location currLocation) {
         this.name = name;
+        this.health = health;
+        this.attackPower = attackPower;
+        this.progressionTracker = progressionTracker;
         this.currLocation = currLocation;
-    }
-
-    public Player() {
-
     }
 
     public void displayStatAndMsg(){
@@ -35,30 +36,26 @@ public class Player implements Serializable {
 
     private String displayPlayerStats(){
         String stats;
-        stats = "\n||=========================================================================================================================||\n" +
-                "     Player: " + getName() + "    Health Lvl: " + getHealth() + "    Location: " + getCurrLocation().getName() + "    Backpack: " + getBackpack() + getToolBackpack() +
-                "\n||=========================================================================================================================||";
+        stats = "\n||================================================================================================================================================||\n" +
+                "\tPlayer: " + getName() + "\t\tHealth Lvl: " + getHealth() + "\t\tLocation: " + getCurrLocation().getName() + "\t\tBackpack: " + getBackpack() + getToolBackpack() +
+                "\n||================================================================================================================================================||";
         return stats;
     }
     private String displayMsg(){
-        String msg;
-        msg =  "+---------------------------------------------------------------------------------------------------------------------------+\n     " +
-                "You see a " + getCurrLocation().getDesc()
-                +  "\n     You are currently at your " + getCurrLocation().getName()
-                + ". \n+---------------------------------------------------------------------------------------------------------------------------+";
-        return msg;
+        String body;
+        body =  "+--------------------------------------------------------------------------------------------------------------------------------------------------+\n" +
+                "\t"+ getCurrLocation().getDesc() + "\n\n\t" + getCurrLocation().randomScript()
+                + ". \n+--------------------------------------------------------------------------------------------------------------------------------------------------+";
+        return body;
     }
 
     public void attack(){
-        if (currLocation.presentNPC() && health > 0){
+        calcAttackPower();
+        if (currLocation.presentNPC()){
             if (currLocation.getNpc().getHealth() > 0){
-                System.out.println(currLocation.getNpc().getName() + " health BEFORE damage: " + currLocation.getNpc().getHealth());
-                int opponentDamage = currLocation.getNpc().getHealth() - power;
+                int opponentDamage = currLocation.getNpc().getHealth() - attackPower;
                 currLocation.getNpc().setHealth(opponentDamage);
-
-                System.out.println(currLocation.getNpc().getName() + " health AFTER damage: " + currLocation.getNpc().getHealth());
-
-                System.out.println(name + " attacked " + currLocation.getNpc().getName() + "!!");
+                System.out.println(name + " attacked " + currLocation.getNpc().getName() + "!!\n\t You inflicted " + attackPower + " damage!");
                 setEventCount(3);
             } else{
                 System.out.println(currLocation.getNpc().getName() + " is already dead. Calm down killer.");
@@ -70,7 +67,6 @@ public class Player implements Serializable {
 
     // takes all exits from current location and compares the user input to find a match, if so , then changes location to user input...
     public void move(String newLocation){
-
         int newLocationIndex = -1;
         if(currLocation.allExitsGenerator().contains(newLocation)){
             System.out.println("Going to " + newLocation);
@@ -88,25 +84,25 @@ public class Player implements Serializable {
         }
     }
 
-    // iterates through player backpack and user chooses item which then adds to player health
-    //TODO add feature to remove from backpack when used....
+    // allows player to select an item from their backpack to use and increase their health
     public void heal(){
         Scanner scanner = new Scanner(System.in);
         int count = 0;
         System.out.println("\nFood Available : ");
 
         for(Food aItem : backpack){
-            System.out.println((count+1)+ ") " +aItem);
+            System.out.println((count+1)+ ") " + aItem);
             count++;
         }
         System.out.println("\nEat food? <enter a number?");
         int choice = scanner.nextInt();
-        setHealth(health+backpack.get(choice-1).getHealthPoints());
+        setHealth(health + backpack.get(choice-1).getHealthPoints());
+        backpack.remove(choice - 1);
         setEventCount(2);
     }
 
+    //grab an item from the currentLocation
     public void get(String item) {
-
         try {
             int newLocationIndex = -1;
             for (int i = 0; i < currLocation.getItems().size(); i++) {
@@ -122,6 +118,20 @@ public class Player implements Serializable {
         }
     }
 
+    //display players current location on the map
+    public String viewPortableMap(){
+        return this.getCurrLocation().getMap();
+    }
+
+    //calculate and increase the attack power of the player based on the items they have
+    private void calcAttackPower(){
+        int power = 0;
+        for(Item item : toolBackpack){
+            power += item.getPowerLevel();
+        }
+        int attackDamage = (power + attackPower) / 2;
+        setAttackPower(attackDamage);
+    }
 
     public String getName() {
         return name;
@@ -163,8 +173,12 @@ public class Player implements Serializable {
         this.eventCount = eventCount;
     }
 
-    public int getPower() {
-        return power;
+    public int getAttackPower() {
+        return attackPower;
+    }
+
+    public int setAttackPower(int attackPower){
+        return this.attackPower = attackPower;
     }
 
     public int getProgressionTracker() {

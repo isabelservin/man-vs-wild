@@ -4,11 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Location implements Serializable {
 
     private String name;
     private String desc;
+    private String map;
     private List<Item> items;
     private List<Food>foods;
     private NPC npc;
@@ -23,10 +25,11 @@ public class Location implements Serializable {
     public Location() {
     }
 
-    public Location(String name, String desc, List<Item> items,
+    public Location(String name, String desc, String map, List<Item> items,
                     List<Food> foods, NPC npc, String[] scripts, String northExit, String southExit, String westExit, String eastExit) {
         this.name = name;
         this.desc = desc;
+        this.map = map;
         this.items = items;
         this.foods = foods;
         this.npc = npc;
@@ -50,11 +53,16 @@ public class Location implements Serializable {
         return allExits;
     }
 
+    public String randomScript(){
+        int rand = new Random().nextInt(scripts.length);
+        return scripts[rand];
+    }
+
     public Boolean presentNPC(){
         if(npc != null){
             hasNPC = true;
         }
-        return  hasNPC;
+        return hasNPC;
     }
 
     public String getName() {
@@ -97,12 +105,16 @@ public class Location implements Serializable {
         return scripts;
     }
 
+    public String getMap() {
+        return map;
+    }
 
     @Override
     public String toString() {
         return "Location{" +
                 "name='" + name + '\'' +
                 ", desc='" + desc + '\'' +
+                ", map='" + map + '\'' +
                 ", items=" + items +
                 ", foods=" + foods +
                 ", npc=" + npc +
