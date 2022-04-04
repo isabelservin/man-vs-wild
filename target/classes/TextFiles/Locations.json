@@ -44,12 +44,12 @@
 
     "items": [
       {
-        "name": "Fishing Pole",
-        "powerLevel": 0
+        "name": "rock",
+        "powerLevel":2
       }
     ],
     "foods": [{
-      "name": "Fish",
+      "name": "fish",
       "healthPoints": 5
     }],
     "northExit": "Basecamp",

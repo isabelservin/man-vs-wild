@@ -27,7 +27,7 @@ public class LoadGame {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("There is no game to load");
         }
         CommandEngine commandEngine = new CommandEngine(player);
 

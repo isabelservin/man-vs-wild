@@ -105,14 +105,26 @@ public class Player implements Serializable {
     public void get(String item) {
         try {
             int newLocationIndex = -1;
+            //checking if userInput is an item
             for (int i = 0; i < currLocation.getItems().size(); i++) {
                 if (currLocation.getItems().get(i).getName().toLowerCase().equals(item)) {
                     newLocationIndex = i;
+                    toolBackpack.add(currLocation.getItems().get(newLocationIndex));
+                    setEventCount(1);
                     break;
                 }
             }
-            toolBackpack.add(currLocation.getItems().get(newLocationIndex));
-            setEventCount(1);
+            //checking if userInput is a food
+            for (int i = 0; i < currLocation.getFoods().size(); i++) {
+                if (currLocation.getFoods().get(i).getName().toLowerCase().equals(item)) {
+                    newLocationIndex = i;
+                    getBackpack().add(currLocation.getFoods().get(newLocationIndex));
+                    setEventCount(1);
+                    break;
+                }
+            }
+//            toolBackpack.add(currLocation.getItems().get(newLocationIndex));
+//            setEventCount(1);
         } catch (Exception e) {
             System.out.println("\nYou cannot get that....\n");
         }
