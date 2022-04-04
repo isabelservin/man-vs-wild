@@ -8,84 +8,84 @@ import org.tlgcohort.manvswild.Things.Location;
 import org.tlgcohort.manvswild.Things.Player;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Game {
 
-    private static final String LOCATION_PATH = "src/main/resources/Locations.json";
     private static Location[] worldMap;
     private static Player player;
-    static int progressionTracker = 0;
-    //private static List<Location> myMap;
+    private static final int INITIAL_HEALTH = 50;
+    private static final int INITIAL_ATTACK_POWER = 10;
+
+
+    public static int progressionTracker = 0;
+
 
     private Game(){
     }
 
     public static void InitGame(String playerName) throws IOException {
         worldMap = LocationEngine.locationGenerator();
-        player = new Player(playerName, progressionTracker, worldMap[0]);
+        player = new Player(playerName, INITIAL_HEALTH, INITIAL_ATTACK_POWER, progressionTracker, worldMap[0]);
         Food apple = new Food("apple", 10);
         player.getBackpack().add(apple);
-
-/*
-      convert array to list
-      myMap = Arrays.asList(worldMap);
-       System.out.println(Arrays.toString(worldMap));
-       print each location in our map
-        int counter = 1;
-        for(Location location: worldMap){
-            System.out.println(counter + "). " + location);
-            counter++;
-        }
-*/
-
 
     }
 
     public static void StartGame() throws IOException {
         CommandEngine commandEngine = new CommandEngine(player);
-        int progressionTracker = 0;
+        int progressionTracker = 1;
 
-        while (!(progressionTracker == 2)) {
+        while (!(progressionTracker == 3 )) {
+              player.displayStatAndMsg();
+              commandEngine.displayCommands();
+              commandEngine.commandProcessor(InputParser.parseInput());
 
-            if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")){
-                player.displayStatAndMsg();
-                System.out.println(player.getCurrLocation().getScripts()[0]);
-                commandEngine.displayCommands();
-                commandEngine.commandProcessor(InputParser.parseInput());
-            }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
-                player.displayStatAndMsg();
-                System.out.println(player.getCurrLocation().getDesc());
-                commandEngine.displayCommands();
-                commandEngine.commandProcessor(InputParser.parseInput());
-            }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")){
-                player.displayStatAndMsg();;
-                System.out.println(player.getCurrLocation().getDesc());
-                commandEngine.displayCommands();
-                commandEngine.commandProcessor(InputParser.parseInput());
-            }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("forest")){
-                player.displayStatAndMsg();
-                System.out.println(player.getCurrLocation().getScripts()[2]);
-                System.out.println(player.getCurrLocation().getScripts()[0]);
-                System.out.println(player.getCurrLocation().getScripts()[1]);
-                commandEngine.displayCommands();
-                commandEngine.commandProcessor(InputParser.parseInput());
-            }
-            if (player.getCurrLocation().getName().equalsIgnoreCase("mountains")){
-                player.displayStatAndMsg();
-                System.out.println(player.getCurrLocation().getScripts()[0]);
-                System.out.println(player.getCurrLocation().getScripts()[1]);
-                commandEngine.displayCommands();
-                commandEngine.commandProcessor(InputParser.parseInput());
-            }
-
-            if(player.getEventCount() == 10){
+            if ( player.getEventCount() == 10){
                 progressionTracker++;
             }
+
+
+//            if (player.getCurrLocation().getName().equalsIgnoreCase("basecamp")){
+////                player.displayStatAndMsg();
+////
+////                commandEngine.displayCommands();
+////                commandEngine.commandProcessor(InputParser.parseInput());
+//            }
+//            else if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
+//                player.displayStatAndMsg();
+//                System.out.println(player.getCurrLocation().getDesc());
+//                commandEngine.displayCommands();
+//                commandEngine.commandProcessor(InputParser.parseInput());
+//            }
+//            else if (player.getCurrLocation().getName().equalsIgnoreCase("waterfall")){
+//                player.displayStatAndMsg();;
+//                System.out.println(player.getCurrLocation().getDesc());
+//                commandEngine.displayCommands();
+//                commandEngine.commandProcessor(InputParser.parseInput());
+//            }
+//            else if (player.getCurrLocation().getName().equalsIgnoreCase("forest")){
+//                player.displayStatAndMsg();
+//                System.out.println(player.getCurrLocation().getScripts()[2]);
+//                System.out.println(player.getCurrLocation().getScripts()[0]);
+//                System.out.println(player.getCurrLocation().getScripts()[1]);
+//                commandEngine.displayCommands();
+//
+//                commandEngine.commandProcessor(InputParser.parseInput());
+//            }
+//            else if (player.getCurrLocation().getName().equalsIgnoreCase("mountains")){
+//                player.displayStatAndMsg();
+//                System.out.println(player.getCurrLocation().getScripts()[0]);
+//                System.out.println(player.getCurrLocation().getScripts()[1]);
+//                commandEngine.displayCommands();
+////                commandEngine.commandProcessor(InputParser.parseInput());
+//            }
+//             if(player.getEventCount() == 10){
+//                progressionTracker++;
+//            }
 //            if (progressionTracker == 0) {
 //                System.out.println(player.displayPlayerStats());
 //                System.out.println(displayMsg());
@@ -105,14 +105,4 @@ public class Game {
     public static Location[] getWorldMap() {
         return worldMap;
     }
-
-
-//    private static String displayMsg(){
-//        String msg;
-//        msg =  "+---------------------------------------------------------------------------------------------------------------------------+\n     " +
-//                "You see a " + player.getCurrLocation().getDesc()
-//                +  "\n     You are currently at your " + player.getCurrLocation().getName()
-//                + ". \n+---------------------------------------------------------------------------------------------------------------------------+";
-//        return msg;
-//    }
 }
