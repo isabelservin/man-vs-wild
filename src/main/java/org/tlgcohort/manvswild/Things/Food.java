@@ -2,7 +2,7 @@ package org.tlgcohort.manvswild.Things;
 
 import java.io.Serializable;
 
-public class Food implements Serializable {
+public class Food extends Item implements Serializable {
     private String name;
     private int healthPoints;
 
