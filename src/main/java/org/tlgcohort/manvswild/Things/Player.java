@@ -123,7 +123,7 @@ public class Player implements Serializable {
         return this.getCurrLocation().getMap();
     }
 
-    //calculate and increasee the attack power of the player based on the items they have
+    //calculate and increase the attack power of the player based on the items they have
     private void calcAttackPower(){
         int power = 0;
         for(Item item : toolBackpack){

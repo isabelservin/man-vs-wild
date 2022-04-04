@@ -45,6 +45,7 @@ public class Game {
               commandEngine.commandProcessor(InputParser.parseInput());
 
             if ( player.getEventCount() == 10){
+                System.out.println("\tYou are tired from today, its time to take a rest....");
                 progressionTracker++;
             }
 

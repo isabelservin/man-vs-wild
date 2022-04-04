@@ -1,12 +1,9 @@
 package org.tlgcohort.manvswild.Commands;
-import com.fasterxml.jackson.core.JsonToken;
+
 import org.tlgcohort.manvswild.GameLogic.SaveGame;
-import org.tlgcohort.manvswild.InputParser.Keywords;
-import org.tlgcohort.manvswild.Things.Color;
 import org.tlgcohort.manvswild.Things.Player;
 import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+
 
 
 public class CommandEngine {
@@ -27,7 +24,18 @@ public class CommandEngine {
                 "\n||================================================================================================================================================||\n";
         System.out.println(header);
         for (Commands aCommand : commands) {
-            System.out.print("\t[" + aCommand + "]");
+            if (aCommand.equals(Commands.Go)){
+                System.out.print("\t[" + aCommand + " (Location)" + "]");
+            }
+            else if (aCommand.equals(Commands.Look)){
+                System.out.print("\t[" + aCommand + " (Direction)" + "]");
+            }
+            else if (aCommand.equals(Commands.Get)){
+                System.out.print("\t[" + aCommand + " (Item)" + "]");
+            }
+            else {System.out.print("\t[" + aCommand + "]");
+            }
+
         }
         String footer = "\n||================================================================================================================================================||\n" +
                 "\n+--------------------------------------------------------------------------------------------------------------------------------------------------+\n" +
@@ -37,7 +45,7 @@ public class CommandEngine {
 
     //processes an array of 1 Verb and 1 Noun
     public void commandProcessor(List<String> keywords) {
-                //TODO Add try catch block
+
         switch (keywords.get(0).toLowerCase()) {
 
             case "look":
@@ -60,13 +68,12 @@ public class CommandEngine {
                 try{
                     player.get(keywords.get(1).toLowerCase());
                 }
-//                    getCommand(keywords.get(1).toLowerCase());}
                 catch(Exception e){
                 System.out.println("Try two words");
             }
                 break;
 
-            case "heal": //TODO Must refactor to account for the second user input
+            case "eat": //TODO Must refactor to account for the second user input
                 try{
                     player.heal();
                 } catch(Exception e){

@@ -8,10 +8,9 @@ public enum Commands {
     Talk("Talk to something"),
     Get("Grab a item and put into bag"),
     Eat("Heal yourself"),
-    Backpack("Check your bag"),
-    View("View your map"),
+    View_Map("View your map"),
     Save("Save the game"),
-    Quit("Quit the game");
+    Quit_Game("Quit the game");
 
     String currentCommand;
 
