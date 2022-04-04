@@ -4,7 +4,7 @@
     "desc": "You find yourself dazed, cold, and starving. \n\tCollect yourself now, time is fleeting and so may be your life...\n\tTrudging forward, you  have come across a campfire. \n\tFlames reaching for their last breath...someone was here recently.\n\tBut are they a friendly or foe? You decide to take your chances\n\tand use this campfire as your basecamp, \n\tafter-all if its good enough for someone else then \n\tit surely will be good enough for you.",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5       |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0  **   |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1       |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+",
     "scripts" : [
-      "Looking around you see a POT, some MATCHES, a KNIFE, and some more FIREWOOD. \n\tYou also see some attractive looking mushrooms. Man are you hungry.",
+      "Looking around you see a POT, some MATCHES, a KNIFE, and some more FIREWOOD. \n\tYou also see some attractive looking MUSHROOMS. Man are you hungry.",
       "You cant stay here forever, you need to find help, and survive until help arrives."
     ],
     "items": [
@@ -31,7 +31,7 @@
     }],
     "northExit": "Forest",
     "southExit": "River",
-    "eastExit": "Coal Mine",
+    "eastExit": "Mine",
     "westExit": "Cave"
   },
   {
@@ -39,12 +39,12 @@
     "desc": "You found a river, and its surprisingly very peaceful here...the sound of the water is relaxing your anxious ticks.",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5       |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0       |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1 **    |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+",
     "scripts" : [
-      "FISH! You remember rivers contain FISH! Taking a look around you notice a make-shift FISHING POLE! \n\tWhat a luck day...for someone in the middle of who knows where."
+      "FISH! You remember rivers contain FISH! Taking a look around you notice a make-shift HARPOON! \n\tWhat a luck day...for someone in the middle of who knows where."
     ],
 
     "items": [
       {
-        "name": "rock",
+        "name": "harpoon",
         "powerLevel":2
       }
     ],
@@ -55,14 +55,14 @@
     "northExit": "Basecamp",
     "southExit": "",
     "eastExit": "Waterfall",
-    "westExit": "Crash Site"
+    "westExit": "Airplane"
   },
   {
     "name": "Waterfall",
     "desc": "WOAH THERE LONE SURVIVOR! This is the edge of the river, any further and you will surely plummet to your death. You found a waterfall.",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5       |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0       |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1       |  2 **   /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+\n",
     "scripts": [
-      "A giant rock lays posted by the riverbed, may be a good place to rest.\n\tWAIT! that rock is moving! Its a sleeping hippo! Don't think you want to attack that right now..."
+      "A giant rock lays posted by the riverbed surrounded by some BERRIES and a SPEAR! may be a good place to eat and rest..\n\tWAIT! that rock is moving! Its a sleeping hippo! Don't think you want to attack that right now..."
     ],
     "items": [
       {
@@ -79,13 +79,13 @@
       "health": 50,
       "attackPoints": 20
     },
-    "northExit": "Coal Mines",
+    "northExit": "Mine",
     "southExit": "",
     "eastExit": "",
     "westExit": "River"
   },
   {
-    "name": "Coal Mines",
+    "name": "Mine",
     "desc": "What in the world? Coal Mines??! Who, what, where? You're losing it champ. Compose yourself.\nThere may be some much needed tools nearby to make your unfortunate stay just a tad bit more pleasant.",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5       |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0       |  3  **    |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1       |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+\n",
     "scripts" : [
@@ -111,14 +111,14 @@
       "health": 50,
       "attackPoints": 15
     },
-    "northExit": "Abandoned Carnival",
+    "northExit": "Carnival",
     "southExit": "Waterfall",
     "eastExit": "",
     "westExit": "Basecamp"
   },
   {
-    "name": "Abandoned Carnival",
-    "desc": "You stumble upon an abandoned carnival site, what an odd location for a carnival...\n\tyou cautiously start to approach it, but as you get closer, \n\tthe lights suddenly come on, and eerie carnival music echos \n\tever so loudly in the ominous wilderness.\n\tIts taunting you.\n\tYou see a SPEAR near a headless clown.",
+    "name": "Carnival",
+    "desc": "You stumble upon an abandoned carnival site with PEANUTS all over the place, what an odd location for a carnival...\n\tyou cautiously start to approach it, but as you get closer, \n\tthe lights suddenly come on, and eerie carnival music echos \n\tever so loudly in the ominous wilderness.\n\tIts taunting you.\n\tYou see a MACHETE near a headless clown.",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5       |  4 **   \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0       |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1       |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+\n",
     "scripts": [
       "You hear laughter in the distance! You are NOT alone!!! Will you fight for your life or flee? ",
@@ -135,21 +135,21 @@
       "healthPoints": 5
     }],
     "npc": {
-      "name":"Cannibal Clown",
+      "name":"CannibalClown",
       "health": 50,
       "attackPoints": 20
     },
     "northExit": "",
-    "southExit": "Coal Mines",
+    "southExit": "Mine",
     "eastExit": "",
     "westExit": "Forest"
   },
   {
   "name": "Forest",
-  "desc": "You see before you a restless forest, \n\tsounds of flesh maiming mammals lurking all over, \n\tall you see to the north is more forest.\n\tTo the west are mountains, \n\tto the east seems to be a abandoned carnival, and the south is basecamp.\n\tThere seems to be a TORCH and a walking STICK on the ground ahead.",
+  "desc": "You see before you a restless forest filled with BERRIES, \n\tsounds of flesh maiming mammals lurking all over, \n\tall you see to the north is more forest.\n\tTo the west are mountains, \n\tto the east seems to be a abandoned carnival, and the south is basecamp.\n\tThere seems to be a TORCH and a walking STICK on the ground ahead.",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5 **    |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0       |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1       |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+\n",
   "scripts" : [
-         "You see red and blue berries on some bushes, they look yummy ! Maybe you can eat them ?",
+         "You see red and blue BERRIES on some bushes, they look yummy ! Maybe you can eat them ?",
     "\u001B[0;32m     .{{}}}}}}.           .{{}}}}}}.\n    {{{{{{(`)}}}.        {{{{{{(`)}}}.\n   {{{(`)}}}}}}}}}      {{{(`)}}}}}}}}}\n  }}}}}}}}}{{(`){{{    }}}}}}}}}{{(`){{{\n  }}}}{{{{(`)}}{{{{    }}}}{{{{(`)}}{{{{\n {{{(`)}}}}}}}{}}}}}  {{{(`)}}}}}}}{}}}}}\n{{{{{{{{(`)}}}}}}}}}}{{{{{{{{(`)}}}}}}}}}}\n{{{{{{{}{{{{(`)}}}}}}{{{{{{{}{{{{(`)}}}}}}\n {{{{{(`)   {{{{(`)}' {{{{{(`)   {{{{(`)}\u001B[0m'\n  `\"\"'\" |   | \"'\"'`    `\"\"'\" |   | \"'\"'`\n ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    ",
     "Those berries must of been poisonous, your stomach is killing you."
 
@@ -175,15 +175,14 @@
 },
   {
   "name": "Mountains",
-  "desc": "A rocky mountain, the sound of branches brushing against one another is all you hear.\n\tTo the east there is a green forest, and to the south there is a mysterious looking cave.\n\tThere seems to be a hunting rifle here, can someone else possibly here? ",
+  "desc": "A rocky mountain, the sound of branches brushing against one another is all you hear.\n\tTo the east there is a green forest, and to the south there is a mysterious looking cave.\n\tThere seems to be a hunting RIFLE here, can someone else possibly here? ",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6  **  |   5       |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0       |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1       |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+\n",
   "scripts" : [
-    "All there is to eat here is some MUSHROOMS, not knowing if they are good for you or not",
-    "It looks like there is a hunting RIFLE with some ammo"
+    "All there is to eat here is some MUSHROOMS, not knowing if they are good for you or not"
   ],
   "items": [
     {
-      "name": "Hunting Rifle",
+      "name": "Rifle",
       "powerLevel": 30
     }
   ],
@@ -201,7 +200,7 @@
     "desc": "Your trek has taken you to the mouth of the beast...kind of.\n\tYou find yourself at a massive cave. You see trails of blood leading into the cave.\n\tWhatever dwells in there is best to steer clear of.",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5       |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7  **    |   0       |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8        |   1       |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+\n",
     "scripts": [
-      "You smell that? It smells like protein, you follow your nose and in some shrivelled bushes you find some RAW MEAT. Hopefully its deer.",
+      "You smell that? It smells like protein, you follow your nose and in some shrivelled bushes you find some raw MEAT right next to a HATCHET. Hopefully its deer.",
       "Too late! You can see the shadow of ferocious wolf emerging from the cave entrance!!"
     ],
     "items": [
@@ -211,7 +210,7 @@
       }
     ],
     "foods": [{
-      "name": "Raw Meat",
+      "name": "Meat",
       "healthPoints": 10
     }],
     "npc": {
@@ -220,13 +219,13 @@
       "attackPoints": 20
     },
     "northExit": "Mountains",
-    "southExit": "Crash Site",
+    "southExit": "Airplane",
     "eastExit": "Basecamp",
     "westExit": ""
   },
   {
-    "name": "Crash Site",
-    "desc": "OH HO HO! Lucky day, you stumble onto an Airplane crash site! The treasures you will find here!\n\tGleaming with excitement like a kid on christmas morning you begin your treasure hunt.\n\tYou see a RADIO near the head of the plane, \n\tBLANKETS, MRE's, WATER BOTTLES",
+    "name": "Airplane",
+    "desc": "OH HO HO! Lucky day, you stumble onto an Airplane crash site! The treasures you will find here!\n\tGleaming with excitement like a kid on christmas morning you begin your treasure hunt.\n\tYou see a RADIO near the head of the plane, \n\t a BLANKET, MRE's, and WATER",
     "map" : "+-----------------------------------------------------------------------------------+\n \n                ,__        \t\t\t\t\n            .-./   | . _ _      _____.               +========================+\n           /       |       '-._/      \\_             |\t  Key:                |\n          / 6      |   5       |  4      \\           +========================+\n        :._________|___________|__________.:         |\t    Player: **        |\n     .-'           |           |           ;         |      Basecamp: 0       |\n     |    7        |   0       |  3        |         |      River: 1          |\n     \\ ____________|___________|_________ /          |      Waterfall: 2      |\n      |            |           |          /          |      Coal Mines: 3     |\n      |   8  **    |   1       |  2      /           |      Carnival Site: 4  |\n       \\         __|__.--._    |     .__/            |      Forest: 5         | \n        \\     _.'          \\:.       |               |      Mountains: 6      |\n        >__,-'              \\_/._.-'                 |      Cave: 7           |\n                                                     |      Crash Site: 8     |\n                                                     +========================+\n\n+-----------------------------------------------------------------------------------+\n",
     "scripts": [
       "",
