@@ -44,31 +44,5 @@ public class PlayerActive {
         System.out.println("player is using item");
     }
 
-    public void useDropGet() {//methods being used in scenario/ the player useitem() method will change based on object use case
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" There are weapons on the ground" + "\n" + " give the pick up knife command to put it in your backpack");
-        String command = scanner.nextLine();
-
-        if(command.equalsIgnoreCase("pickup knife")) {
-            pickupItem();
-            System.out.println(backpack);
-            useItem();
-
-            System.out.println("drop knife command will drop knife");
-            command = scanner.nextLine();
-            if (command.equalsIgnoreCase("drop knife")) {
-                dropItem();
-                System.out.println(backpack + "backpack is empty");
-            }
-
-        }
-
-    }
-
-    public static void main(String[] args) {
-        PlayerActive pa = new PlayerActive();
-        pa.useDropGet();
-        pa.pickupItem();
-    }
+    //Create Driver to test
 }

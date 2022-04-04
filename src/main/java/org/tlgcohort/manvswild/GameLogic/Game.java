@@ -56,6 +56,7 @@ public class Game {
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
             if (player.getCurrLocation().getName().equalsIgnoreCase("river")){
+                System.out.println("River section");
                 player.displayStatAndMsg();
                 System.out.println("You are at the " + player.getCurrLocation().getName());
                 System.out.println(player.getCurrLocation().getDesc());
@@ -76,6 +77,34 @@ public class Game {
                 commandEngine.displayCommands();
                 commandEngine.commandProcessor(InputParser.parseInput());
             }
+            if (player.getCurrLocation().getName().equalsIgnoreCase("coalmine")){
+                player.displayStatAndMsg();
+                System.out.println("The Cole Mine has Gold.........." + player.getCurrLocation().getName());
+                System.out.println(player.getCurrLocation().getDesc());
+                System.out.println(player.getCurrLocation().getScripts()[0]);
+                System.out.println(player.getCurrLocation().getScripts()[1]);
+                System.out.println(player.getCurrLocation().getScripts()[2]);
+                System.out.println(player.getCurrLocation().getScripts()[3]);
+                System.out.println("_________________________________________");
+                //System.out.println(player.getCurrLocation().getScripts()[4]);
+               // System.out.println(player.getCurrLocation().getScripts()[5]);
+               // System.out.println(player.getCurrLocation().getScripts()[6]);
+                System.out.println(player.getCurrLocation().getScripts()[7]);
+                commandEngine.displayCommands();
+                commandEngine.commandProcessor(InputParser.parseInput());
+            }
+            if (player.getCurrLocation().getName().equalsIgnoreCase("crashsite")){
+                player.displayStatAndMsg();
+                System.out.println("What do we have here???...");
+                System.out.println(player.getCurrLocation().getDesc());
+                System.out.println(player.getCurrLocation().getScripts()[0]);
+                System.out.println(player.getCurrLocation().getScripts()[1]);
+                System.out.println("________________________________________");
+                System.out.println(player.getCurrLocation().getScripts()[2]);
+                commandEngine.displayCommands();
+                commandEngine.commandProcessor(InputParser.parseInput());
+            }
+
 
             if(player.getEventCount() == 10){
                 progressionTracker++;

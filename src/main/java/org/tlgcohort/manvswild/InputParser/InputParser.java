@@ -47,7 +47,7 @@ public class InputParser {
 
         handleWords();
         String input = playerInput.nextLine();
-        List<String> keywords = new ArrayList<>(List.of(input.split("\\s")));
+        List<String> keywords = new ArrayList<>(List.of(input.split("\\s")));//we can change this to split on the first space
 
         for (String word : nounsnVerbs) {
             if (keywords.size() == 2 && keywords.contains(word)) {

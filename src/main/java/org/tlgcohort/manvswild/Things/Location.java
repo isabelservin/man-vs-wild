@@ -2,6 +2,7 @@ package org.tlgcohort.manvswild.Things;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Location implements Serializable {
@@ -43,6 +44,9 @@ public class Location implements Serializable {
         allExits.add(getEastExit().toLowerCase());
         allExits.add(getWestExit().toLowerCase());
         allExits.add(getSouthExit().toLowerCase());
+        System.out.println(" Exits for location: " + name);// shows exits for location
+        allExits.forEach(System.out::println);// prints out location for exits
+        System.out.println("____________________");
         return allExits;
     }
 
@@ -103,7 +107,7 @@ public class Location implements Serializable {
                 ", foods=" + foods +
                 ", npc=" + npc +
                 ", hasNPC=" + hasNPC +
-                ", scripts=" + scripts +
+                ", scripts=" + Arrays.toString(scripts) +
                 ", northExit='" + northExit + '\'' +
                 ", southExit='" + southExit + '\'' +
                 ", westExit='" + westExit + '\'' +
