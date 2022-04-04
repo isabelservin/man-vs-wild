@@ -4,8 +4,6 @@ import org.tlgcohort.manvswild.GameLogic.SaveGame;
 import org.tlgcohort.manvswild.Things.Player;
 import java.util.List;
 
-
-
 public class CommandEngine {
 
     //Fields
@@ -19,9 +17,9 @@ public class CommandEngine {
 
     //Business Methods
     public void displayCommands() {
-        String header = "\n||================================================================================================================================================||\n" +
+        String header = "\n||================================================================================================================================================||" +
                 "\n\tAvailable Commands:" +
-                "\n||================================================================================================================================================||\n";
+                "\n||================================================================================================================================================||";
         System.out.println(header);
         for (Commands aCommand : commands) {
             if (aCommand.equals(Commands.Go)){
@@ -37,15 +35,14 @@ public class CommandEngine {
             }
 
         }
-        String footer = "\n||================================================================================================================================================||\n" +
-                "\n+--------------------------------------------------------------------------------------------------------------------------------------------------+\n" +
+        String footer = "\n||================================================================================================================================================||" +
+                "\n+--------------------------------------------------------------------------------------------------------------------------------------------------+" +
                 "\n\tEnter Two Words [VERB] [NOUN]";
         System.out.println(footer);
     }
 
     //processes an array of 1 Verb and 1 Noun
     public void commandProcessor(List<String> keywords) {
-
         switch (keywords.get(0).toLowerCase()) {
 
             case "look":
@@ -99,7 +96,7 @@ public class CommandEngine {
 
             case "attack":
                 try{
-                    player.attack();
+                    attackCommand();
                 } catch(Exception e){
                     System.out.println("Try two words");
                 }
@@ -113,7 +110,6 @@ public class CommandEngine {
                     System.out.println("Try valid commands.");
                 }
                 break;
-
 
             case "save":
                 System.out.println("Saving game...");
@@ -186,20 +182,12 @@ public class CommandEngine {
         }
     }
 
-//    private void getCommand(String item) {
-//
-//        switch (item.toLowerCase()) {
-//            case "itemone":
-//                System.out.println("Drill into properties of itemONe");
-//                break;
-//            case "itemtwo":
-//                // code block
-//                break;
-//            default:
-//                // code block
-//
-//        }
-//    }
+    private void attackCommand(){
+        player.showOpponentStats();
+        player.attack();
+        player.getCurrLocation().getNpc().attack(player);
+        player.showOpponentStats();
+    }
 
     private void goCommand(String userInputLocation) {
         player.move(userInputLocation);

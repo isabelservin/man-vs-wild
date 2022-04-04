@@ -1,11 +1,8 @@
 package org.tlgcohort.manvswild.GameLogic;
 
-import org.tlgcohort.manvswild.LocationEngine.LocationEngine;
-import org.tlgcohort.manvswild.Things.Location;
 import org.tlgcohort.manvswild.Things.Player;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class SaveGame{
     public void saving(Player player){

@@ -5,7 +5,6 @@ import org.tlgcohort.manvswild.GameLogic.LoadGame;
 import org.tlgcohort.manvswild.GameLogic.SplashScreen;
 
 import java.io.IOException;
-import java.io.InvalidClassException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
