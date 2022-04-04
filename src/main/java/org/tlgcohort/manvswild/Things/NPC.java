@@ -20,10 +20,6 @@ public class NPC implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getHealth() {
         return health;
     }
@@ -36,9 +32,6 @@ public class NPC implements Serializable {
         return attackPoints;
     }
 
-    public void setAttackPoints(int attackPoints) {
-        this.attackPoints = attackPoints;
-    }
 
     @Override
     public String toString() {
